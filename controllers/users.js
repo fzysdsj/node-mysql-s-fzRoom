@@ -458,7 +458,7 @@ router.post('/signup', function (req, res) {
     //设置编辑
     form.encoding = 'utf-8';
     //设置文件存储路径
-    form.uploadDir = "./public/uploads/";
+    form.uploadDir = "./public/uploads/users";
     //保留后缀
     form.keepExtensions = true;
     //设置单文件大小限制    
@@ -474,9 +474,6 @@ router.post('/signup', function (req, res) {
         var usersex = fields.usersex;
         var checkbox = fields.checkbox;
         var useravatar = path.basename(files.useravatar.path);
-        console.log('checkbox:' + checkbox);
-        console.log('useravatar:' + useravatar);
-        console.log('usersex:' + usersex);
         var userbirth = "方丈元年";
         var userabout = "方丈遗少小弟";
         var userlogo = "方丈小弟";
@@ -794,7 +791,7 @@ router.post('/set/avatar', function (req, res, next) {
     //设置编辑
     form.encoding = 'utf-8';
     //设置文件存储路径
-    form.uploadDir = "./public/uploads/";
+    form.uploadDir = "./public/uploads/users/";
     //保留后缀
     form.keepExtensions = true;
     //设置单文件大小限制    

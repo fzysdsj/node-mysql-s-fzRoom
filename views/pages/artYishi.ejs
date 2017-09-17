@@ -35,7 +35,7 @@
                 <% if(i< count){ %>
                     <li class="article-item">
                         <a href="/articles/art/<%= datas[i].artId %>" class="user-head-square">
-                        <img src="/uploads/<%= datas[i].artPic %>" data-original="/uploads/<%= datas[i].artPic %>" class="head" alt="<%= datas[i].artTitle %>" width="60" height="60">
+                        <img src="/uploads/articles/<%= datas[i].artPic %>" data-original="/uploads/articles/<%= datas[i].artPic %>" class="head" alt="<%= datas[i].artTitle %>" width="60" height="60">
                         </a>
                         <h3 class="title-line">
                             <% if(datas[i].artPush == 0){}else { %>
@@ -58,7 +58,7 @@
                         </p>
                         <p class="small gray text">
                             <a href="/users/toSelect/<%= datas[i].artUid %>">
-                     <img src="/uploads/<%= users[i].userAvatar %>" data-original="/uploads/<%= users[i].userAvatar %>@!avatar-60" class="head" alt="<%= users[i].userNick %>" width="20" height="20">
+                     <img src="/uploads/users/<%= users[i].userAvatar %>" data-original="/uploads/users/<%= users[i].userAvatar %>@!avatar-60" class="head" alt="<%= users[i].userNick %>" width="20" height="20">
                             <%= users[i].userNick %>
                         </a> <span> ∙ 发表于 <%= datas[i].artStartTime %> </span>
                             <span> ∙ 评论 <%= datas[i].artSayNumber %></span> <span> ∙ 喜欢  <%= datas[i].artUp %> </span>
@@ -68,7 +68,7 @@
                     <% }else{ %>
                         <li class="article-item hidden">
                             <a href="/articles/art/<%= datas[i].artId %>" class="user-head-square">
-                        <img src="/uploads/<%= datas[i].artPic %>" data-original="/uploads/<%= datas[i].artPic %>" class="head" alt="<%= datas[i].artTitle %>" width="60" height="60">
+                        <img src="/uploads/articles/<%= datas[i].artPic %>" data-original="/uploads/articles/<%= datas[i].artPic %>" class="head" alt="<%= datas[i].artTitle %>" width="60" height="60">
                         </a>
                             <h3 class="title-line">
                                 <% if(datas[i].artPush == 0){}else { %>
@@ -91,7 +91,7 @@
                             </p>
                             <p class="small gray text">
                                 <a href="/users/toSelect/<%= datas[i].artUid %>">
-                     <img src="/uploads/<%= users[i].userAvatar %>" data-original="/uploads/<%= users[i].userAvatar %>" class="head img-circle" alt="<%= users[i].userNick %>" width="20" height="20">
+                     <img src="/uploads/users/<%= users[i].userAvatar %>" data-original="/uploads/users/<%= users[i].userAvatar %>" class="head img-circle" alt="<%= users[i].userNick %>" width="20" height="20">
                             <%= users[i].userNick %>
                         </a> <span> ∙ 发表于 <%= datas[i].artStartTime %> </span>
                                 <span> ∙ 评论 <%= datas[i].artSayNumber %></span> <span> ∙ 喜欢  <%= datas[i].artUp %> </span>

@@ -56,12 +56,11 @@
 
 
                                         <ul id="ember971" class="ember-view nav nav-pills">
-                                            <li id="ember1003" class="ember-view active" title="最新发布的帖子"><a href="/c/Creator/l/latest">最新</a></li>
-                                            <li id="ember1004" class="ember-view" title="最近几天创建的主题"><a href="/c/Creator/l/new">近期（98）</a></li>
-                                            <li id="ember1005" class="ember-view has-icon" title="你正在监视或追踪的主题中有未阅帖子的主题"><a href="/c/Creator/l/unread"><span class="unread"></span>3 个未读主题</a></li>
-                                            <li id="ember1006" class="ember-view" title="最近一年、一月、一周或一天的最活跃主题"><a href="/c/Creator/l/top">热门</a></li>
-                                            <li id="ember1007" class="ember-view" title="你发表过帖子的主题"><a href="/c/Creator/l/posted">我的帖子</a></li>
-                                            <li id="ember1008" class="ember-view" title="你标上书签的主题"><a href="/c/Creator/l/bookmarks">书签</a></li>
+                                            <li id="ember1003" class="ember-view active" title="最新发布的帖子"><a href="/talkRoom//latest">最新</a></li>
+                                            <li id="ember1004" class="ember-view" title="最近几天创建的主题"><a href="/talkRoom//new">近期（99+）</a></li>
+                                            <li id="ember1006" class="ember-view" title="最近一年、一月、一周或一天的最活跃主题"><a href="/talkRoom//top">热门</a></li>
+                                            <li id="ember1007" class="ember-view" title="你发表过帖子的主题"><a href="/users/toSelect/176/post">我的帖子</a></li>
+                                            <li id="ember1008" class="ember-view" title="你标上书签的主题"><a href="/talkRoom/bookmarks">书签</a></li>
                                             <!---->
                                         </ul>
                                         <a href="/talkRoom/create" target="_blank">
@@ -122,25 +121,25 @@
                                                                 <td class="main-link clearfix" colspan="1">
                                                                     <div class="topic-statuses">
                                                                         <span title="本主题已关闭；不再接受新的回复" class="topic-status"><i class="fa fa-lock"></i></span><a href="" title="本主题已置顶；它将始终显示在它所属分类的顶部" class="topic-status"><i class="fa fa-thumb-tack"></i></a></div>
-                                                                    <a href="/t/cc-eventmanager-2-0-cc-systemevent/50235" class="title">cc.eventManager 将在 2.0 移除，请尽早改用 cc.systemEvent</a>
+                                                                    <a href="/" class="title">开天辟地第一文</a>
                                                                     <span class="topic-post-badges">
 <a href="/t/cc-eventmanager-2-0-cc-systemevent/50235" class="badge badge-notification new-topic" title="新主题">近期</a>
 </span>
                                                                     <div class="topic-excerpt">
-                                                                        从 1.8 开始继续使用 cc.eventManager 将会出现 log 提示，1.9 将会出现 warning，2.0 就正式移除。 cc.systemEvent 的用法详见 http://www.cocos.com/docs/creator/scripting/player-controls.html
+                                                                        欲知详情，请看下回分解！！！！
                                                                     </div>
                                                                 </td>
-                                                                <td class="category"><a class="badge-wrapper bullet" href="/c/Creator"><span class="badge-category-bg" style="background-color: #25AAE2;"></span><span style="color: #FFF;" data-drop-close="true" class="badge-category clear-badge"><%= datas[0].postCategory %></span>
+                                                                <td class="category"><a class="badge-wrapper bullet" href="/"><span class="badge-category-bg" style="background-color: #25AAE2;"></span><span style="color: #FFF;" data-drop-close="true" class="badge-category clear-badge"><%= datas[0].postCategory %></span>
                                                 </a>
                                                                 </td>
                                                                 <td class="posters">
-                                                                    <a href="/users/toSelect/<%= datas[0].postUid %>" data-user-card="<%= users[0].userNick %>" class="latest"><img alt="" width="25" height="25" src="/uploads/<%= users[0].userAvatar %>" class="avatar latest" title="<%= users[0].userNick %>"></a>
+                                                                    <a href="/users/toSelect/<%= datas[0].postUid %>" data-user-card="<%= users[0].userNick %>" class="latest"><img alt="" width="25" height="25" src="/uploads/users/<%= users[0].userAvatar %>" class="avatar latest" title="<%= users[0].userNick %>"></a>
                                                                 </td>
                                                                 <td class="num posts-map posts heatmap-" title="这个主题有 5 个帖子">
                                                                     <a href="" class="posts-map badge-posts heatmap-">5</a>
                                                                 </td>
                                                                 <td class="num views "><span class="number" title="本主题已经被浏览过 167 次">167</span></td>
-                                                                <td class="num age activity" title=""><a href="/t/cc-eventmanager-2-0-cc-systemevent/50235/6"><span class="relative-date" data-time="1503390905188" data-format="tiny"><%= datas[0].postStartTime %></span></a></td>
+                                                                <td class="num age activity" title=""><a href="/"><span class="relative-date" data-time="1503390905188" data-format="tiny"><%= datas[0].postStartTime %></span></a></td>
                                                             </tr>
                                                             <% for(let i =0;i< datas.length;i++){ %>
                                                                 <tr class="ember-view topic-list-item category-Creator" data-topic-id="50281">
@@ -149,30 +148,20 @@
                                                                         <a href="/talkRoom/posts/<%= datas[i].postId %>" class="title">
                                                                             <%= datas[i].postTitle %>
                                                                         </a>
-                                                                        <span class="topic-post-badges">
-                                                                    <a href="/t/topic/50281" class="badge badge-notification new-topic" title="新主题">近期</a>
-                                                                                       </span>
-
+                                                                        <div class="topic-excerpt">
+                                                                            <%= datas[i].postContent %>
+                                                                        </div>
                                                                     </td>
-                                                                    <td class="category"><a class="badge-wrapper bullet" href="/c/Creator"><span class="badge-category-bg" style="background-color: #25AAE2;"></span><span style="color: #FFF;" data-drop-close="true" class="badge-category clear-badge"><%= datas[i].postCategory %></span></a></td>
+                                                                    <td class="category"><a class="badge-wrapper bullet" href="/talkRoom/hero/"><span class="badge-category-bg" style="background-color: #25AAE2;"></span><span style="color: #FFF;" data-drop-close="true" class="badge-category clear-badge"><%= datas[i].postCategory %></span></a></td>
                                                                     <td class="posters">
-                                                                        <a href="/users/toSelect/<%= datas[i].postUid %>" data-user-card="<%= users[i].userNick %>" class="latest single"><img alt="" width="25" height="25" src="/uploads/<%= users[i].userAvatar %>" class="avatar latest single" title="<%= users[i].userNick %>"></a>
+                                                                        <a href="/users/toSelect/<%= datas[i].postUid %>" data-user-card="<%= users[i].userNick %>" class="latest single"><img alt="" width="25" height="25" src="/uploads/users/<%= users[i].userAvatar %>" class="avatar latest single" title="<%= users[i].userNick %>"></a>
                                                                     </td>
-
-
                                                                     <td class="num posts-map posts heatmap-" title="这个主题有 0 个帖子">
                                                                         <a href="" class="posts-map badge-posts heatmap-">0</a>
                                                                     </td>
-
-
-
-
-
-                                                                    <td class="num views "><span class="number" title="本主题已经被浏览过 1 次">1</span></td>
-
-                                                                    <td class="num age activity" title="第一帖: 2017年8月23日下午2点08分
-最后一帖: 2017年8月23日下午2点08分"><a href="/t/topic/50281/1"><span class="relative-date" data-time="1503468533251" data-format="tiny"><%= datas[i].postStartTime %></span></a></td>
-
+                                                                    <td class="num views "><span class="number" title="本主题已经被浏览过 <%= datas[i].postSaw %> 次"><%= datas[i].postSaw %> </span></td>
+                                                                    <td class="num age activity" title="第一帖: <%= datas[i].postStartTime %>
+最后一帖: 2017年8月23日下午2点08分"><a href="/talkRoom/posts/<%= datas[i].postId %>"><span class="relative-date" data-format="tiny"><%= datas[i].postStartTime %></span></a></td>
                                                                 </tr>
                                                                 <% } %>
                                                         </tbody>

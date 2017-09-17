@@ -18,7 +18,7 @@
                             </h1>
 
                             <div id="ember3543" class="ember-view">
-                                <!----><a class="badge-wrapper bullet" href="/c/Creator"><span class="badge-category-bg" style="background-color: #25AAE2;"></span><span style="color: #FFF;" data-drop-close="true" class="badge-category clear-badge"><%= datas[0].postCategory %></span></a>
+                                <!----><a class="badge-wrapper bullet" href="#"><span class="badge-category-bg" style="background-color: #25AAE2;"></span><span style="color: #FFF;" data-drop-close="true" class="badge-category clear-badge"><%= datas[0].postCategory %></span></a>
 
                                 <!---->
                             </div>
@@ -29,11 +29,6 @@
                 <div id="ember3209" class="ember-view topic-post clearfix regular topic-owner">
                     <div id="ember3432" class="ember-view gap jagged-border hidden"></div>
                     <!---->
-                    <div class="row">
-                        <section id="ember3433" class="ember-view embedded-posts top topic-body offset2 hidden">
-                            <!---->
-                        </section>
-                    </div>
 
                     <article class="boxed " id="post_1" data-post-id="232537" data-user-id="5701">
                         <div class="row">
@@ -53,7 +48,7 @@
                                     <button data-ember-action="3435" class="hidden">选择以及回复其的帖子</button>
                                     <button class="select-post" data-ember-action="3436">选择</button>
                                 </div>
-                                <div class=" contents regular ">
+                                <div class="contents regular">
                                     <div class="cooked">
                                         <p>
                                             <%= datas[0].postContent %>
@@ -83,14 +78,14 @@
                                             <ul class="clearfix">
                                                 <li>
                                                     <h4>创建时间</h4>
-                                                    <img alt="" width="20" height="20" src="/uploads/<%= author[0].userAvatar %>" class="avatar" title="<%= author[0].userNick %>">
+                                                    <img alt="" width="20" height="20" src="/uploads/users/<%= author[0].userAvatar %>" class="avatar" title="<%= author[0].userNick %>">
                                                     <span class="relative-date date" title="<%= datas[0].postStartTime %>" data-format="medium"><%= datas[0].postStartTime %></span>
                                                 </li>
                                                 <li>
-                                                    <a href="/t/cocos-mmrpg/48105/95">
+                                                    <a href="#">
                                                         <h4>最后回复</h4>
                                                         <% if(comment.length!=0){ %>
-                                                            <img alt="" width="20" height="20" src="/uploads/<%= comer[comment.length-1].userAvatar %>" class="avatar" title="ly13714214979">
+                                                            <img alt="" width="20" height="20" src="/uploads/users/<%= comer[comment.length-1].userAvatar %>" class="avatar" title="ly13714214979">
                                                             <span class="relative-date date" title="<%= comment[comment.length-1].fpostStartTime %>" data-format="medium"><%= comment[comment.length-1].fpostStartTime %></span>
                                                     </a>
                                                     <% } else{ %>
@@ -99,7 +94,7 @@
 
                                                 </li>
                                                 <li>
-                                                    <span class="number" title="<%= comment.length %>"><%= comment.length %></span>
+                                                    <span class="number" id="pcomLength" title="<%= comment.length %>"><%= comment.length %></span>
                                                     <h4>回复</h4>
                                                 </li>
                                                 <li class="secondary">
@@ -117,8 +112,8 @@
                                             </ul>
                                         </section>
                                     </div>
-                                    <section id="ember3467" class="ember-view information">
-                                        <p>有 <b><%= comment.length %></b> 个回复。</p>
+                                    <section class="ember-view information">
+                                        <p>有 <b id="commLength"><%= comment.length %></b> 个回复。</p>
                                     </section>
                                 </div>
                             </div>
@@ -138,12 +133,13 @@
                                     <input type="text" name="fpid" id="fpid" class="hidden" value="<%= datas[0].postId %>">
                                     <label for="fp"></label>
                                     <input type="text" name="fp" id="fp" class="hidden">
-                                    <textarea id="fpost" name="fpcontent" class="rg-textarea " rows="4" placeholder="这里输入评论内容 " value="getValue()"></textarea>
-                                    <!-- <a href="javascript:void(0); " class="rg-button do-reply right "></a> -->
+                                    <label for="fpcontent"></label>
+                                    <input type="text" name="fpcontent" id="fpcontent" class="hidden">
+                                    <textarea id="fpost" class="rg-textarea " rows="4" placeholder="这里输入评论内容 " value="getValue()"></textarea>
                                     <div class="reply-unlogin one-row ">
-                                        <input type="submit" style="width:120px;" class="rg-button do-reply right" value="快速回复">
+                                        <input type="submit" style="width:120px;" class="rg-button do-reply right" value="快速回复" id="pcomSubmit">
                                         <a href="javascript:;" class="file rg-button">上传图片
-                                    <input type="file" name="fppic" id="" style="width:100%">
+                                    <input type="file" name="fppic" id="imgString" style="width:100%">
                                              <span class="showFileName"></span></a>
                                         <script>
                                             $(function() {
@@ -167,6 +163,138 @@
                     </div>
                 </div>
                 <iframe name="pcomSubmit" class="hidden"></iframe>
+                <span id="userNick" class="hidden"><%= user.userNick %></span>
+                <span id="userAvatar" class="hidden"><%= user.userAvatar %></span>
+                <span id="userClass" class="hidden"><%= user.userClass %></span>
+                <span id="userId1" class="hidden"><%= user.userId %></span>
+                <script>
+                    $(function() {
+                        let pcomFristNumber = parseInt($("#pComNumber").text().trim());
+                        $("#pcomSubmit").click(function() {
+                            let userNick = $("#userNick").text();
+                            let userAvatar = $("#userAvatar").text();
+                            let userClass = $("#userClass").text();
+                            let userId = $("#userId1").text();
+                            let fpost = $("#fpost").val();
+                            let pcomLength = parseInt($("#pcomLength").text().trim());
+                            let pComNumber = parseInt($("#pComNumber").text().trim());
+                            let commLength = parseInt($("#commLength").text().trim());
+                            let imgUrl = $("#imgString").val();
+                            alert(imgUrl);
+                            let imgUrlArray = imgUrl.split("");
+                            let imgType = imgUrlArray[imgUrlArray.length - 3] + imgUrlArray[imgUrlArray.length - 2] + imgUrlArray[imgUrlArray.length - 1];
+                            alert(imgType);
+                            if (pcomFristNumber == 0) {
+                                $("#noPeople").text("");
+                            }
+                            let fpcontent = $("#fpost").val();
+                            $("#fpcontent").val(fpcontent);
+                            pcomLength += 1;
+                            pComNumber += 1;
+                            commLength += 1;
+                            $("#pcomLength").text(pcomLength);
+                            $("#pComNumber").text(pComNumber);
+                            $("#commLength").text(commLength);
+                            var date = new Date();
+                            var y = date.getFullYear();
+                            var m = date.getMonth() + 1;
+                            var d = date.getDate();
+                            var h = "";
+                            var mi = "";
+                            var s = "";
+                            m < 10 ? (m = "0" + m) : m;
+                            d < 10 ? (d = "0" + d) : d;
+                            date.getHours() < 10 ? (h = "0" + date.getHours()) : (h = date.getHours());
+                            date.getMinutes() < 10 ? (mi = "0" + date.getMinutes()) : (mi = date.getMinutes());
+                            date.getSeconds() < 10 ? (s = "0" + date.getSeconds()) : (s = date.getSeconds());
+                            var comstarttime = y + "-" + m + "-" + d + " " + h + ":" + mi + ":" + s;
+                            let floorNumber = parseInt($(".floorNumber").last().text().trim()) + 1;
+                            let pcomString = '<article class="boxed"><div class="row"><div class="topic-avatar"><a href="/users/toSelect/' +
+                                userId + '" classnames="trigger-user-card main-avatar"><img width="45" height="45" src="/uploads/users/' + userAvatar + '"  class="avatar" title="' + userNick +
+                                '"></a><div class="poster-avatar-extra"></div></div><div class="topic-body"><h4 style="color:brown;">' + floorNumber + '楼</h4><div class="topic-meta-data"> <div id="ember1268" class="ember-view names trigger-user-card"><span class="username"><a href="/users/toSelect/' +
+                                userId + 'id="userNick' + userId + '" style="display:inline;">' + userNick + '</a>&nbsp;&nbsp;<p class="user-level" style="display:inline;"><span class="rg-label small level" id="level' + userClass + '">' + userClass + '</span></p></span></div><div class="post-info"> <a class="post-date"><span class="relative-date" title="" data-format="tiny">' + comstarttime + '</span></a></div><div title="主题是未读的" class="read-state read"><i class="fa fa-circle"></i></div> </div><div class="contents regular "><div class="cooked"><p><img src="/uploads/comments/' +
+                                +imgUrl + '" alt="此图有毒不可看">' + fpost + '</p></div><section id="ember1273" class="ember-view post-menu-area clearfix"><nav class="post-controls"><div class="actions" id="' + userId + '"> <button aria-label="赞本帖" title="赞本帖" class="like" data-action="like"><i class="fa fa-heart"></i></button><button aria-label="分享一个到本帖的链接" title="分享一个到本帖的链接" data-action="share"><i class="fa fa-link"></i></button><button aria-label="私下报告本帖以提醒管理人员关注或发送私信通知" title="私下报告本帖以提醒管理人员关注或发送私信通知" data-action="flag"><i class="fa fa-flag"></i></button><button aria-label="你已经阅读过此帖；点此为其添加书签" title="你已经阅读过此帖；点此为其添加书签" class="bookmark" data-action="bookmark"><div class="read-icon"></div></button><button aria-label="开始给本帖撰写回复" title="开始给本帖撰写回复" class="create fade-out reply" data-action="reply"><i class="fa fa-reply"></i>回复</button></div></nav></section></div></div></div></article>';
+                            $("#replyList").append(pcomString);
+                            $("#fpost").val("");
+                            $("html,body").animate({
+                                scrollTop: $("#relative").offset().top
+                            }, 1000);
+                            var levelLength = $(".level").length;
+                            var s = [];
+                            for (let i = 0; i < levelLength; i++) {
+                                let lev = parseInt($(".level").eq(i).html().trim());
+                                s.push(lev);
+                            }
+                            for (let i = 0; i < levelLength; i++) {
+                                if (s[i] >= 0 && s[i] < 100) {
+                                    $("#levelValue").html(100 - s[i]);
+                                    $(".level").eq(i).html("方丈平民");
+                                    $(".level").eq(i).css('background', '#056');
+                                } else if (s[i] >= 100 && s[i] < 300) {
+                                    $("#levelValue").html(300 - s[i]);
+                                    $(".level").eq(i).html("方丈县男");
+                                    $(".level").eq(i).css('background', '#0B7');
+                                } else if (s[i] >= 300 && s[i] < 600) {
+                                    $("#levelValue").html(600 - s[i]);
+                                    $(".level").eq(i).html("方丈县子");
+                                    $(".level").eq(i).css('background', '#6A3');
+                                } else if (s[i] >= 600 && s[i] < 1000) {
+                                    $("#levelValue").html(1000 - s[i]);
+                                    $(".level").eq(i).html("方丈郡伯");
+                                    $(".level").eq(i).css('background', '#820');
+                                } else if (s[i] >= 1000 && s[i] < 1500) {
+                                    $("#levelValue").html(1500 - s[i]);
+                                    $(".level").eq(i).html("方丈郡侯");
+                                    $(".level").eq(i).css('background', '#FAD');
+                                } else if (s[i] >= 1500 && s[i] < 2100) {
+                                    $("#levelValue").html(2100 - s[i]);
+                                    $(".level").eq(i).html("方丈郡公");
+                                    $(".level").eq(i).css('background', '#60f');
+                                } else if (s[i] >= 2100 && s[i] < 2800) {
+                                    $("#levelValue").html(2800 - s[i]);
+                                    $(".level").eq(i).html("方丈阁伯");
+                                    $(".level").eq(i).css('background', '#900');
+                                } else if (s[i] >= 2800 && s[i] < 3600) {
+                                    $("#levelValue").html(3600 - s[i]);
+                                    $(".level").eq(i).html("方丈阁侯");
+                                    $(".level").eq(i).css('background', '#2AA');
+                                } else if (s[i] >= 3600 && s[i] < 4500) {
+                                    $("#levelValue").html(4500 - s[i]);
+                                    $(".level").eq(i).html("方丈阁公");
+                                    $(".level").eq(i).css('background', '#AAA');
+                                } else if (s[i] >= 4500 && s[i] < 6000) {
+                                    $("#levelValue").html(6000 - s[i]);
+                                    $(".level").eq(i).html("方丈阁王");
+                                    $(".level").eq(i).css('background', '#655');
+                                } else if (s[i] >= 6000 && s[i] < 8500) {
+                                    $("#levelValue").html(8500 - s[i]);
+                                    $(".level").eq(i).html("方丈阁帝");
+                                    $(".level").eq(i).css('background', '#AA0');
+                                } else if (s[i] >= 8500 && s[i] < 12000) {
+                                    $("#levelValue").html(12000 - s[i]);
+                                    $(".level").eq(i).html("方丈半仙");
+                                    $(".level").eq(i).css('background', '#A3A');
+                                } else if (s[i] >= 12000 && s[i] < 18000) {
+                                    $("#levelValue").html(18000 - s[i]);
+                                    $(".level").eq(i).html("方丈散仙");
+                                    $(".level").eq(i).css('background', '#3AA');
+                                } else if (s[i] >= 18000 && s[i] < 25000) {
+                                    $("#levelValue").html(25000 - s[i]);
+                                    $(".level").eq(i).html("方丈正仙");
+                                    $(".level").eq(i).css('background', '#935A46');
+                                } else if (s[i] >= 25000 && s[i] < 35000) {
+                                    $("#levelValue").html(35000 - s[i]);
+                                    $(".level").eq(i).html("方丈上仙");
+                                    $(".level").eq(i).css('background', '#F66');
+                                } else if (s[i] >= 35000) {
+                                    $("#levelValue").html("无");
+                                    $(".level").eq(i).html("方丈阁尊");
+                                    $(".level").eq(i).css('background', '#803DE2');
+                                }
+                            }
+                        })
+                    })
+                </script>
                 <div id="topic-title">
                     <div class="container">
                         <div class="title-wrapper">
@@ -177,27 +305,24 @@
                     </div>
                 </div>
                 <% if(comment.length==0){ %>
-                    <div id="ember1068" class="ember-view post-cloak" style="">
+                    <div id="noPeople" class="ember-view post-cloak" style="color:cadetblue;">
                         这个帖子太冷了，还没人发言呢！
                     </div>
-                    <% }else{for(let i = 0;i<comment.length;i++){ %>
-                        <div id="ember1068" class="ember-view post-cloak" style="">
-                            <div id="ember1069" class="ember-view topic-post clearfix regular">
-                                <div id="ember1266" class="ember-view gap jagged-border hidden"></div>
-                                <!---->
-                                <div class="row">
-                                    <section id="ember1267" class="ember-view embedded-posts top topic-body offset2 hidden">
-                                        <!---->
-                                    </section>
-                                </div>
+                    <% }else{ %>
+                        <div id="replyList">
+                            <% for(let i = 0;i<comment.length;i++){ %>
                                 <article class="boxed ">
                                     <div class="row">
                                         <div class="topic-avatar">
-                                            <a href="/users/toSelect/<%= comment[i].fpostUid %>" classnames="trigger-user-card main-avatar"><img alt="" width="45" height="45" src="/uploads/<%= comer[i].userAvatar %>" class="avatar" title="<%= comer[i].userNick %>"></a>
+                                            <a href="/users/toSelect/<%= comment[i].fpostUid %>" classnames="trigger-user-card main-avatar"><img alt="" width="45" height="45" src="/uploads/users/<%= comer[i].userAvatar %>" class="avatar" title="<%= comer[i].userNick %>"></a>
                                             <div class="poster-avatar-extra"></div>
                                             <!---->
+
                                         </div>
                                         <div class="topic-body">
+                                            <h4 style="color:brown;">
+                                                <span class="floorNumber"><%= i+1 %></span> 楼
+                                            </h4>
                                             <div class="topic-meta-data">
                                                 <div id="ember1268" class="ember-view names trigger-user-card">
                                                     <span class="username">
@@ -221,6 +346,9 @@
                                             <div class=" contents regular ">
                                                 <div class="cooked">
                                                     <p>
+                                                        <span id="imgUrl" class="hidden"><%= comment[i].fpostPic %></span>
+
+                                                        <img src="/uploads/comments/<%= comment[i].fpostPic %>" alt="此图有毒不可看" height="150" width="150" data-toggle="modal" data-target="#imgUp">
                                                         <%= comment[i].fpostContent %>
                                                     </p>
                                                 </div>
@@ -236,13 +364,22 @@
                                                 </section>
                                             </div>
                                         </div>
-                                    </div>
+                                        <div class="modal fade bs-example-modal-lg text-center" id="imgModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                                            <div class="modal-dialog modal-lg" style="display: inline-block; width: auto;">
+                                                <div class="modal-content">
+                                                    <img id="imgInModalID" src="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- /.modal -->
                                 </article>
-                            </div>
-                            <% }} %>
+                                <% }} %>
+                                    </div>
                         </div>
             </div>
         </div>
+        <div id="relative"></div>
+
         <script>
             $(function() {
                 $("#fpost").change(function() {
@@ -251,18 +388,17 @@
                 });
                 let array = [];
                 let length = <%= comer.length %>;
-                console.log("length:" + length);
                 $(".reply").on('click', function() {
                     var s = "@" + $(this).parent().attr('ID');
                     $("#fpost").val(s);
-                    var comcon = "#ember3467";
-                    if (!comcon) {
+                    var commLength = "#commLength";
+                    if (!commLength) {
                         $("html,body").animate({
                             scrollTop: 0
                         }, 1000);
                     } else {
-                        if (comcon.length > 0) $("html,body").animate({
-                            scrollTop: $("#ember3467").offset().top
+                        if (commLength.length > 0) $("html,body").animate({
+                            scrollTop: $("#commLength").offset().top
                         }, 1000);
                     }
                 });

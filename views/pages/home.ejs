@@ -44,7 +44,7 @@
                     <% for(let i = 0;i< 8;i++){ %>
                         <li class="recommend-item ">
                             <a href="articles/art/<%= datas[i].artId %> " class="image recommend-article " data-title="<%= datas[i].artTitle %> " data-author="<%= users[i].userNick %>" data-author-url="/articles/art/<%= datas[i].artId %>">
-                                <img src="/uploads/<%= datas[i].artPic %>" width="100" height="133.33">
+                                <img src="/uploads/articles/<%= datas[i].artPic %>" width="100" height="133.33">
                                 <p class="title small one-line "><%= datas[i].artTitle %></p>
                             </a>
                         </li>
@@ -64,7 +64,7 @@
                             <div class="col-4 col-mb-12">
                                 <div class="nicewithpic-item">
                                     <a href="articles/art/<%= good[i].artId %>" class="nice-cover image">
-                                        <img src="/uploads/<%= good[i].artPic %>" data-original="/uploads/<%= good[i].artPic %>" class="cover" alt="<%= good[i].artTitle %>">
+                                        <img src="/uploads/articles/<%= good[i].artPic %>" data-original="/uploads/<%= good[i].artPic %>" class="cover" alt="<%= good[i].artTitle %>">
                                     </a>
                                     <div class="big title one-line">
                                         <a href="articles/art/<%= good[i].artId %>">
@@ -104,138 +104,6 @@
                 </div>
             </div>
         </section>
-        <!-- <div class="container">
-            <div class="rg-board collection-section one-section white section">
-                <div class="rg-board-head">
-                    <p class="title">推荐文集</p>
-                    <a href="https://wenxue.ruogoo.cn/collection" class="more">更多 &gt;&gt;</a>
-                </div>
-                <div class="rg-board-body">
-                    <div class="collection-list clearfix col-group">
-                        <div class="col-2 col-mb-6">
-                            <div class="collection-item">
-                                <a href="https://wenxue.ruogoo.cn/collection/436" class="collection-cover image">
-                                    <img src="https://i.ruogoo.cn/cover/bd5957d0eaab0b81945020b8e8925d83.jpg@!cover-120" data-original="https://i.ruogoo.cn/cover/bd5957d0eaab0b81945020b8e8925d83.jpg@!cover-120" class="cover" alt="苍苍蒹葭">
-                                </a>
-                                <p class="title one-line">
-                                    <a href="https://wenxue.ruogoo.cn/collection/436">苍苍蒹葭</a>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-2 col-mb-6">
-                            <div class="collection-item">
-                                <a href="https://wenxue.ruogoo.cn/collection/434" class="collection-cover image">
-                                    <img src="https://i.ruogoo.cn/cover/6b58e59a84d7c8ef1bf8992c31090413.jpg@!cover-120" data-original="https://i.ruogoo.cn/cover/6b58e59a84d7c8ef1bf8992c31090413.jpg@!cover-120" class="cover" alt="忆枫文集">
-                                </a>
-                                <p class="title one-line">
-                                    <a href="https://wenxue.ruogoo.cn/collection/434">忆枫文集</a>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-2 col-mb-6">
-                            <div class="collection-item">
-                                <a href="https://wenxue.ruogoo.cn/collection/433" class="collection-cover image">
-                                    <img src="https://i.ruogoo.cn/cover/1252eb80b6ac747a47458d1cf7546fd7.jpg@!cover-120" data-original="https://i.ruogoo.cn/cover/1252eb80b6ac747a47458d1cf7546fd7.jpg@!cover-120" class="cover" alt="青春">
-                                </a>
-                                <p class="title one-line">
-                                    <a href="https://wenxue.ruogoo.cn/collection/433">青春</a>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-2 col-mb-6">
-                            <div class="collection-item">
-                                <a href="https://wenxue.ruogoo.cn/collection/429" class="collection-cover image">
-                                    <img src="https://i.ruogoo.cn/cover/02292245c2e46f80d88dfcdb50236302.jpg@!cover-120" data-original="https://i.ruogoo.cn/cover/02292245c2e46f80d88dfcdb50236302.jpg@!cover-120" class="cover" alt="君狸辛诗集">
-                                </a>
-                                <p class="title one-line">
-                                    <a href="https://wenxue.ruogoo.cn/collection/429">君狸辛诗集</a>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-2 col-mb-6">
-                            <div class="collection-item">
-                                <a href="https://wenxue.ruogoo.cn/collection/428" class="collection-cover image">
-                                    <img src="https://i.ruogoo.cn/cover/039e1f6fad5c11b66e0dc179bcbd16b4.jpg@!cover-120" data-original="https://i.ruogoo.cn/cover/039e1f6fad5c11b66e0dc179bcbd16b4.jpg@!cover-120" class="cover" alt="灯鬼">
-                                </a>
-                                <p class="title one-line">
-                                    <a href="https://wenxue.ruogoo.cn/collection/428">灯鬼</a>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-2 col-mb-6">
-                            <div class="collection-item">
-                                <a href="https://wenxue.ruogoo.cn/collection/417" class="collection-cover image">
-                                    <img src="https://i.ruogoo.cn/cover/b87776c18fd02be7eab8b06fe702357f.jpg@!cover-120" data-original="https://i.ruogoo.cn/cover/b87776c18fd02be7eab8b06fe702357f.jpg@!cover-120" class="cover" alt="清幽">
-                                </a>
-                                <p class="title one-line">
-                                    <a href="https://wenxue.ruogoo.cn/collection/417">清幽</a>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-2 col-mb-6">
-                            <div class="collection-item">
-                                <a href="https://wenxue.ruogoo.cn/collection/411" class="collection-cover image">
-                                    <img src="https://i.ruogoo.cn/cover/c70b58685be3b12bd9787e11251147c2.jpg@!cover-120" data-original="https://i.ruogoo.cn/cover/c70b58685be3b12bd9787e11251147c2.jpg@!cover-120" class="cover" alt="烟雨书话">
-                                </a>
-                                <p class="title one-line">
-                                    <a href="https://wenxue.ruogoo.cn/collection/411">烟雨书话</a>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-2 col-mb-6">
-                            <div class="collection-item">
-                                <a href="https://wenxue.ruogoo.cn/collection/410" class="collection-cover image">
-                                    <img src="https://i.ruogoo.cn/cover/c4b16985bedb15b5b0aed63872f170d3.jpg@!cover-120" data-original="https://i.ruogoo.cn/cover/c4b16985bedb15b5b0aed63872f170d3.jpg@!cover-120" class="cover" alt="烟雨词话">
-                                </a>
-                                <p class="title one-line">
-                                    <a href="https://wenxue.ruogoo.cn/collection/410">烟雨词话</a>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-2 col-mb-6">
-                            <div class="collection-item">
-                                <a href="https://wenxue.ruogoo.cn/collection/406" class="collection-cover image">
-                                    <img src="https://i.ruogoo.cn/cover/6547849d6c572a36ed6296ae2d97244c.jpg@!cover-120" data-original="https://i.ruogoo.cn/cover/6547849d6c572a36ed6296ae2d97244c.jpg@!cover-120" class="cover" alt="那一世">
-                                </a>
-                                <p class="title one-line">
-                                    <a href="https://wenxue.ruogoo.cn/collection/406">那一世</a>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-2 col-mb-6">
-                            <div class="collection-item">
-                                <a href="https://wenxue.ruogoo.cn/collection/402" class="collection-cover image">
-                                    <img src="https://i.ruogoo.cn/cover/c367dc866c46745958021a64b0847bba.jpg@!cover-120" data-original="https://i.ruogoo.cn/cover/c367dc866c46745958021a64b0847bba.jpg@!cover-120" class="cover" alt="繁华浮梦">
-                                </a>
-                                <p class="title one-line">
-                                    <a href="https://wenxue.ruogoo.cn/collection/402">繁华浮梦</a>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-2 col-mb-6">
-                            <div class="collection-item">
-                                <a href="https://wenxue.ruogoo.cn/collection/392" class="collection-cover image">
-                                    <img src="https://i.ruogoo.cn/cover/f30362fdf1d8dfecbe25cbcd401b6cca.jpg@!cover-120" data-original="https://i.ruogoo.cn/cover/f30362fdf1d8dfecbe25cbcd401b6cca.jpg@!cover-120" class="cover" alt="漱玉随笔">
-                                </a>
-                                <p class="title one-line">
-                                    <a href="https://wenxue.ruogoo.cn/collection/392">漱玉随笔</a>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-2 col-mb-6">
-                            <div class="collection-item">
-                                <a href="https://wenxue.ruogoo.cn/collection/382" class="collection-cover image">
-                                    <img src="https://i.ruogoo.cn/cover/6bcb865d19035027cf687b79ad189bcc.jpg@!cover-120" data-original="https://i.ruogoo.cn/cover/6bcb865d19035027cf687b79ad189bcc.jpg@!cover-120" class="cover" alt="尘缘过客">
-                                </a>
-                                <p class="title one-line">
-                                    <a href="https://wenxue.ruogoo.cn/collection/382">尘缘过客</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
         <section class="article-section container">
             <div class="col-group">
                 <div class="col-8 col-mb-12">

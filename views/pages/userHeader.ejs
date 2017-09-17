@@ -55,7 +55,7 @@
                                 <li><a href="/wenRoom">闲逛</a></li>
                             </ul>
                             <% }else{ %>
-                                <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span><img src="/uploads/<%= user.userAvatar %>"  class="img-responsive img-circle" alt="Responsive image"></span> 
+                                <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span><img src="/uploads/users/<%= user.userAvatar %>"  class="img-responsive img-circle" alt="Responsive image"></span> 
                                     <%= user.userNick %> <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
 
@@ -115,7 +115,7 @@
                 <div class="user-detail container">
                     <div class="avatar-block editable">
                         <a href="/users/toSelect/<%= datas[0].userId %>/set/avatar" class="change-head">
-                            <img class="avatar-big" src="/uploads/<%= datas[0].userAvatar %>" data-original="/uploads/<%= datas[0].userAvatar %>" width="160" height="160" alt="<%= datas[0].userNick %>">
+                            <img class="avatar-big" src="/uploads/users/<%= datas[0].userAvatar %>" data-original="/uploads/users/<%= datas[0].userAvatar %>" width="160" height="160" alt="<%= datas[0].userNick %>">
                             <div class="change-head-tip">修改头像</div>
                         </a>
                     </div>

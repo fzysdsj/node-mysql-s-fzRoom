@@ -45,7 +45,7 @@
 
                                 <div id="content">
                                     <pre><%= datas[0].artContent %>
-                                    <img src="/uploads/<%= datas[0].artPic %>" width="200" height="200" alt="文章图片">
+                                    <img src="/uploads/articles/<%= datas[0].artPic %>" width="200" height="200" alt="文章图片">
                                     </pre>
                                 </div>
                                 <p> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -372,7 +372,7 @@
                                                     <div class="media">
                                                         <div class="media-left">
                                                             <a href="/users/toSelect/<%= comer[i].userId %>" id="comeravatar<%= i %>" title="点击进入<%= comer[i].userNick %>的主页">
-                                                        <img class="media-object img-circle" src="/uploads/<%= comer[i].userAvatar %>" alt="点击查看对方信息" style="width: 64px; height: 64px;">
+                                                        <img class="media-object img-circle" src="/uploads/users/<%= comer[i].userAvatar %>" alt="点击查看对方信息" style="width: 64px; height: 64px;">
                                             </a>
                                                         </div>
                                                         <div class="media-body">
@@ -446,7 +446,7 @@
 
                             <div class="user-block ui tint blur " data-image="/uploads/<%= anthors[0].userAvatar %>">
                                 <a href="/users/toSelect/<%= anthors[0].userId %>" class="ui circular image user-avatar">
-                                    <img class="media-object img-circle" src="/uploads/<%= anthors[0].userAvatar %>" alt="<%= anthors[0].userNick %>" style="width: 80px; height: 80px;"> </a>
+                                    <img class="media-object img-circle" src="/uploads/users/<%= anthors[0].userAvatar %>" alt="<%= anthors[0].userNick %>" style="width: 80px; height: 80px;"> </a>
                                 <p class="user-name big text">
                                     <a href="" style="color:#F00;">
                                         <%= anthors[0].userNick %>
@@ -509,11 +509,9 @@
             $(function() {
                 $("#content").click(function() {
                     let s = $(this).text();
-                    alert(s);
                 })
                 $("#comment").change(function() {
                     $("#comcontent")[0].value = $("#comment").val();
-                    console.log($("#comcontent")[0].value);
                 });
                 $(".media").on('mouseenter', function() {
                     var g = $(this).children()[1];

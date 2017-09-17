@@ -499,7 +499,7 @@ router.post("/create", function (req, res, next) {
     //设置编辑
     form.encoding = 'utf-8';
     //设置文件存储路径
-    form.uploadDir = "./public/uploads/";
+    form.uploadDir = "./public/uploads/articles/";
     //保留后缀
     form.keepExtensions = true;
     //设置单文件大小限制    
