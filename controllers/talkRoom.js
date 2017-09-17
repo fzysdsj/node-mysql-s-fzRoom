@@ -1,4 +1,4 @@
-//武阁模块
+//议阁模块
 var express = require('express');
 var db = require("../config/db");
 var fs = require('fs');
@@ -10,19 +10,15 @@ router.get("/", function (req, res, next) {
         if (err) {
             res.render("talkRoom", { title: "用户列表", datas: [] });
         } else {
-            console.log(rows[0].postUid);
-            console.log(rows.length);
             var userArray = [];
             var userArrayDemo = [];
             for (let i = 0; i < rows.length; i++) {
                 var select_user = 'select * from userinfo where userid = ' + rows[i].postUid;
-                console.log(select_user);
                 db.query(select_user, function (err, row) {
                     if (err) {
-                        console.log("读用户列表失败");
+                        res.send("操作失败:"+err);
                     } else {
                         //将文章作者信息写进数组中，渲染给页面调用
-                        console.log("row:");
                         userArray.push(row[0]);
                         if (userArray.length == rows.length) {
                             for (let j = 0; j < rows.length; j++) {
@@ -32,7 +28,16 @@ router.get("/", function (req, res, next) {
                                         userArrayDemo.push(userArray[k]);
                                         s++;
                                         if (userArrayDemo.length == rows.length) {
-                                            return res.render("talkRoom", { title: "用户列表", datas: rows, users: userArrayDemo });
+                                            let comSql = 'select * from fposts where fpostpid ='+rows[j].postId;
+                                            console.log(comSql);
+                                            db.query(comSql,function(err,row){
+                                                if(err){
+                                                    res.send("操作失败:"+err);
+                                                }else{
+                                                    console.log(row);
+                                                    return res.render("talkRoom", { title: "用户列表", datas: rows, users: userArrayDemo,com:row });
+                                                }
+                                            })
                                         }
                                     }
                                 }

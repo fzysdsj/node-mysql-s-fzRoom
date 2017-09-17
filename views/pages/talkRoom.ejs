@@ -56,9 +56,9 @@
 
 
                                         <ul id="ember971" class="ember-view nav nav-pills">
-                                            <li id="ember1003" class="ember-view active" title="最新发布的帖子"><a href="/talkRoom//latest">最新</a></li>
-                                            <li id="ember1004" class="ember-view" title="最近几天创建的主题"><a href="/talkRoom//new">近期（99+）</a></li>
-                                            <li id="ember1006" class="ember-view" title="最近一年、一月、一周或一天的最活跃主题"><a href="/talkRoom//top">热门</a></li>
+                                            <li id="ember1003" class="ember-view active" title="最新发布的帖子"><a href="/talkRoom/latest">最新</a></li>
+                                            <li id="ember1004" class="ember-view" title="最近几天创建的主题"><a href="/talkRoom/new">近期（99+）</a></li>
+                                            <li id="ember1006" class="ember-view" title="最近一年、一月、一周或一天的最活跃主题"><a href="/talkRoom/top">热门</a></li>
                                             <li id="ember1007" class="ember-view" title="你发表过帖子的主题"><a href="/users/toSelect/176/post">我的帖子</a></li>
                                             <li id="ember1008" class="ember-view" title="你标上书签的主题"><a href="/talkRoom/bookmarks">书签</a></li>
                                             <!---->
@@ -123,7 +123,7 @@
                                                                         <span title="本主题已关闭；不再接受新的回复" class="topic-status"><i class="fa fa-lock"></i></span><a href="" title="本主题已置顶；它将始终显示在它所属分类的顶部" class="topic-status"><i class="fa fa-thumb-tack"></i></a></div>
                                                                     <a href="/" class="title">开天辟地第一文</a>
                                                                     <span class="topic-post-badges">
-<a href="/t/cc-eventmanager-2-0-cc-systemevent/50235" class="badge badge-notification new-topic" title="新主题">近期</a>
+<a href="/" class="badge badge-notification new-topic" title="新主题">近期</a>
 </span>
                                                                     <div class="topic-excerpt">
                                                                         欲知详情，请看下回分解！！！！
@@ -156,8 +156,10 @@
                                                                     <td class="posters">
                                                                         <a href="/users/toSelect/<%= datas[i].postUid %>" data-user-card="<%= users[i].userNick %>" class="latest single"><img alt="" width="25" height="25" src="/uploads/users/<%= users[i].userAvatar %>" class="avatar latest single" title="<%= users[i].userNick %>"></a>
                                                                     </td>
-                                                                    <td class="num posts-map posts heatmap-" title="这个主题有 0 个帖子">
-                                                                        <a href="" class="posts-map badge-posts heatmap-">0</a>
+                                                                    <td class="num posts-map posts heatmap-" title="这个主题有<%= com.length %> 个帖子">
+                                                                        <a href="" class="posts-map badge-posts heatmap-">
+                                                                            <%= com.length %>
+                                                                        </a>
                                                                     </td>
                                                                     <td class="num views "><span class="number" title="本主题已经被浏览过 <%= datas[i].postSaw %> 次"><%= datas[i].postSaw %> </span></td>
                                                                     <td class="num age activity" title="第一帖: <%= datas[i].postStartTime %>

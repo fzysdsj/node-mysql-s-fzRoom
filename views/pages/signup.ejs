@@ -28,7 +28,7 @@
         fzRoom
     </div>
     <h2 class="form-heading">注册</h2>
-    <form class="form-signin app-cam" action="/users/signup" method="post" enctype="multipart/form-data">
+    <form class="form-signin app-cam" action="/users/signup" method="post" enctype="multipart/form-data" target="siginup">
         <!-- <label class="signInformation "></label> -->
         <div class="form-btn btn-danger">
             <%= error %>
@@ -83,6 +83,7 @@
                     <a href="/wuRoom">不注册，浏览网站</div>
                 </div>
     </form>
+    <iframe  id = "siginup" class="hidden"></iframe>
     <div class="copy_layout login register">
         <p>fzysdsj &copy; 2017
             <a target="_blank" href="fzysdsj.github.io">方丈阁</a>
