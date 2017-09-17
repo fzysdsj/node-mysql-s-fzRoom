@@ -6,14 +6,11 @@
             <div class="col-md-12">
                 <div id="topic-title">
                     <div class="container">
-
                         <div class="title-wrapper">
                             <h1>
                                 <a href="/users/505589500/messages">
                                     <span class="private-message-glyph"><i class="fa fa-envelope"></i></span>
                                 </a>
-
-                                <div id="ember3540" class="ember-view topic-statuses"></div>
                                 <a class="fancy-title" data-ember-action="3541" href="/t/cocos-mmrpg/48105">
                                     <%= datas[0].postTitle %>
                                 </a>
@@ -40,47 +37,30 @@
 
                     <article class="boxed " id="post_1" data-post-id="232537" data-user-id="5701">
                         <div class="row">
-
                             <div class="topic-avatar">
-                                <a href="/users/lukejiegogo" classnames="trigger-user-card main-avatar" data-user-card="lukejiegogo"><img alt="" width="45" height="45" src="/letter_avatar_proxy/v2/letter/l/919ad9/45.png" class="avatar" title="lukejiegogo"></a>
-
+                                <a href="/users/toSelect/<%= author[0].userId %>" classnames="trigger-user-card main-avatar" data-user-card="<%= author[0].userNick %>"><img alt="" width="45" height="45" src="/letter_avatar_proxy/v2/letter/l/919ad9/45.png" class="avatar" title="<%= author[0].userNick %>"></a>
                                 <div class="poster-avatar-extra"></div>
-                                <!---->
                             </div>
-
                             <div class="topic-body">
                                 <div class="topic-meta-data">
-                                    <div id="ember3434" class="ember-view names trigger-user-card"><span class="username"><a href="/users/lukejiegogo" data-auto-route="true" data-user-card="<%= author[0].userNick %>">lukejiegogo</a></span></div>
-                                    <!---->
+                                    <div id="ember3434" class="ember-view names trigger-user-card"><span class="username"><a href="/users/toSelect/<%= author[0].userId %>" data-auto-route="true" data-user-card="<%= author[0].userNick %>"><%= author[0].userNick %></a></span></div>
                                     <div class="post-info">
                                         <span class="relative-date" data-format="tiny"><%= datas[0].postStartTime %></span>
                                     </div>
-                                    <!---->
-                                    <!---->
-                                    <!---->
-                                    <!---->
-                                    <!---->
                                     <div title="主题是未读的" class="read-state read"><i class="fa fa-circle"></i></div>
                                 </div>
-
                                 <div class="select-posts hidden">
                                     <button data-ember-action="3435" class="hidden">选择以及回复其的帖子</button>
                                     <button class="select-post" data-ember-action="3436">选择</button>
                                 </div>
-
-                                <!-- keep the classes here in sync with composer.hbs -->
                                 <div class=" contents regular ">
                                     <div class="cooked">
-                                        <pre><%= datas[0].postContent %>
-                                        </pre>
-
-                                        <!---->
+                                        <p>
+                                            <%= datas[0].postContent %>
+                                        </p>
                                         <div id="ember3474" class="ember-view topic-after-cooked-outlet solved-panel">
-                                            <!---->
                                         </div>
                                     </div>
-                                    <!---->
-                                    <!---->
                                     <section id="ember3439" class="ember-view post-menu-area clearfix">
                                         <nav class="post-controls">
                                             <div class="actions"><button aria-label="你和其他 7 人赞了该贴" title="你和其他 7 人赞了该贴" class="like-count highlight-action" data-action="like-count"><%= datas[0].postUp %> 赞</button><button aria-label="撤销赞" title="撤销赞" class="has-like fade-out"
@@ -92,7 +72,6 @@
                                         </nav>
                                     </section>
                                 </div>
-
                                 <div id="ember3440" class="ember-view"><span></span></div>
                                 <!---->
                                 <section id="ember3441" class="ember-view post-actions hidden">
@@ -104,7 +83,7 @@
                                             <ul class="clearfix">
                                                 <li>
                                                     <h4>创建时间</h4>
-                                                    <img alt="" width="20" height="20" src="/uploads/<%= author[0].userAvatar %>" class="avatar" title="lukejiegogo">
+                                                    <img alt="" width="20" height="20" src="/uploads/<%= author[0].userAvatar %>" class="avatar" title="<%= author[0].userNick %>">
                                                     <span class="relative-date date" title="<%= datas[0].postStartTime %>" data-format="medium"><%= datas[0].postStartTime %></span>
                                                 </li>
                                                 <li>
@@ -135,40 +114,14 @@
                                                     <span class="number" title="<%= datas[0].postUp %>"><%= datas[0].postUp %></span>
                                                     <h4>赞</h4>
                                                 </li>
-                                                <!-- <li class="secondary">
-                                                    <span class="number" title="1">1</span>
-                                                    <h4>打赏</h4>
-                                                </li> -->
-                                                <!-- <li class="avatars hidden">
-                                                    <div id="ember3484" class="ember-view">
-                                                        <a href="" data-ember-action="3485" title="lukejiegogo" class="poster ">
-                                                            <span class="post-count">26</span>
-                                                            <img alt="" width="32" height="32" src="/letter_avatar_proxy/v2/letter/l/919ad9/32.png" class="avatar" title="lukejiegogo">
-                                                        </a>
-                                                    </div>
-                                                    <div id="ember3486" class="ember-view">
-                                                        <a href="" data-ember-action="3487" title="juper_cn" class="poster ">
-                                                            <span class="post-count">6</span>
-                                                            <img alt="" width="32" height="32" src="/letter_avatar_proxy/v2/letter/j/7ab992/32.png" class="avatar" title="juper_cn">
-                                                        </a>
-                                                    </div>
-                                                    <div id="ember3488" class="ember-view">
-                                                        <a href="" data-ember-action="3489" title="bluehumor" class="poster ">
-                                                            <span class="post-count">5</span>
-                                                            <img alt="" width="32" height="32" src="/letter_avatar_proxy/v2/letter/b/839c29/32.png" class="avatar" title="bluehumor">
-                                                        </a>
-                                                    </div>
-                                                </li> -->
                                             </ul>
                                         </section>
-
                                     </div>
                                     <section id="ember3467" class="ember-view information">
                                         <p>有 <b><%= comment.length %></b> 个回复。</p>
                                     </section>
                                 </div>
                             </div>
-
                         </div>
                     </article>
                     <div class="col-md-8">
@@ -177,12 +130,10 @@
                             <div class="reply-area ">
                                 <a href="javascript:void(0);" class="rg-button do-reply right" data-toggle="modal" data-target="#signinModal"> 登录</a>
                                 <div class="reply-unlogin one-row ">
-
                                 </div>
-
                             </div>
                             <% }else{ %>
-                                <form method="POST" action="/fposts/create" enctype="multipart/form-data">
+                                <form method="POST" action="/fposts/create" enctype="multipart/form-data" target="pcomSubmit">
                                     <label for="fpid"></label>
                                     <input type="text" name="fpid" id="fpid" class="hidden" value="<%= datas[0].postId %>">
                                     <label for="fp"></label>
@@ -193,8 +144,7 @@
                                         <input type="submit" style="width:120px;" class="rg-button do-reply right" value="快速回复">
                                         <a href="javascript:;" class="file rg-button">上传图片
                                     <input type="file" name="fppic" id="" style="width:100%">
-                                             <span class="showFileName"></span>
-                                                            </a>
+                                             <span class="showFileName"></span></a>
                                         <script>
                                             $(function() {
                                                 $(".file").on("change", "input[type='file']", function() {
@@ -216,23 +166,21 @@
                                 <% } %>
                     </div>
                 </div>
+                <iframe name="pcomSubmit" class="hidden"></iframe>
                 <div id="topic-title">
                     <div class="container">
-
                         <div class="title-wrapper">
                             <h1>
-                                全部回复
-                                <!---->
+                                全部回复: <span id="pComNumber"><%= comment.length %></span>条
                             </h1>
                         </div>
-                        <!---->
                     </div>
                 </div>
                 <% if(comment.length==0){ %>
                     <div id="ember1068" class="ember-view post-cloak" style="">
                         这个帖子太冷了，还没人发言呢！
                     </div>
-                    <% }else{for(let i = comment.length-1;i>=0;i--){ %>
+                    <% }else{for(let i = 0;i<comment.length;i++){ %>
                         <div id="ember1068" class="ember-view post-cloak" style="">
                             <div id="ember1069" class="ember-view topic-post clearfix regular">
                                 <div id="ember1266" class="ember-view gap jagged-border hidden"></div>
@@ -242,16 +190,13 @@
                                         <!---->
                                     </section>
                                 </div>
-
                                 <article class="boxed ">
                                     <div class="row">
                                         <div class="topic-avatar">
-                                            <a href="/users/toSelect/<%= comment[i].fpostUid %>" classnames="trigger-user-card main-avatar" data-user-card="<%= comer[i].userNick %>"><img alt="" width="45" height="45" src="/uploads/<%= comer[i].userAvatar %>" class="avatar" title="<%= comer[i].userNick %>"></a>
-
+                                            <a href="/users/toSelect/<%= comment[i].fpostUid %>" classnames="trigger-user-card main-avatar"><img alt="" width="45" height="45" src="/uploads/<%= comer[i].userAvatar %>" class="avatar" title="<%= comer[i].userNick %>"></a>
                                             <div class="poster-avatar-extra"></div>
                                             <!---->
                                         </div>
-
                                         <div class="topic-body">
                                             <div class="topic-meta-data">
                                                 <div id="ember1268" class="ember-view names trigger-user-card">
@@ -267,10 +212,8 @@
                                                 <div class="post-info">
                                                     <a class="post-date"><span class="relative-date" title="<%= comment[i].fpostStartTime %>" data-format="tiny"><%= comment[i].fpostStartTime %></span></a>
                                                 </div>
-
                                                 <div title="主题是未读的" class="read-state read"><i class="fa fa-circle"></i></div>
                                             </div>
-
                                             <div class="select-posts hidden">
                                                 <button data-ember-action="1269" class="hidden">选择以及回复其的帖子</button>
                                                 <button class="select-post" data-ember-action="1270">选择</button>
@@ -312,10 +255,16 @@
                 $(".reply").on('click', function() {
                     var s = "@" + $(this).parent().attr('ID');
                     $("#fpost").val(s);
-                    $("html,body").animate({
-                        scrollTop: $("#qy_name").offset().top
-                    }, 1000);
-
+                    var comcon = "#ember3467";
+                    if (!comcon) {
+                        $("html,body").animate({
+                            scrollTop: 0
+                        }, 1000);
+                    } else {
+                        if (comcon.length > 0) $("html,body").animate({
+                            scrollTop: $("#ember3467").offset().top
+                        }, 1000);
+                    }
                 });
             })
         </script>

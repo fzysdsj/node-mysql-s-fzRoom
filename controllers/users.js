@@ -596,7 +596,8 @@ router.post("/signin", function (req, res) {
                     'userPwd': password,
                     'userNick': result[0]['userNick'],
                     'userAvatar': result[0]['userAvatar'],
-                    'userId': result[0]['userId']
+                    'userId': result[0]['userId'],
+                    'userClass': result[0]['userClass']
                 };
                 console.log("userid:" + user.userId);
                 req.session.user = user;//保存用户session信息

@@ -584,4 +584,36 @@ router.get('/ajax/:id', function (req, res) {
     })
 
 });
+router.get('/ajax/art/:id', function (req, res) {
+    var id = req.params.id;
+    let sql = "select * from article"; 
+    db.query(sql, function (err, rows) {
+        if (err) {
+            res.send("操作失败：" + err);
+        } else {
+            let flag =false;
+            let s= 0;
+            for(let i = 0;i<rows.length;i++){
+                    if(rows[i].artId==id){
+                        s=i;
+                        flag= true;
+                    }
+            }
+            if(flag){
+                var a = {
+                    backTitle:rows[s-1].artTitle,
+                    backCategory:rows[s-1].artCategory,
+                    backId:rows[s-1].artId,
+                    nextTitle:rows[s+1].artTitle,
+                    nextCategory:rows[s+1].artCategory,
+                    nextId:rows[s+1].artId
+         };
+            }
+            res.send(a);
+           
+        }
+
+    })
+
+});
 module.exports = router;

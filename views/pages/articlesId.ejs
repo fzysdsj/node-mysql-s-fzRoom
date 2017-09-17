@@ -17,9 +17,11 @@
                         <div class="article-meta small text">
                             <span class="span-item"><%= datas[0].artStartTime %></span>
                             <span class="span-item">|</span>
-                            <span class="span-item"><%= datas[0].artSaw %>次阅读</span>
-                            <span class="span-item"><%= comment.length %>次评论</span>
-                            <span class="span-item"><span id="spanLike"><%= datas[0].artUp%></span>人喜欢</span>
+                            <span class="span-item"><%= datas[0].artSaw+1 %>次阅读</span>
+                            <span class="span-item"><span id="comNumber"><%= comment.length %></span>次评论</span>
+                            <span class="span-item"><span id="spanLike"><span id="likeNumber"> <%= datas[0].artUp%></span>
+
+                            </span>人喜欢</span>
                             <label for="peopleLike"></label>
                             <input type="text" name="peopleLike" id="peopleLike" class="hidden">
                             <span class="span-item">|</span>
@@ -91,7 +93,13 @@
                                                             </a>
                                                         </div>
                                 </div>
-
+                                <div class="like text-left col-md-6">
+                                    <a href="javascript:;" class="ui pop rg-button" id="back" data-content="点击查看上一篇信息（双击直接转到）">上一篇</a>
+                                </div>
+                                <div class="like text-right col-md-6">
+                                    <a href="javascript:;" class="ui pop rg-button" id="next" data-content="点击查看下一篇信息（双击直接转到）">下一篇</a>
+                                </div>
+                                <div style="height:50px;"></div>
                                 <div class="social-share share-component" data-sites="weibo,qq,qzone,wechat,tencent,douban" data-weibo-key="3076188672" data-image="" data-wechat-qrcode-title="微信扫一扫分享">
                                 </div>
                                 <% if(user){ %>
@@ -112,6 +120,9 @@
                                     let artId = <%= datas[0].artId %>;
                                     let url = "/articles/ajax/" + artId;
                                     let user = parseInt($("#userId").text().trim());
+                                    let likeNumber = parseInt($("#likeNumber").text().trim());
+                                    likeNumber += 1;
+                                    $("#likeNumber").text(likeNumber);
                                     let likeId = $("#like").attr("id");
                                     $.ajax({
                                         url: url,
@@ -141,6 +152,66 @@
                                             console.log('process error');
                                         }
                                     });
+                                });
+                                $("#back").click(function() {
+                                    let artId = <%= datas[0].artId %>;
+                                    let url = "/articles/ajax/art/" + artId;
+                                    $.ajax({
+                                        url: url,
+                                        type: "GET",
+                                        dataType: "json",
+                                        data: {},
+                                        contentType: "application/json",
+                                        cache: false,
+                                        timeout: 5000,
+                                        complete: function() {
+                                            //called when complete
+                                            console.log('process complete');
+                                        },
+                                        success: function(data) {
+
+                                            console.log(data);
+                                            console.log('process sucess');
+                                            let backString = "上一篇:" + data.backTitle + "(" + data.backCategory + ")";
+                                            let backUrl = "/articles/art/" + data.backId;
+                                            $("#back").text(backString);
+                                            $("#back").attr('href', backUrl);
+                                            $("#back").attr('data-content', "再点一次转到上一篇");
+                                        },
+
+                                        error: function() {
+                                            console.log('process error');
+                                        }
+                                    });
+                                });
+                                $("#next").click(function() {
+                                    let artId = <%= datas[0].artId %>;
+                                    let url = "/articles/ajax/art/" + artId;
+                                    $.ajax({
+                                        url: url,
+                                        type: "GET",
+                                        dataType: "json",
+                                        data: {},
+                                        contentType: "application/json",
+                                        cache: false,
+                                        timeout: 5000,
+                                        complete: function() {
+                                            //called when complete
+                                            console.log('process complete');
+                                        },
+                                        success: function(data) {
+                                            console.log(data);
+                                            console.log('process sucess');
+                                            let nextString = "下一篇:" + data.nextTitle + "(" + data.nextCategory + ")";
+                                            let nextUrl = "/articles/art/" + data.nextId;
+                                            $("#next").text(nextString);
+                                            $("#next").attr('href', nextUrl);
+                                            $("#next").attr('data-content', "再点一次转到下一篇");
+                                        },
+                                        error: function() {
+                                            console.log('process error');
+                                        }
+                                    });
                                 })
                             })
                         </script>
@@ -148,7 +219,7 @@
                             <% if(user){ %>
                                 <div class="reply-header gray text" id="comcon">评论</div>
                                 <div class="reply-area">
-                                    <form method="POST" action="/comments/create">
+                                    <form method="POST" action="/comments/create" target="formsubmit">
                                         <label for="comaid"></label>
                                         <input type="text" name="comaid" id="comaid" class="hidden" value="<%= datas[0].artId %>">
                                         <label for="comcontent"></label>
@@ -156,24 +227,147 @@
                                         <textarea id="comment" class="rg-textarea " rows="4 " placeholder="这里输入评论内容 " value="getValue()"></textarea>
                                         <!-- <a href="javascript:void(0); " class="rg-button do-reply right "></a> -->
                                         <div class="reply-unlogin one-row ">
-                                            <input type="submit" style="width:120px;" class="rg-button do-reply right" value="发表评论">
+                                            <input type="submit" style="width:120px;" class="rg-button do-reply right" value="发表评论" id="commentSubmit">
                                         </div>
                                     </form>
                                     <iframe name="formsubmit" style="display:none;">
     </iframe>
+                                    <span id="userNick" class="hidden"><%= user.userNick %></span>
+                                    <span id="userAvatar" class="hidden"><%= user.userAvatar %></span>
+                                    <span id="userClass" class="hidden"><%= user.userClass %></span>
+                                    <span id="userId1" class="hidden"><%= user.userId %></span>
+                                    <script>
+                                        $(function() {;
+                                            let comFristNumber = parseInt($("#comNumber").text().trim());
+                                            $("#commentSubmit").click(function() {
+                                                let userNick = $("#userNick").text();
+                                                let userAvatar = $("#userAvatar").text();
+                                                let userClass = $("#userClass").text();
+                                                let userId = $("#userId1").text();
+                                                let comContent = $("#comment").val();
+                                                let comLength = parseInt($("#commentLength").text().trim());
+                                                let comNumber = parseInt($("#comNumber").text().trim());
+                                                if (comFristNumber == 0) {
+                                                    $("#noPeople").text("");
+                                                }
+                                                comLength += 1;
+                                                comNumber += 1;
+                                                $("#commentLength").text(comLength);
+                                                $("#comNumber").text(comNumber);
+                                                var date = new Date();
+                                                var y = date.getFullYear();
+                                                var m = date.getMonth() + 1;
+                                                var d = date.getDate();
+                                                var h = "";
+                                                var mi = "";
+                                                var s = "";
+                                                m < 10 ? (m = "0" + m) : m;
+                                                d < 10 ? (d = "0" + d) : d;
+                                                date.getHours() < 10 ? (h = "0" + date.getHours()) : (h = date.getHours());
+                                                date.getMinutes() < 10 ? (mi = "0" + date.getMinutes()) : (mi = date.getMinutes());
+                                                date.getSeconds() < 10 ? (s = "0" + date.getSeconds()) : (s = date.getSeconds());
+                                                var comstarttime = y + "-" + m + "-" + d + " " + h + ":" + mi + ":" + s;
+                                                $("#comment").val("");
+                                                var ComString = '<div class = "media"><div class = "media-left"><a href = "/users/toSelect/' + userId +
+                                                    '" id = "comeravatar11" title = "点击进入炎曦九将：白宓的主页"><img class = "media-object img-circle" src = "/uploads/' + userAvatar +
+                                                    '" alt = "点击查看对方信息"  style = "width: 64px; height: 64px;"> </a> </div> <div class = "media-body"><h4 class = "media-heading"><span>' + userNick +
+                                                    '</span> &nbsp;&nbsp; <a href = "/wenRoom/know" class = "rg-label small level" id = "level' + userClass + '">' + userClass +
+                                                    '</a></h4><h5 style = "height:50px;line-height:50px;color:#f45123">' + comContent + '</h5> <h6 class = "text-right"><span style = "color:#654" >' + comstarttime +
+                                                    ' </span><a href = "#comcon" class = "replyComment"> 回复 </a><a href = "#" data-toggle = "modal" data-target = "#pushTell" > 举报 </a></h6></div></div>';
+                                                $(".reply-list").prepend(ComString);
+                                                var levelLength = $(".level").length;
+                                                var s = [];
+                                                for (let i = 0; i < levelLength; i++) {
+                                                    let lev = parseInt($(".level").eq(i).html().trim());
+                                                    s.push(lev);
+                                                }
+                                                for (let i = 0; i < levelLength; i++) {
+                                                    if (s[i] >= 0 && s[i] < 100) {
+                                                        $("#levelValue").html(100 - s[i]);
+                                                        $(".level").eq(i).html("方丈平民");
+                                                        $(".level").eq(i).css('background', '#056');
+                                                    } else if (s[i] >= 100 && s[i] < 300) {
+                                                        $("#levelValue").html(300 - s[i]);
+                                                        $(".level").eq(i).html("方丈县男");
+                                                        $(".level").eq(i).css('background', '#0B7');
+                                                    } else if (s[i] >= 300 && s[i] < 600) {
+                                                        $("#levelValue").html(600 - s[i]);
+                                                        $(".level").eq(i).html("方丈县子");
+                                                        $(".level").eq(i).css('background', '#6A3');
+                                                    } else if (s[i] >= 600 && s[i] < 1000) {
+                                                        $("#levelValue").html(1000 - s[i]);
+                                                        $(".level").eq(i).html("方丈郡伯");
+                                                        $(".level").eq(i).css('background', '#820');
+                                                    } else if (s[i] >= 1000 && s[i] < 1500) {
+                                                        $("#levelValue").html(1500 - s[i]);
+                                                        $(".level").eq(i).html("方丈郡侯");
+                                                        $(".level").eq(i).css('background', '#FAD');
+                                                    } else if (s[i] >= 1500 && s[i] < 2100) {
+                                                        $("#levelValue").html(2100 - s[i]);
+                                                        $(".level").eq(i).html("方丈郡公");
+                                                        $(".level").eq(i).css('background', '#60f');
+                                                    } else if (s[i] >= 2100 && s[i] < 2800) {
+                                                        $("#levelValue").html(2800 - s[i]);
+                                                        $(".level").eq(i).html("方丈阁伯");
+                                                        $(".level").eq(i).css('background', '#900');
+                                                    } else if (s[i] >= 2800 && s[i] < 3600) {
+                                                        $("#levelValue").html(3600 - s[i]);
+                                                        $(".level").eq(i).html("方丈阁侯");
+                                                        $(".level").eq(i).css('background', '#2AA');
+                                                    } else if (s[i] >= 3600 && s[i] < 4500) {
+                                                        $("#levelValue").html(4500 - s[i]);
+                                                        $(".level").eq(i).html("方丈阁公");
+                                                        $(".level").eq(i).css('background', '#AAA');
+                                                    } else if (s[i] >= 4500 && s[i] < 6000) {
+                                                        $("#levelValue").html(6000 - s[i]);
+                                                        $(".level").eq(i).html("方丈阁王");
+                                                        $(".level").eq(i).css('background', '#655');
+                                                    } else if (s[i] >= 6000 && s[i] < 8500) {
+                                                        $("#levelValue").html(8500 - s[i]);
+                                                        $(".level").eq(i).html("方丈阁帝");
+                                                        $(".level").eq(i).css('background', '#AA0');
+                                                    } else if (s[i] >= 8500 && s[i] < 12000) {
+                                                        $("#levelValue").html(12000 - s[i]);
+                                                        $(".level").eq(i).html("方丈半仙");
+                                                        $(".level").eq(i).css('background', '#A3A');
+                                                    } else if (s[i] >= 12000 && s[i] < 18000) {
+                                                        $("#levelValue").html(18000 - s[i]);
+                                                        $(".level").eq(i).html("方丈散仙");
+                                                        $(".level").eq(i).css('background', '#3AA');
+                                                    } else if (s[i] >= 18000 && s[i] < 25000) {
+                                                        $("#levelValue").html(25000 - s[i]);
+                                                        $(".level").eq(i).html("方丈正仙");
+                                                        $(".level").eq(i).css('background', '#935A46');
+                                                    } else if (s[i] >= 25000 && s[i] < 35000) {
+                                                        $("#levelValue").html(35000 - s[i]);
+                                                        $(".level").eq(i).html("方丈上仙");
+                                                        $(".level").eq(i).css('background', '#F66');
+                                                    } else if (s[i] >= 35000) {
+                                                        $("#levelValue").html("无");
+                                                        $(".level").eq(i).html("方丈阁尊");
+                                                        $(".level").eq(i).css('background', '#803DE2');
+                                                    }
+                                                }
+                                            })
+                                        })
+                                    </script>
                                     <% }else{ %>
                                         <div class="reply-header gray text ">评论请登录！</div>
-                                        <div class="reply-area ">
+                                        <div class="reply-area">
                                             <a href="javascript:void(0);" class="rg-button do-reply right" data-toggle="modal" data-target="#signinModal"> 登录</a>
                                             <div class="reply-unlogin one-row ">
 
                                             </div>
                                             <% }%>
                                         </div>
+                                        <div>
+                                            <h4>
+                                                <b id="commentLength"><%= comment.length %></b>条评论</h4>
+                                        </div>
                                         <div class="reply-header gray text">评论内容</div>
                                         <div class="reply-list" style="padding-top:20px">
                                             <% if(comment.length==0){ %>
-                                                <h4 class="text-center red">还无人评论，快来抢第一把交椅!</h4>
+                                                <h4 class="text-center red" id="noPeople">还无人评论，快来抢第一把交椅!</h4>
                                                 <% } else{for(var i=comment.length-1;i>=0;i--){ %>
                                                     <div class="media">
                                                         <div class="media-left">
@@ -183,13 +377,13 @@
                                                         </div>
                                                         <div class="media-body">
                                                             <h4 class="media-heading">
-                                                                <span><%= comer[i].userNick %></span> &nbsp;&nbsp;
+                                                                <span><%= comer[i].userNick %>
+                                                                    </span> &nbsp;&nbsp;
                                                                 <a href="/wenRoom/know" class="rg-label small level" id="level<%= comer[i].userClass %>">
                                                                     <%= comer[i].userClass %>
                                                                 </a>
                                                             </h4>
                                                             <h5 style="height:50px;line-height:50px;color:#f45123">
-
                                                                 <%= comment[i].comContent %>
                                                             </h5>
                                                             <h6 class="text-right">
@@ -199,7 +393,8 @@
                                                                 <% if(comer[i].userClass>100000){ %>
                                                                     <a href="/comments/del/<%= comment[i].comId %>">删除</a>
                                                                     <% }else{ %>
-                                                                        <a href="/comments/del/<%= comment[i].comId %>">举报</a>
+                                                                        <a href="#" data-toggle="modal" data-target="#pushTell">举报</a>
+
                                                                         <% } %>
                                                             </h6>
                                                         </div>
@@ -208,6 +403,43 @@
                                         </div>
                                 </div>
                     </section>
+                    </div>
+
+                    <div id="pushTell" class="modal fade text-left">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">举报</div>
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label for="signinName">举报原因</label><br>
+                                        <input type="checkbox" class="" />全没了<br>
+                                        <input type="checkbox" class="" />全没了<br>
+                                        <input type="checkbox" class="" />全没了<br>
+                                        <input type="checkbox" class="" />全没了<br>
+                                        <input type="checkbox" class="" />全没了<br>
+                                        <input type="checkbox" class="" />全没了<br>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">举报描述（选填）</label><br>
+                                        <textarea name="" id="" cols="80" rows="10"></textarea>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" data-dismiss="modal" class="btn btn-default">关闭</button>
+                                    <button type="submit" data-dismiss="modal" class="btn btn-success">提交</button>
+                                </div>
+                                <script type="text/javascript">
+                                    var s = $(window).width();
+                                    if ((s < 760 && s > 320) || s > 960) {
+                                        $(".navbar-brand").html("fzRoom<small class='title'>一方一丈，亦可作春秋</small>");
+                                    }
+
+                                    function getRegist() {
+                                        location.href = "/users/signup";
+                                    }
+                                </script>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-3 col-mb-12 ">
                         <section class="as-sidebar-section sidebar one-section white section ">
@@ -241,10 +473,10 @@
                                     <div class="ui list">
                                         <div class="item">
                                             <a href="" class="ui tiny image">
-                                                <img src="../../static.ruogoo.cn/image/blank.gif" data-original="https://i.ruogoo.cn/cover/8655473fadf6c766fa59afa31d796c48.jpg@!cover-90" alt="《雨梦集》">
+                                                <img src="../../static.ruogoo.cn/image/blank.gif">
                                             </a>
                                             <div class="top aligned content">
-                                                <a href="../collection/15.htm" class="big title">《方丈录》</a>
+                                                <a href="/" class="big title">《方丈录》</a>
                                                 <div class="content">
                                                     <a href="" class=" small gray text ">方丈遗少</a>
                                                 </div>
@@ -284,19 +516,15 @@
                     console.log($("#comcontent")[0].value);
                 });
                 $(".media").on('mouseenter', function() {
-                    console.log(this);
                     var g = $(this).children()[1];
                     var gg = $(g).children()[0];
                     var ggg = $(gg).children()[0];
                     var re = $(g).children()[2];
-                    console.log(re);
                     var reH6 = $(re).children()[1];
-                    console.log("reH6:" + reH6);
                     $(reH6).click(function() {
                         alert(this);
                         var s = "@" + $(ggg).text().trim();
                         $("#comment").val(s);
-                        console.log(666);
                         var comcon = "#comcon";
                         if (!comcon) {
                             $("html,body").animate({
@@ -466,5 +694,7 @@
             <div id="tip-arrow-top" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-arrow-top.png&quot;);"></div>
         </div>
         </body>
+
+        </html>
 
         </html>
