@@ -1,0 +1,119 @@
+<%- include('userHeader') %>
+    <div class="col-dt-9 col-9 col-mb-12">
+        <section class="home-content-section one-section white section">
+            <div class="tab-panel">
+                <div class="tab">
+                    <% if(datas[0].userId == user.userId){ %>
+                        <ul>
+                            <li class="tab-item ">
+                                <a href="/users/toSelect/<%= datas[0].userId %>">与我相关</a>
+                            </li>
+                            <li class="tab-item active">
+                                <a href="/users/toSelect/<%= datas[0].userId %>/followed">关注</a>
+                            </li>
+                            <li class="tab-item">
+                                <a href="/users/toSelect/<%= datas[0].userId %>/article">文章</a>
+                            </li>
+                            <li class="tab-item ">
+                                <a href="/users/toSelect/<%= datas[0].userId %>/collection">文集</a>
+                            </li>
+                            <li class="tab-item ">
+                                <a href="/users/toSelect/<%= datas[0].userId %>/post">帖子</a>
+                            </li>
+                            <li class="tab-item ">
+                                <a href="/users/toSelect/<%= datas[0].userId %>/notification">消息</a>
+                            </li>
+                        </ul>
+                        <% }else { %>
+                            <ul>
+                                <li class="tab-item">
+                                    <a href="/users/toSelect/<%= datas[0].userId %>/article">文章</a>
+                                </li>
+                                <li class="tab-item ">
+                                    <a href="/users/toSelect/<%= datas[0].userId %>/collection">文集</a>
+                                </li>
+                                <li class="tab-item ">
+                                    <a href="/users/toSelect/<%= datas[0].userId %>/post">帖子</a>
+                                </li>
+                            </ul>
+                            <% } %>
+                </div>
+                <% var s=0;for(var i = 0;i<users.length;i++){for(var j =0;j<follower.length;j++){if(follower[j].followedUserId==users[i].userId){s++; %>
+                    <div class="tab-content">
+                        <div class="empty-view empty-article">
+                            <p>
+                                <span>
+                                <%= users[i].userId %>
+                                </span>
+                                <span>
+                                <%= users[i].userNick %>
+                                </span>
+                                <a href="/wenRoom/know" class="rg-label small level">
+                                    <%= users[i].userClass %>
+                                </a>
+                            </p>
+                        </div>
+                        <div class="followed-events">
+                            <ul class="event-list">
+                                <li class="event-item">
+                                    <a href="https://user.ruogoo.cn/10143" class="user-head">
+                                        <img src="https://i.ruogoo.cn/user/ac1e5e3d48ed120b2cc9c7c739734d4c.jpeg@!avatar-60" width="40" height="40" alt="love-Kobe安落枢">
+                                    </a>
+
+                                    <div class="event-body text clearfix">
+                                        <p class="thing">
+                                            <a href="https://user.ruogoo.cn/10143" target="_blank">love-Kobe安落枢</a>
+                                            <span> 07月29日 </span> 发表了文章：
+                                            <a href="https://wenxue.ruogoo.cn/article/7617" target="_blank">醉红尘</a>
+                                        </p>
+                                        <p class="gray text">醉红尘 文/安落枢 琉璃月，胭脂泪，花开花落有谁醉。看前世，醉红颜，缘起缘灭难入眠。望断天涯无音信，一夜相思苦无寐，伊人独憔悴。 还卿一钵无情泪，恨不相逢未剃时。 人本多情，
+                                        </p>
+
+                                    </div>
+                                </li>
+                                <li class="event-item">
+                                    <a href="https://user.ruogoo.cn/10143" class="user-head">
+                                        <img src="https://i.ruogoo.cn/user/ac1e5e3d48ed120b2cc9c7c739734d4c.jpeg@!avatar-60" width="40" height="40" alt="love-Kobe安落枢">
+                                    </a>
+
+                                    <div class="event-body text clearfix">
+                                        <p class="thing">
+                                            <a href="https://user.ruogoo.cn/10143" target="_blank">love-Kobe安落枢</a>
+                                            <span> 07月29日 </span> 发表了文章：
+                                            <a href="https://wenxue.ruogoo.cn/article/7616" target="_blank">恨不相逢韶华时</a>
+                                        </p>
+                                        <p class="gray text">恨不相逢韶华时 文/安落枢 冥冥之中，是谁安排了那一场美好的相遇；繁华散尽，是谁在缘分散尽后只留下背影。将一次次邂逅演绎成红尘情深，叹一段段过往抵不过似水流年。 君生我未生，我生君已老
+                                        </p>
+
+                                    </div>
+                                </li>
+                                <li class="event-item">
+                                    <a href="https://user.ruogoo.cn/10143" class="user-head">
+                                        <img src="https://i.ruogoo.cn/user/ac1e5e3d48ed120b2cc9c7c739734d4c.jpeg@!avatar-60" width="40" height="40" alt="love-Kobe安落枢">
+                                    </a>
+
+                                    <div class="event-body text clearfix">
+                                        <p class="thing">
+                                            <a href="https://user.ruogoo.cn/10143" target="_blank">love-Kobe安落枢</a>
+                                            <span> 07月29日 </span> 发表了文章：
+                                            <a href="https://wenxue.ruogoo.cn/article/7615" target="_blank">虞美人</a>
+                                        </p>
+                                        <p class="gray text">【虞美人.格一】 文/安落枢 挽香不住怜春短，病饮金樽浅。 镜妆空掩泪偷匀，烛影摇红肠断湿罗裙。 落花未解孤衾梦，犹记前欢共。 可怜难寄锦书回，寂寞深闺对月枉凝眉。
+                                        </p>
+
+                                    </div>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                    <% continue;}}} %>
+                        <% if(s==0) { %>
+                            <div class="tab-content">
+                                <div class="empty-view empty-article">还没关注任何人噢 ~~~~(&gt;_&lt;)~~~~</div>
+                            </div>
+                            <% } %>
+            </div>
+        </section>
+    </div>
+    <%- include('userFooter') %>

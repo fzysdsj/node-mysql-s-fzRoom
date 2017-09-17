@@ -1,0 +1,330 @@
+<div class="col-dt-3 col-3 col-mb-12">
+    <section class="home-side-section">
+        <div class="intro-block one-section white section">
+            <div class="rg-board">
+                <div class="rg-board-head">
+                    <p class="title">简介</p>
+                    <a href="/users/toSelect/<%= datas[0].userId %>/profile" class="more">详细资料 &gt;</a>
+                </div>
+
+                <div class="rg-board-body text">
+
+                </div>
+            </div>
+        </div>
+
+        <div class="invite-block one-section white section">
+            <div class="rg-board">
+                <div class="rg-board-head">
+                    <p class="title">邀请注册</p>
+                </div>
+
+                <div class="rg-board-body small text" style="word-wrap: break-word;">
+                    <p>邀请码：GJDHSY</p>
+
+                    <p>邀请链接：ffff</p>
+
+                    <p class="small gray text">说明：将您的邀请码或邀请链接告诉好友，好友注册成功后，您和受邀好友均获得10方丈币，邀请人数没有上限哦。</p>
+
+                    <p class="small gray text">快邀请好友来fzRoom吧 ~\(^o^)/~</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="count-block one-section white section">
+            <div class="rg-board">
+                <div class="rg-board-head">
+                    <p class="title">统计</p>
+                </div>
+                <div class="rg-board-body">
+                    <p>方丈币：2 文钱</p>
+                    <p>经验值：
+                        <%= datas[0].userClass %>
+                    </p>
+
+                    <p>战力值：11</p>
+
+                    <p>访问量：2</p>
+
+                    <p>文章：0</p>
+
+                    <p>帖子：0</p>
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="attention-block one-section white section">
+            <div class="rg-board">
+                <div class="rg-board-head">
+                    <p class="title">粉丝</p>
+                    <a href="/users/toSelect/<%= datas[0].userId %>/fans" class="more">详情 &gt;</a>
+                </div>
+                <div class="rg-board-body">
+                    <ul>
+                        <% if(followNumber.length==0){ %>
+                            <li>
+                                <p>还没粉丝哦！</p>
+                            </li>
+                            <% }else{for(let i = 0;i < followNumber.length;i++){ %>
+                                <li>
+                                    <a href="/users/toSelect/<%= followNumber[i].followedUserId %>" class="user-head" title="<%= followNumber[i].followedUserId %>">
+                                        <!-- <img src="https://static.ruogoo.cn/image/blank.gif" data-original="https://i.ruogoo.cn/user/ac1e5e3d48ed120b2cc9c7c739734d4c.jpeg@!avatar-60" alt="love-Kobe安落枢"> -->
+                                    </a>
+                                    <a href="/users/toSelect/<%= followNumber[i].followedUserId %>" class="user-name">
+                                        用户Id： <%= followNumber[i].fanUserId %>
+                                    </a>
+                                </li>
+                                <% }} %>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="fan-block one-section white section">
+            <div class="rg-board">
+                <div class="rg-board-head">
+                    <p class="title">关注</p>
+                    <a href="/users/toSelect/<%= datas[0].userId %>/attention" class="more">详情 &gt;</a>
+                </div>
+                <div class="rg-board-body">
+                    <ul>
+                        <% if(fansNumber.length==0){ %>
+                            <li style="width: 86px;">
+                                <p>还没关注任何人哦！</p>
+                            </li>
+                            <% }else{for(let i = 0;i < fansNumber.length;i++){ %>
+                                <li style="width: 86px;">
+                                    <a href="/users/toSelect/<%= fansNumber[i].fansUserId %>" class="user-head" title="<%= fansNumber[i].fansUserId %>">
+                                        <!-- <img src="https://static.ruogoo.cn/image/blank.gif" data-original="https://i.ruogoo.cn/user/ac1e5e3d48ed120b2cc9c7c739734d4c.jpeg@!avatar-60" alt="love-Kobe安落枢"> -->
+                                    </a>
+
+                                    <a href="/users/toSelect/<%= fansNumber[i].fanUserId %>" class="user-name">
+                                         用户Id: <%= fansNumber[i].followedUserId %>
+                                    </a>
+                                </li>
+                                <% }} %>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="visitor-block one-section white section">
+            <div class="rg-board">
+                <div class="rg-board-head">
+                    <p class="title">访客</p>
+                </div>
+                <div class="rg-board-body">
+                    <ul>
+                        <li>
+                            <a href="https://user.ruogoo.cn/25" class="user-head" title="眉离裳">
+                                <img src="https://static.ruogoo.cn/image/blank.gif" data-original="https://i.ruogoo.cn/user/7f0deb32ee670b316230a5c7a59c515a.jpg@!avatar-60" alt="眉离裳">
+                            </a>
+                            <a href="https://user.ruogoo.cn/25" class="user-name">眉离裳</a>
+                        </li>
+                        <li>
+                            <a href="https://user.ruogoo.cn/9471" class="user-head" title="陌涂">
+                                <img src="https://static.ruogoo.cn/image/blank.gif" data-original="https://i.ruogoo.cn/user/3cb4afd4bee3a3e8d3754e2ad3500c0a.jpg@!avatar-60" alt="陌涂">
+                            </a>
+                            <a href="https://user.ruogoo.cn/9471" class="user-name">陌涂</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+</div>
+</section>
+
+<script src="/js/push.js"></script>
+<script async="" src="/js/analytics.js"></script>
+<script src="/js/hm.js?5b73570792602cb83cdb6b9af4ef15cd"></script>
+<script src="/js/lib.js"></script>
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.support.cors = true;
+        $('input, textarea').placeholder();
+        $('img[data-original]').lazyload({
+            placeholder: "https://static.ruogoo.cn/image/blank.gif",
+            effect: "fadeIn",
+            threshold: 400
+        });
+        $('.ui.pop').popup({
+            position: 'bottom center',
+            variation: "inverted",
+            delay: {
+                hide: 200
+            }
+        });
+        $('.ui.htmlpop').popup({
+            inline: true,
+            hoverable: true,
+            exclusive: true,
+            jitter: 20,
+            position: 'bottom center',
+            delay: {
+                show: 100,
+                hide: 500
+            }
+        });
+        $('select.dropdown').dropdown();
+        $('.ui.tabs .item').tab();
+        $('.ui.trigger').click(function() {
+            var target = $(this).data('target');
+            $(target).modal('show');
+        });
+        $('.message .close').on('click', function() {
+            $(this).closest('.message').transition('fade');
+        });
+
+        $('.ui.tint.blur').each(function() {
+            var imageUrl = $(this).data('image');
+            $(this).css({
+                position: 'relative',
+                'z-index': '1'
+            });
+            $('<div class="tint-overlay"></div>').css({
+                position: 'absolute',
+                width: '100%',
+                height: '100%',
+                overflow: 'hidden',
+                'z-index': '-1'
+            }).prependTo($(this));
+
+            $(this).find('.tint-overlay').backgroundBlur({
+                imageURL: imageUrl,
+                blurAmount: 20,
+                imageClass: 'tint-bg-blur',
+                duration: 500,
+                endOpacity: 1
+            }).css('background', 'rgba(0, 0, 0, 0.2)');
+        });
+
+        if ($('.waterfall').length > 0) {
+            waterfall('.waterfall');
+        }
+    });
+    new Menu();
+    var RG = {};
+
+    RG.currentUser = {
+        "id": 10113,
+        "name": "\u65b9\u4e08\u9057\u5c11\u4e0d\u662f\u675c\u4e09\u8d31",
+        "active": 0,
+        "avatar": "https:\/\/o.ruogoo.cn\/user\/4b5fe67f898c7731a70fc3425cf8063b.jpeg",
+        "gender": 0,
+        "birth": "",
+        "city": "",
+        "qq": "",
+        "weibo": "",
+        "signature": "",
+        "introduction": "",
+        "recommend": 0,
+        "writter": 0,
+        "writter_status": 0,
+        "life": 2,
+        "popular": 0,
+        "score": 1,
+        "level": 0,
+        "created_at": "2017-07-18 12:45:57",
+        "updated_at": "2017-08-02 16:40:21"
+    };
+</script>
+<div class="mm-menu-mask"></div>
+
+<script type="text/javascript">
+    RG.user = {
+        "id": 10113,
+        "name": "\u65b9\u4e08\u9057\u5c11\u4e0d\u662f\u675c\u4e09\u8d31",
+        "active": 0,
+        "avatar": "https:\/\/o.ruogoo.cn\/user\/4b5fe67f898c7731a70fc3425cf8063b.jpeg",
+        "gender": 0,
+        "birth": "",
+        "city": "",
+        "qq": "",
+        "weibo": "",
+        "signature": "",
+        "introduction": "",
+        "recommend": 0,
+        "writter": 0,
+        "writter_status": 0,
+        "life": 2,
+        "popular": 0,
+        "score": 1,
+        "level": 0,
+        "created_at": "2017-07-18 12:45:57",
+        "updated_at": "2017-08-02 16:40:21"
+    };
+</script>
+<script src="/js/home.js"></script>
+
+
+
+<script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "/js/hm.js?5b73570792602cb83cdb6b9af4ef15cd";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<script>
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '/js/analytics.js', 'ga');
+
+    ga('create', 'UA-64523090-1', 'auto');
+    ga('send', 'pageview');
+</script>
+<script>
+    (function() {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = '/js/push.js';
+        } else {
+            bp.src = '/js/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+<script src="/js/level.js"></script>
+
+
+<div style="position: static; display: none; width: 0px; height: 0px; border: none; padding: 0px; margin: 0px;">
+    <div id="trans-tooltip">
+        <div id="tip-left-top" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-left-top.png&quot;);"></div>
+        <div id="tip-top" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-top.png&quot;) repeat-x;"></div>
+        <div id="tip-right-top" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-right-top.png&quot;);"></div>
+        <div id="tip-right" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-right.png&quot;) repeat-y;"></div>
+        <div id="tip-right-bottom" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-right-bottom.png&quot;);"></div>
+        <div id="tip-bottom" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-bottom.png&quot;) repeat-x;"></div>
+        <div id="tip-left-bottom" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-left-bottom.png&quot;);"></div>
+        <div id="tip-left" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-left.png&quot;);"></div>
+        <div id="trans-content"></div>
+    </div>
+    <div id="tip-arrow-bottom" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-arrow-bottom.png&quot;);"></div>
+    <div id="tip-arrow-top" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-arrow-top.png&quot;);"></div>
+</div>
+</body>
+
+</html>

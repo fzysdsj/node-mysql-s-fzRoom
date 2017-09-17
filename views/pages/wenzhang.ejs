@@ -1,0 +1,112 @@
+<%- include('userHeader') %>
+    <div class="col-dt-9 col-9 col-mb-12">
+        <section class="home-content-section one-section white section">
+            <div class="tab-panel">
+                <div class="tab">
+                    <% if(datas[0].userId == user.userId){ %>
+                        <ul>
+                            <li class="tab-item ">
+                                <a href="/users/toSelect/<%= datas[0].userId %>">与我相关</a>
+                            </li>
+                            <li class="tab-item">
+                                <a href="/users/toSelect/<%= datas[0].userId %>/followed">关注</a>
+                            </li>
+                            <li class="tab-item active">
+                                <a href="/users/toSelect/<%= datas[0].userId %>/article">文章</a>
+                            </li>
+                            <li class="tab-item">
+                                <a href="/users/toSelect/<%= datas[0].userId %>/collection">文集</a>
+                            </li>
+                            <li class="tab-item">
+                                <a href="/users/toSelect/<%= datas[0].userId %>/post">帖子</a>
+                            </li>
+                            <li class="tab-item">
+                                <a href="/users/toSelect/<%= datas[0].userId %>/notification">消息</a>
+                            </li>
+                        </ul>
+                        <% }else { %>
+                            <ul>
+                                <li class="tab-item active">
+                                    <a href="/users/toSelect/<%= datas[0].userId %>/article">文章</a>
+                                </li>
+                                <li class="tab-item">
+                                    <a href="/users/toSelect/<%= datas[0].userId %>/collection">文集</a>
+                                </li>
+                                <li class="tab-item">
+                                    <a href="/users/toSelect/<%= datas[0].userId %>/post">帖子</a>
+                                </li>
+                            </ul>
+                            <% } %>
+                </div>
+                <% if(articles.length ==0){ %>
+                    <div class="tab-content">
+                        <div class="empty-view empty-article">这个人很懒，还没有发过文章 ~~~~(&gt;_&lt;)~~~~</div>
+                    </div>
+                    <% }else{ %>
+                        <div class="tab-content">
+                            <ul class="article-list">
+                                <% for(var i =articles.length-1;i>=0; i--){ %>
+                                    <li class="article-item">
+                                        <p>
+                                            <span>
+                                                                                <% if(articles[i].artPush == 0){}else { %>
+                                                                                    <span class="rg-label rg-label-warning">已推荐</span>
+                                            <% } %>
+                                                <i class="ri ri-file-text-o"></i>
+                                                <a href="/articles/article" class="gray big title" target="_blank">[<%= articles[i].artCategory %>]</a>
+                                                <a href="/articles/art/<%= articles[i].artId %>" class="big title">
+                                                    <a href="/articles/art/<%= articles[i].artId %>" class="big title" target="_blank">
+                                                        <%= articles[i].artTitle %>
+                                                    </a>
+                                                <span class="gray small text"><%= articles[i].artStartTime %>  · <%= articles[i].artUp %> 人喜欢 · <%= articles[i].artSaw %>阅读 ）</span>
+
+                                                </a>
+                                                </span>
+
+                                                <p class="gray text">
+                                                    <% if(articles[i].artContent.length>100){ %>
+                                                        <%= articles[i].artContent.slice(0,100) %>
+                                                            ......
+                                                            <%} else{ %>
+                                                                <%= articles[i].artContent %>
+                                                                    <% } %>
+                                                </p>
+                                        </p>
+                                    </li>
+                                    <% } %>
+                            </ul>
+                            <% } %>
+                        </div>
+        </section>
+        </div>
+        <!-- <script>
+        $(function() {
+            var s;
+            if ($('.unfollowed')[0].style.display == 'none') {
+                s = 1;
+            } else {
+                s = 2;
+            }
+            $(".unfollowed").on('click', function() {
+                s++;
+                $(this).css('display', 'none');
+                $(".followed").css('display', 'inline-block');
+                $("#followedClick").val(s);
+                console.log(s);
+            });
+            $(".followed").mouseover(function() {
+                $(this).text('取消关注');
+            });
+            $(".followed").mouseout(function() {
+                $(this).text('已关注');
+            });
+            $(".followed").on('click', function() {
+                s++;
+                $(this).css('display', 'none');
+                $(".unfollowed").css('display', 'inline-block');
+                $("#followedClick").val(s);
+                console.log(s);
+            });
+        })
+    </script> -->
+        <%- include('userFooter') %>

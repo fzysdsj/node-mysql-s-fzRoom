@@ -1,0 +1,81 @@
+<%- include('header') %>
+    <h3 class="text-center">
+        用户信息添加页
+    </h3>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-sm-offset-4">
+                <form class="form-horizontal" action="/users/add" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">用户ID</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" placeholder="用户ID" name="id">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">用户名</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" placeholder="用户名" name="username">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">用户密码</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" placeholder="用户名" name="userpwd">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">用户昵称</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" placeholder="用户昵称" name="usernick">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">用户邮箱</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" placeholder="用户邮箱" name="useremail">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">用户手机</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" placeholder="用户手机" name="userphone">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">用户国籍</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" placeholder="用户国籍" name="userhome">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">用户等级</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" placeholder="用户等级" name="userclass">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">用户性别</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" placeholder="用户性别" name="usersex">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">用户头像</label>
+                        <div class="col-sm-3">
+                            <input type="file" class="form-control" name="useravatar">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <input type="submit" value="提交" class="btn btn-default">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <%- include('footer') %>

@@ -1,0 +1,244 @@
+<%- include('backendHeader') %>
+    <div class="main-content">
+        <div class="page-content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <h3 class="header smaller lighter blue">用户信息表</h3>
+                            <div class="table-header">
+                                黑暗带来的光明永远事廉价的。 ----方丈遗少
+                            </div>
+                            <div class="table-responsive">
+                                <table id="sample-table-2" class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th class="center">
+                                                <label>
+																<input type="checkbox" class="ace" />
+																<span class="lbl"></span>
+															</label>
+                                            </th>
+                                            <th>评论ID</th>
+                                            <th>所在文章ID</th>
+                                            <th>发言者ID</th>
+                                            <th class="hidden-480">内容</th>
+                                            <th><i>发言时间</i></th>
+                                            <th>
+                                                <i>点赞数</i>
+                                            </th>
+                                            <th><i>点踩数</i></th>
+                                            <th><i>***</i></th>
+                                            <th><i>****</i></th>
+                                            <th><i>操作</i></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% for(var i = 0; i < datas.length; i++) {%>
+                                            <tr>
+                                                <td class="center">
+                                                    <label>
+																<input type="checkbox" class="ace" />
+																<span class="lbl"></span>
+															</label>
+                                                </td>
+
+                                                <td>
+                                                    <a href="#">
+                                                        <%= datas[i].comId %>
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <%= datas[i].comAid %>
+                                                </td>
+                                                <td class="hidden-480">
+                                                    <%= datas[i].comUid %>
+                                                </td>
+                                                <td>
+                                                    <%= datas[i].comContent %>
+                                                </td>
+                                                <td>
+                                                    <%= datas[i].comStartTime %>
+                                                </td>
+                                                <td>
+                                                    <%= datas[i].comUp%>
+                                                </td>
+                                                <td>
+                                                    <%= datas[i].comDown %>
+                                                </td>
+                                                <td class="hidden-480">
+                                                    <span class="label label-sm label-warning"></span>
+                                                </td>
+                                                <td>
+
+                                                </td>
+                                                <td>
+                                                    <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+                                                        <!-- <a class="blue" href="/users/toSelect/">
+                                                            <i class="icon-zoom-in bigger-130"></i>
+                                                        </a> -->
+                                                        <!-- 
+                                                        <a class="green" href="/users/toUpdate/">
+                                                            <i class="icon-pencil bigger-130"></i>
+                                                        </a> -->
+
+                                                        <a class="red" href="/comments/del/<%= datas[i].comId %>">
+                                                            <i class="icon-trash bigger-130"></i>
+                                                        </a>
+                                                        <!-- <a class="yellow" href="/users/add">
+                                                            <i class="icon-add bigger-130">6</i>
+                                                        </a> -->
+                                                    </div>
+
+                                                    <div class="visible-xs visible-sm hidden-md hidden-lg">
+                                                        <div class="inline position-relative">
+                                                            <button class="btn btn-minier btn-yellow dropdown-toggle" data-toggle="dropdown">
+																		<i class="icon-caret-down icon-only bigger-120"></i>
+																	</button>
+
+                                                            <ul class="dropdown-menu dropdown-only-icon dropdown-yellow pull-right dropdown-caret dropdown-close">
+                                                                <li>
+                                                                    <a href="/users/toSelect/" class="tooltip-info" data-rel="tooltip" title="View">
+                                                                        <span class="blue">
+																					<i class="icon-zoom-in bigger-120"></i>
+																				</span>
+                                                                    </a>
+                                                                </li>
+
+                                                                <li>
+                                                                    <a href="/users/toUpdate/" class="tooltip-success" data-rel="tooltip" title="Edit">
+                                                                        <span class="green">
+																					<i class="icon-edit bigger-120"></i>
+																				</span>
+                                                                    </a>
+                                                                </li>
+
+                                                                <li>
+                                                                    <a href="/users/del/" class="tooltip-error" data-rel="tooltip" title="Delete">
+                                                                        <span class="red">
+																					<i class="icon-trash bigger-120"></i>
+																				</span>
+                                                                    </a>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <% } %>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.page-content -->
+    </div>
+    <!-- /.main-content -->
+
+    <div class="ace-settings-container" id="ace-settings-container">
+        <div class="btn btn-app btn-xs btn-warning ace-settings-btn" id="ace-settings-btn">
+            <i class="icon-cog bigger-150"></i>
+        </div>
+
+        <div class="ace-settings-box" id="ace-settings-box">
+            <div>
+                <div class="pull-left">
+                    <select id="skin-colorpicker" class="hide">
+									<option data-skin="default" value="#438EB9">#438EB9</option>
+									<option data-skin="skin-1" value="#222A2D">#222A2D</option>
+									<option data-skin="skin-2" value="#C6487E">#C6487E</option>
+									<option data-skin="skin-3" value="#D0D0D0">#D0D0D0</option>
+								</select>
+                </div>
+                <span>&nbsp; Choose Skin</span>
+            </div>
+
+            <div>
+                <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-navbar" />
+                <label class="lbl" for="ace-settings-navbar"> Fixed Navbar</label>
+            </div>
+
+            <div>
+                <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-sidebar" />
+                <label class="lbl" for="ace-settings-sidebar"> Fixed Sidebar</label>
+            </div>
+
+            <div>
+                <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-breadcrumbs" />
+                <label class="lbl" for="ace-settings-breadcrumbs"> Fixed Breadcrumbs</label>
+            </div>
+
+            <div>
+                <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-rtl" />
+                <label class="lbl" for="ace-settings-rtl"> Right To Left (rtl)</label>
+            </div>
+
+            <div>
+                <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-add-container" />
+                <label class="lbl" for="ace-settings-add-container">
+								Inside
+								<b>.container</b>
+							</label>
+            </div>
+        </div>
+    </div>
+    <!-- /#ace-settings-container -->
+    </div>
+    <!-- /.main-container-inner -->
+
+    <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+        <i class="icon-double-angle-up icon-only bigger-110"></i>
+    </a>
+    </div>
+    <!-- /.main-container -->
+
+    <!-- basic scripts -->
+    <script type="text/javascript">
+        jQuery(function($) {
+            var oTable1 = $('#sample-table-2').dataTable({
+                "aoColumns": [{
+                        "bSortable": false
+                    },
+                    null, null, null, null, null, null, null, null, null, {
+                        "bSortable": false
+                    }
+                ]
+            });
+
+
+            $('table th input:checkbox').on('click', function() {
+                var that = this;
+                $(this).closest('table').find('tr > td:first-child input:checkbox')
+                    .each(function() {
+                        this.checked = that.checked;
+                        $(this).closest('tr').toggleClass('selected');
+                    });
+
+            });
+
+
+            $('[data-rel="tooltip"]').tooltip({
+                placement: tooltip_placement
+            });
+
+            function tooltip_placement(context, source) {
+                var $source = $(source);
+                var $parent = $source.closest('table')
+                var off1 = $parent.offset();
+                var w1 = $parent.width();
+
+                var off2 = $source.offset();
+                var w2 = $source.width();
+
+                if (parseInt(off2.left) < parseInt(off1.left) + parseInt(w1 / 2)) return 'right';
+                return 'left';
+            }
+        })
+    </script>
+    <%- include('tableend') %>

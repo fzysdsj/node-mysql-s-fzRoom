@@ -1,0 +1,101 @@
+<%- include('header') %>
+    <link rel="stylesheet" href="/css/lib.css" />
+    <link rel="stylesheet" href="/css/page.css" />
+    <link rel="stylesheet" href="/css/home.css" />
+    <div class="col-12">
+        <section class="search-head-section one-section white section" style=" display: block;">
+            <div class="col-group">
+                <div class="col-3 col-mb-12"></div>
+                <form method="POST" action="/searchRoom/search" target="search" id="createArticleForm">
+                    <div class="search col-6 col-mb-12">
+                        <div class="search-box">
+                            <input type="text" class="input-text input-search" placeholder="输入关键字搜索" value="" name="search">
+                            <input type="submit" class="do-search gray" value="搜 索">
+                        </div>
+                        <div class="option">
+                            <label>
+							<input name="type" type="radio" value="article" checked=""> 文章
+						</label>
+                            <label>
+							<input name="type" type="radio" value="forum"> 论坛
+						</label>
+                            <label>
+							<input name="type" type="radio" value="tweet"> 泡泡
+						</label>
+                            <label>
+							<input name="type" type="radio" value="user"> 用户
+						</label>
+                        </div>
+                    </div>
+                </form>
+                <div class="col-3 col-mb-12"></div>
+            </div>
+        </section>
+    </div>
+    <div class="col-6 col-mb-12">
+        <section class="search-recommend-section">
+            <div class="rg-board one-section white section">
+                <div class="rg-board-head">
+                    <p class="title">推荐文章</p>
+                </div>
+                <div class="rg-board-body">
+                    <ul class="recommend-list">
+                        <% for(let i = 0;i<7;i++){ %>
+                            <li class="result-item article-item">
+                                <p class="title" search-hit="false" keyword="">
+                                    <a href="/articles/art/<%= datas[i].artId %>" class="text">
+                                        <%= datas[i].artTitle %>
+                                    </a>
+                                </p>
+
+                                <p class="meta text gray">
+                                    <span class="span-item">
+			<a href="/users/toSelect/<%= users[i].userId %>" class="gray">
+				 <img src="/uploads/<%= users[i].userAvatar %>" data-original="/uploads/<%= users[i].userAvatar %>" class="head img-circle" alt="<%= users[i].userNick %>" width="20" height="20"> <%= users[i].userNick %>
+			</a>
+		</span>
+                                    <span class="span-item">
+			<i class="ri ri-clock-o"></i> <%= datas[i].artStartTime %>
+		</span>
+                                </p>
+                            </li>
+                            <% } %>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="col-6 col-mb-12">
+        <section class="search-recommend-section">
+            <div class="rg-board one-section white section">
+                <div class="rg-board-head">
+                    <p class="title">推荐帖子</p>
+                </div>
+                <div class="rg-board-body">
+                    <ul class="recommend-list">
+                        <% for(let i = 0;i<2;i++){ %>
+                            <li class="result-item article-item">
+                                <p class="title" search-hit="false" keyword="">
+                                    <a href="/talkRoom/posts/<%= Pdatas[i].postId %>" class="text">
+                                        <%= Pdatas[i].postTitle %>
+                                    </a>
+                                </p>
+
+                                <p class="meta text gray">
+                                    <span class="span-item">
+			<a href="/users/toSelect/<%= Pusers[i].userId %>" class="gray">
+				 <img src="/uploads/<%= Pusers[i].userAvatar %>" data-original="/uploads/<%= Pusers[i].userAvatar %>" class="head img-circle" alt="<%= Pusers[i].userNick %>" width="20" height="20"> <%= Pusers[i].userNick %>
+			</a>
+		</span>
+                                    <span class="span-item">
+			<i class="ri ri-clock-o"></i> <%= Pdatas[i].postStartTime %>
+		</span>
+                                </p>
+                            </li>
+                            <% } %>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+    <%- include('footer') %>

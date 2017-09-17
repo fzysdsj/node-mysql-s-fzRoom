@@ -1,0 +1,157 @@
+<%- include('header') %>
+    <link rel="stylesheet" href="/css/article.css" />
+    <link rel="stylesheet" href="/css/articleA.css" />
+    <link rel="stylesheet" href="/css/profile.css" />
+    <div class="message-container">
+    </div>
+    <div class="mm-wrapper" id="mm-wrapper">
+        <div class="body">
+            <section class="home-header-section ui tint blur" data-image="https://static.ruogoo.cn/image/theme/008.jpg" style="position: relative; z-index: 1;">
+                <div class="tint-overlay" style="position: absolute; width: 100%; height: 100%; overflow: hidden; z-index: -1; background: rgba(60, 30, 50, 0.6);">
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="412" height="320" id="blurred_i32nc1ooy" class="tint-bg-blur" viewBox="0 0 412 320" preserveAspectRatio="none" style="opacity: 1;"><filter id="blur_i32nc1ooy"><feGaussianBlur in="SourceGraphic" stdDeviation="20"></feGaussianBlur></filter><image x="0" y="0" width="412" height="320" externalResourcesRequired="true" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://static.ruogoo.cn/image/theme/008.jpg" style="filter:url(#blur_i32nc1ooy)" preserveAspectRatio="none"></image></svg>
+                </div>
+                <div class="user-detail container">
+                    <div class="avatar-block editable">
+                        <a href="/users/toSelect/<%= datas[0].userId %>/set/avatar" class="change-head">
+                            <img class="avatar-big" src="/uploads/<%= datas[0].userAvatar %>" data-original="/uploads/<%= datas[0].userAvatar %>" width="160" height="160" alt="<%= datas[0].userNick %>">
+                            <div class="change-head-tip">修改头像</div>
+                        </a>
+                    </div>
+
+                    <div class="info-block">
+                        <div class="info">
+                            <span class="name title white extra"><%= datas[0].userNick %></span>
+                            <a href="/knowRoom" class="rg-label small level" style="background-color: #B0B0B0;">
+                                <%= datas[0].userClass %>
+                            </a>
+                            <span class="span-item gender white text">
+							<i class="ri ri-transgender"></i>(距下次升级所需经验 ：<span id="levelValue"></span>)
+                            </span>
+                        </div>
+                        <div class="count">
+                            <span class="span-item text white attention">
+			关注：<a href="https://user.ruogoo.cn/10113/attentions" class="gray"> <%= fansNumber.length %></a>
+		</span>
+                            <span class="span-item text white fan">
+			· 粉丝：<a href="https://user.ruogoo.cn/10113/fans" class="gray"> <%= followNumber.length %></a>
+		</span>
+                        </div>
+                        <p class="signature text white">
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="home-section one-section container">
+                <div class="col-group">
+                    <% if(datas[0].userEmail==""){ %>
+                        <div class="col-12">
+                            <div class="ui warning message">
+                                <i class="close icon"></i>
+                                <p class="header">您没有绑定邮箱，绑定邮箱并设置密码后可以使用邮箱登录... <a href="/users/toSelect/<%= datas[0].userId %>/set/email">点我前往绑定邮箱</a></p>
+                            </div>
+                        </div>
+                        <% }else{ %>
+                            <div class=" col-12 ">
+                                <div class="ui warning message ">
+                                    <i class="close icon "></i>
+                                    <p class="header ">您已绑定邮箱：
+                                        <%= datas[0].userEmail %><a href="/users/toSelect/<%=datas[0].userId %>/set/email">点我前往修改绑定邮箱</a>
+                                    </p>
+                                </div>
+                            </div>
+                            <% } %>
+                                <div class="col-dt-9 col-9 col-mb-12">
+                                    <section class="home-content-section one-section white section">
+                                        <div class="rg-board white">
+                                            <div class="rg-board-head">
+                                                <p class="title">个人资料</p>
+                                                <a href="/users/toSelect/<%= datas[0].userId %>/set/profile" class="sub-title"><i class="ri ri-edit"></i> 编辑</a>
+                                                <a href="/users/toSelect/<%= datas[0].userId %>" class="more">我的首页 &gt;</a>
+                                            </div>
+                                            <div class="rg-board-body">
+                                                <div class="profile profile-show">
+
+                                                    <div class="profile-row profile-name">
+                                                        <div class="profile-key">昵称</div>
+                                                        <div class="profile-value">
+                                                            <div class="show">
+                                                                <span class="span-item show-name"><%= datas[0].userNick %></span>
+                                                                <span>
+									<a href="/users/toSelect/<%= datas[0].userId %>/set/name">修改</a>
+								</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="profile-row">
+                                                        <div class="profile-key">邮箱</div>
+                                                        <div class="profile-value">
+                                                            <% if(datas[0].userEmail==""){ %>
+                                                                <span>
+									<a href="/users/toSelect/<%= datas[0].userId %>/set/email">绑定邮箱</a>
+                                </span>
+                                                                <% }else{ %>
+                                                                    <span>
+                                                              <%= datas[0].userEmail %>
+									<a href="/users/toSelect/<%= datas[0].userId %>/set/email">点击修改绑定邮箱</a>
+                                </span>
+                                                                    <% } %>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="profile-row">
+                                                        <div class="profile-key">性别</div>
+                                                        <div class="profile-value">
+                                                            <%= datas[0].userSex %>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="profile-row">
+                                                        <div class="profile-key">电话</div>
+                                                        <div class="profile-value">
+                                                            <%= datas[0].userPhone %>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="profile-row">
+                                                        <div class="profile-key">家乡</div>
+                                                        <div class="profile-value">
+                                                            <%=datas[0].userHome %>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="profile-row">
+                                                        <div class="profile-key">QQ</div>
+                                                        <div class="profile-value"></div>
+                                                    </div>
+
+                                                    <div class="profile-row">
+                                                        <div class="profile-key">微博</div>
+                                                        <div class="profile-value"></div>
+                                                    </div>
+
+                                                    <div class="profile-row">
+                                                        <div class="profile-key">个性签名</div>
+                                                        <div class="profile-value"></div>
+                                                    </div>
+
+                                                    <div class="profile-row">
+                                                        <div class="profile-key">个人简介</div>
+                                                        <div class="profile-value"></div>
+                                                    </div>
+
+                                                    <!-- <div class="profile-row">
+                                                        <div class="profile-key">邀请人</div>
+                                                        <div class="profile-value">没有邀请人？
+                                                            <a href="https://user.ruogoo.cn/10113/set/inviter">设置我的邀请人</a>
+                                                        </div>
+                                                    </div> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+
+                                <%- include('userFooter') %>

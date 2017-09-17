@@ -1,0 +1,449 @@
+<%- include('header') %>
+    <link media="all" type="text/css" rel="stylesheet" href="/css/lib.css">
+    <link media="all" type="text/css" rel="stylesheet" href="/css/home.css">
+    <link media="all" type="text/css" rel="stylesheet" href="/css/swiper.min.css">
+    <div class="body">
+        <div class="recommend-section">
+            <div class="background-overlay"></div>
+            <div class="container recommend-container">
+                <div class="recommend-detail">
+                    <!-- <p>
+                        精品：
+                        <%= userGood[0].userNick %>
+                            <%= good[0].artTitle %>
+                    </p>
+                    <p>
+                        最新：
+                        <%= userNew[0].userNick %>
+                            <%= news[0].artTitle %>
+                    </p>
+                    <p>
+                        最受欢迎：
+                        <%= userPop[0].userNick %>
+                            <%= pops[0].artTitle %>
+                    </p> -->
+                    <h2>
+                        <a href="articles/art/<%= datas[0].artId %>" class="white title extra">
+                            <%= datas[0].artTitle %>
+                        </a>
+                    </h2>
+                    <h4>
+                        <a href="javascript:if(confirm('https://user.ruogoo.cn/390 ')))window.location='https://user.ruogoo.cn/390'" tppabs="https://user.ruogoo.cn/390" class="white title author">
+                            <%= users[0].userNick %>></a>
+                    </h4>
+                    <a href="/articles/article/recommend" class="rg-button see-more ">更多推荐</a>
+                </div>
+
+                <div class="recommend-show ">
+                    <a href=" " class="image current ">
+                        <img src=" " width="240 " height="320 ">
+                    </a>
+                </div>
+
+                <ul class="recommend-list ">
+                    <% for(let i = 0;i< 8;i++){ %>
+                        <li class="recommend-item ">
+                            <a href="articles/art/<%= datas[i].artId %> " class="image recommend-article " data-title="<%= datas[i].artTitle %> " data-author="<%= users[i].userNick %>" data-author-url="/articles/art/<%= datas[i].artId %>">
+                                <img src="/uploads/<%= datas[i].artPic %>" width="100" height="133.33">
+                                <p class="title small one-line "><%= datas[i].artTitle %></p>
+                            </a>
+                        </li>
+                        <% } %>
+                </ul>
+            </div>
+        </div>
+        <section class="nice-section container">
+            <div class="rg-board one-section white section">
+                <div class="rg-board-head">
+                    <p class="title">精品文章</p>
+                    <a href="/articles/article/nice" class="more"> 更多 &gt;&gt;</a>
+                </div>
+                <div class="rg-board-body">
+                    <div class="col-group">
+                        <% for(let i = 0;i<6;i++){ %>
+                            <div class="col-4 col-mb-12">
+                                <div class="nicewithpic-item">
+                                    <a href="articles/art/<%= good[i].artId %>" class="nice-cover image">
+                                        <img src="/uploads/<%= good[i].artPic %>" data-original="/uploads/<%= good[i].artPic %>" class="cover" alt="<%= good[i].artTitle %>">
+                                    </a>
+                                    <div class="big title one-line">
+                                        <a href="articles/art/<%= good[i].artId %>">
+                                            <%= good[i].artTitle %>
+                                        </a>
+                                    </div>
+                                    <p class="small text gray summary">
+                                        <%= good[i].artContent %>
+                                    </p>
+                                    <p class="author">作者:
+                                        <a href="/users/toSelect/<%= userGood[i].userId %>">
+                                            <%= userGood[i].userNick %>
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                            <% } %>
+                    </div>
+
+                    <div class="nice-list col-group">
+                        <% for(let i =6;i<18;i++){ %>
+                            <div class="col-3 col-mb-12">
+                                <div class="nice-item text one-line">
+                                    <a href="/articles/article" class="gray">
+                                        [<%= good[i].artCategory %>]
+                                    </a>
+                                    <a href="/articles/art/<%= good[i].artId %>" class="title">
+                                        <%= good[i].artTitle %>
+                                    </a> /
+                                    <a href="/users/toSelect/<%= userGood[i].userId %>" class="gray">
+                                        <%= userGood[i].userNick %>
+                                    </a>
+                                </div>
+                            </div>
+                            <% } %>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- <div class="container">
+            <div class="rg-board collection-section one-section white section">
+                <div class="rg-board-head">
+                    <p class="title">推荐文集</p>
+                    <a href="https://wenxue.ruogoo.cn/collection" class="more">更多 &gt;&gt;</a>
+                </div>
+                <div class="rg-board-body">
+                    <div class="collection-list clearfix col-group">
+                        <div class="col-2 col-mb-6">
+                            <div class="collection-item">
+                                <a href="https://wenxue.ruogoo.cn/collection/436" class="collection-cover image">
+                                    <img src="https://i.ruogoo.cn/cover/bd5957d0eaab0b81945020b8e8925d83.jpg@!cover-120" data-original="https://i.ruogoo.cn/cover/bd5957d0eaab0b81945020b8e8925d83.jpg@!cover-120" class="cover" alt="苍苍蒹葭">
+                                </a>
+                                <p class="title one-line">
+                                    <a href="https://wenxue.ruogoo.cn/collection/436">苍苍蒹葭</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-2 col-mb-6">
+                            <div class="collection-item">
+                                <a href="https://wenxue.ruogoo.cn/collection/434" class="collection-cover image">
+                                    <img src="https://i.ruogoo.cn/cover/6b58e59a84d7c8ef1bf8992c31090413.jpg@!cover-120" data-original="https://i.ruogoo.cn/cover/6b58e59a84d7c8ef1bf8992c31090413.jpg@!cover-120" class="cover" alt="忆枫文集">
+                                </a>
+                                <p class="title one-line">
+                                    <a href="https://wenxue.ruogoo.cn/collection/434">忆枫文集</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-2 col-mb-6">
+                            <div class="collection-item">
+                                <a href="https://wenxue.ruogoo.cn/collection/433" class="collection-cover image">
+                                    <img src="https://i.ruogoo.cn/cover/1252eb80b6ac747a47458d1cf7546fd7.jpg@!cover-120" data-original="https://i.ruogoo.cn/cover/1252eb80b6ac747a47458d1cf7546fd7.jpg@!cover-120" class="cover" alt="青春">
+                                </a>
+                                <p class="title one-line">
+                                    <a href="https://wenxue.ruogoo.cn/collection/433">青春</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-2 col-mb-6">
+                            <div class="collection-item">
+                                <a href="https://wenxue.ruogoo.cn/collection/429" class="collection-cover image">
+                                    <img src="https://i.ruogoo.cn/cover/02292245c2e46f80d88dfcdb50236302.jpg@!cover-120" data-original="https://i.ruogoo.cn/cover/02292245c2e46f80d88dfcdb50236302.jpg@!cover-120" class="cover" alt="君狸辛诗集">
+                                </a>
+                                <p class="title one-line">
+                                    <a href="https://wenxue.ruogoo.cn/collection/429">君狸辛诗集</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-2 col-mb-6">
+                            <div class="collection-item">
+                                <a href="https://wenxue.ruogoo.cn/collection/428" class="collection-cover image">
+                                    <img src="https://i.ruogoo.cn/cover/039e1f6fad5c11b66e0dc179bcbd16b4.jpg@!cover-120" data-original="https://i.ruogoo.cn/cover/039e1f6fad5c11b66e0dc179bcbd16b4.jpg@!cover-120" class="cover" alt="灯鬼">
+                                </a>
+                                <p class="title one-line">
+                                    <a href="https://wenxue.ruogoo.cn/collection/428">灯鬼</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-2 col-mb-6">
+                            <div class="collection-item">
+                                <a href="https://wenxue.ruogoo.cn/collection/417" class="collection-cover image">
+                                    <img src="https://i.ruogoo.cn/cover/b87776c18fd02be7eab8b06fe702357f.jpg@!cover-120" data-original="https://i.ruogoo.cn/cover/b87776c18fd02be7eab8b06fe702357f.jpg@!cover-120" class="cover" alt="清幽">
+                                </a>
+                                <p class="title one-line">
+                                    <a href="https://wenxue.ruogoo.cn/collection/417">清幽</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-2 col-mb-6">
+                            <div class="collection-item">
+                                <a href="https://wenxue.ruogoo.cn/collection/411" class="collection-cover image">
+                                    <img src="https://i.ruogoo.cn/cover/c70b58685be3b12bd9787e11251147c2.jpg@!cover-120" data-original="https://i.ruogoo.cn/cover/c70b58685be3b12bd9787e11251147c2.jpg@!cover-120" class="cover" alt="烟雨书话">
+                                </a>
+                                <p class="title one-line">
+                                    <a href="https://wenxue.ruogoo.cn/collection/411">烟雨书话</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-2 col-mb-6">
+                            <div class="collection-item">
+                                <a href="https://wenxue.ruogoo.cn/collection/410" class="collection-cover image">
+                                    <img src="https://i.ruogoo.cn/cover/c4b16985bedb15b5b0aed63872f170d3.jpg@!cover-120" data-original="https://i.ruogoo.cn/cover/c4b16985bedb15b5b0aed63872f170d3.jpg@!cover-120" class="cover" alt="烟雨词话">
+                                </a>
+                                <p class="title one-line">
+                                    <a href="https://wenxue.ruogoo.cn/collection/410">烟雨词话</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-2 col-mb-6">
+                            <div class="collection-item">
+                                <a href="https://wenxue.ruogoo.cn/collection/406" class="collection-cover image">
+                                    <img src="https://i.ruogoo.cn/cover/6547849d6c572a36ed6296ae2d97244c.jpg@!cover-120" data-original="https://i.ruogoo.cn/cover/6547849d6c572a36ed6296ae2d97244c.jpg@!cover-120" class="cover" alt="那一世">
+                                </a>
+                                <p class="title one-line">
+                                    <a href="https://wenxue.ruogoo.cn/collection/406">那一世</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-2 col-mb-6">
+                            <div class="collection-item">
+                                <a href="https://wenxue.ruogoo.cn/collection/402" class="collection-cover image">
+                                    <img src="https://i.ruogoo.cn/cover/c367dc866c46745958021a64b0847bba.jpg@!cover-120" data-original="https://i.ruogoo.cn/cover/c367dc866c46745958021a64b0847bba.jpg@!cover-120" class="cover" alt="繁华浮梦">
+                                </a>
+                                <p class="title one-line">
+                                    <a href="https://wenxue.ruogoo.cn/collection/402">繁华浮梦</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-2 col-mb-6">
+                            <div class="collection-item">
+                                <a href="https://wenxue.ruogoo.cn/collection/392" class="collection-cover image">
+                                    <img src="https://i.ruogoo.cn/cover/f30362fdf1d8dfecbe25cbcd401b6cca.jpg@!cover-120" data-original="https://i.ruogoo.cn/cover/f30362fdf1d8dfecbe25cbcd401b6cca.jpg@!cover-120" class="cover" alt="漱玉随笔">
+                                </a>
+                                <p class="title one-line">
+                                    <a href="https://wenxue.ruogoo.cn/collection/392">漱玉随笔</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-2 col-mb-6">
+                            <div class="collection-item">
+                                <a href="https://wenxue.ruogoo.cn/collection/382" class="collection-cover image">
+                                    <img src="https://i.ruogoo.cn/cover/6bcb865d19035027cf687b79ad189bcc.jpg@!cover-120" data-original="https://i.ruogoo.cn/cover/6bcb865d19035027cf687b79ad189bcc.jpg@!cover-120" class="cover" alt="尘缘过客">
+                                </a>
+                                <p class="title one-line">
+                                    <a href="https://wenxue.ruogoo.cn/collection/382">尘缘过客</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <section class="article-section container">
+            <div class="col-group">
+                <div class="col-8 col-mb-12">
+                    <div class="rg-board one-section white section">
+                        <div class="rg-board-head">
+                            <p class="title">最新文章</p>
+                            <a href="/articles/article" class="more"> 更多 &gt;&gt;</a>
+                        </div>
+                        <div class="rg-board-body">
+                            <div class="col-group">
+                                <ul class="latest-list">
+                                    <% for(var i=0;i<20;i++){ %>
+                                        <div class="col-6 col-mb-12">
+                                            <li class="article-item text one-line">
+                                                <a href="/articles/article" class="gray">[<%= news[i].artCategory %>]</a>
+                                                <a href="/articles/art/<%= news[i].artId %>">
+                                                    <%= news[i].artTitle %>
+                                                </a> -
+                                                <a href="/users/toSelect/<%= userNew[i].userId %> " class="small text gray">
+                                                    <%= userNew[i].userNick %>
+                                                </a>
+                                            </li>
+                                        </div>
+                                        <% } %>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 col-mb-12">
+                    <div class="rg-board one-section white section">
+                        <div class="rg-board-head">
+                            <p class="title">热门排行</p>
+                        </div>
+                        <div class="rg-board-body">
+                            <ul class="top-list">
+                                <% for(let i = 0;i<20;i++){ %>
+                                    <li class="article-item text one-line">
+                                        <i class="article-no text gray"><%= i+1 %>. </i>
+
+
+                                        <a href="articles/art/<%= pops[i].artId %>">
+                                            <%= pops[i].artTitle %>
+                                        </a> -
+                                        <a href="/users/toSelect/<%= userPop[i].userId %>" class="small text gray">
+                                            <%= userPop[i].userNick %>
+                                        </a>
+                                    </li>
+                                    <% } %>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script src="/js/push.js"></script>
+        <script async="" src="/js/analytics.js"></script>
+        <script src="/js/hm.js?5b73570792602cb83cdb6b9af4ef15cd"></script>
+        <script src="/js/lib.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                $.support.cors = true;
+                $('input, textarea').placeholder();
+                $('img[data-original]').lazyload({
+                    placeholder: "https://static.ruogoo.cn/image/blank.gif",
+                    effect: "fadeIn",
+                    threshold: 400
+                });
+                $('.ui.pop').popup({
+                    position: 'bottom center',
+                    variation: "inverted",
+                    delay: {
+                        hide: 200
+                    }
+                });
+                $('.ui.htmlpop').popup({
+                    inline: true,
+                    hoverable: true,
+                    exclusive: true,
+                    jitter: 20,
+                    position: 'bottom center',
+                    delay: {
+                        show: 100,
+                        hide: 500
+                    }
+                });
+                $('select.dropdown').dropdown();
+                $('.ui.tabs .item').tab();
+                $('.ui.trigger').click(function() {
+                    var target = $(this).data('target');
+                    $(target).modal('show');
+                });
+                $('.message .close').on('click', function() {
+                    $(this).closest('.message').transition('fade');
+                });
+
+                $('.ui.tint.blur').each(function() {
+                    var imageUrl = $(this).data('image');
+                    $(this).css({
+                        position: 'relative',
+                        'z-index': '1'
+                    });
+                    $('<div class="tint-overlay"></div>').css({
+                        position: 'absolute',
+                        width: '100%',
+                        height: '100%',
+                        overflow: 'hidden',
+                        'z-index': '-1'
+                    }).prependTo($(this));
+
+                    $(this).find('.tint-overlay').backgroundBlur({
+                        imageURL: imageUrl,
+                        blurAmount: 20,
+                        imageClass: 'tint-bg-blur',
+                        duration: 500,
+                        endOpacity: 1
+                    }).css('background', 'rgba(0, 0, 0, 0.2)');
+                });
+
+                if ($('.waterfall').length > 0) {
+                    waterfall('.waterfall');
+                }
+            });
+            new Menu();
+            var RG = {};
+
+            RG.currentUser = {
+                "id": 10113,
+                "name": "\u65b9\u4e08\u9057\u5c11\u4e0d\u662f\u675c\u4e09\u8d31",
+                "active": 0,
+                "avatar": "https:\/\/o.ruogoo.cn\/user\/4b5fe67f898c7731a70fc3425cf8063b.jpeg",
+                "gender": 0,
+                "birth": "",
+                "city": "",
+                "qq": "",
+                "weibo": "",
+                "signature": "",
+                "introduction": "",
+                "recommend": 0,
+                "writter": 0,
+                "writter_status": 0,
+                "life": 2,
+                "popular": 0,
+                "score": 1,
+                "level": 0,
+                "created_at": "2017-07-18 12:45:57",
+                "updated_at": "2017-08-02 16:40:21"
+            };
+        </script>
+        <div class="mm-menu-mask"></div>
+        <script src="/js/home.js"></script>
+        <script src="/js/swiper.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                var $swiperContainer = $('.swiper-container');
+                if ($swiperContainer.length > 0) {
+                    $swiperContainer.swiper({
+                        direction: 'horizontal',
+                        autoplay: 3000,
+                        loop: true,
+                        pagination: '.swiper-pagination',
+                        paginationClickable: true
+                    });
+                }
+            });
+        </script>
+        <script type="text/javascript">
+            var _hmt = _hmt || [];
+            (function() {
+                var hm = document.createElement("script");
+                hm.src = "//hm.baidu.com/hm.js?5b73570792602cb83cdb6b9af4ef15cd";
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
+        <script>
+            (function(i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r;
+                i[r] = i[r] || function() {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+                a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0];
+                a.async = 1;
+                a.src = g;
+                m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+            ga('create', 'UA-64523090-1', 'auto');
+            ga('send', 'pageview');
+        </script>
+        <script>
+            (function() {
+                var bp = document.createElement('script');
+                var curProtocol = window.location.protocol.split(':')[0];
+                if (curProtocol === 'https') {
+                    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+                } else {
+                    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                }
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(bp, s);
+            })();
+        </script>
+        <%- include('footer') %>

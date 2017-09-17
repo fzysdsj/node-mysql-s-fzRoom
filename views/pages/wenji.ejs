@@ -1,0 +1,69 @@
+<%- include('userHeader') %>
+    <div class="col-dt-9 col-9 col-mb-12">
+        <section class="home-content-section one-section white section">
+            <div class="tab-panel">
+                <div class="tab">
+                    <% if(datas[0].userId == user.userId){ %>
+                        <ul>
+                            <li class="tab-item">
+                                <a href="/users/toSelect/<%= datas[0].userId %>">与我相关</a>
+                            </li>
+                            <li class="tab-item">
+                                <a href="/users/toSelect/<%= datas[0].userId %>/followed">关注</a>
+                            </li>
+                            <li class="tab-item">
+                                <a href="/users/toSelect/<%= datas[0].userId %>/article">文章</a>
+                            </li>
+                            <li class="tab-item active">
+                                <a href="/users/toSelect/<%= datas[0].userId %>/collection">文集</a>
+                            </li>
+                            <li class="tab-item">
+                                <a href="/users/toSelect/<%= datas[0].userId %>/post">帖子</a>
+                            </li>
+                            <li class="tab-item">
+                                <a href="/users/toSelect/<%= datas[0].userId %>/notification">消息</a>
+                            </li>
+                        </ul>
+                        <% }else { %>
+                            <ul>
+                                <li class="tab-item active">
+                                    <a href="/users/toSelect/<%= datas[0].userId %>/article">文章</a>
+                                </li>
+                                <li class="tab-item">
+                                    <a href="/users/toSelect/<%= datas[0].userId %>/collection">文集</a>
+                                </li>
+                                <li class="tab-item">
+                                    <a href="/users/toSelect/<%= datas[0].userId %>/post">帖子</a>
+                                </li>
+                            </ul>
+                            <% } %>
+                </div>
+
+                <div class="tab-content">
+                    <div class="col-group collection-list">
+                        <div class="col-dt-6 col-6 col-mb-12">
+                            <div class="collection-item">
+                                <div class="collection-cover">
+                                    <a href="https://wenxue.ruogoo.cn/collection/444" class="image">
+                                        <img src="https://i.ruogoo.cn/cover/e9be04bde8f02993595de475c769eb99.jpg@!cover-120" data-original="https://i.ruogoo.cn/cover/e9be04bde8f02993595de475c769eb99.jpg@!cover-120" width="120" height="160">
+                                    </a>
+                                </div>
+                                <div class="collection-detail">
+                                    <h3 class="big title one-line">
+                                        <a href="https://wenxue.ruogoo.cn/collection/444"> 等等待 </a>
+                                    </h3>
+                                    <p class="description">点点滴滴</p>
+                                    <p>
+                                        <span class="span-item"><a href="https://user.ruogoo.cn/10113" class="gray"> 方丈遗少不是杜三贱 </a></span>
+                                        <span class="span-item gray small text"> 30秒前 </span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <%- include('userFooter') %>

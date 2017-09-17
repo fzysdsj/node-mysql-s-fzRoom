@@ -1,0 +1,68 @@
+<%- include('userHeader') %>
+    <div class="col-dt-9 col-9 col-mb-12">
+        <section class="home-content-section one-section white section">
+            <div class="tab-panel">
+                <div class="tab">
+                    <% if(datas[0].userId==user.userId){ %>
+                        <ul>
+                            <li class="tab-item active">
+                                <a href="/users/toSelect/<%= datas[0].userId %>">与我相关</a>
+                            </li>
+                            <li class="tab-item">
+                                <a href="/users/toSelect/<%= datas[0].userId %>/followed">关注</a>
+                            </li>
+                            <li class="tab-item ">
+                                <a href="/users/toSelect/<%= datas[0].userId %>/article">文章</a>
+                            </li>
+                            <li class="tab-item ">
+                                <a href="/users/toSelect/<%= datas[0].userId %>/collection">文集</a>
+                            </li>
+                            <li class="tab-item ">
+                                <a href="/users/toSelect/<%= datas[0].userId %>/post">帖子</a>
+                            </li>
+                            <li class="tab-item ">
+                                <a href="/users/toSelect/<%= datas[0].userId %>/notification">消息</a>
+                            </li>
+                        </ul>
+                </div>
+                <div class="tab-content">
+                    <div class="followed-events">
+                        <ul class="event-list">
+                            <li class="event-item">
+                                <a href="https://user.ruogoo.cn/9471" class="user-head">
+                                    <img src="https://i.ruogoo.cn/user/3cb4afd4bee3a3e8d3754e2ad3500c0a.jpg@!avatar-60" width="40" height="40" alt="陌涂">
+                                </a>
+
+                                <div class="event-body clearfix">
+                                    <p class="thing">
+                                        <a href="https://user.ruogoo.cn/9471" target="_blank">陌涂</a>
+                                        <span> 1天前 </span> 在文章
+                                        <a href="https://wenxue.ruogoo.cn/article/7321" target="_blank">灯鬼01 幻境-封忆</a> 中 @ 了你
+                                    </p>
+                                    <p class="reply-content gray text">@方丈遗少不是杜三贱 怎么了吗？</p>
+
+                                </div>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+                <% }else{ %>
+                    <ul>
+                        <li class="tab-item">
+                            <a href="/users/toSelect/<%= datas[0].userId %>/article">文章</a>
+                        </li>
+                        <li class="tab-item">
+                            <a href="/users/toSelect/<%= datas[0].userId %>/collection">文集</a>
+                        </li>
+                        <li class="tab-item">
+                            <a href="/users/toSelect/<%= datas[0].userId %>/post">帖子</a>
+                        </li>
+                    </ul>
+            </div>
+            <% } %>
+
+    </div>
+    </section>
+    </div>
+    <%- include('userFooter') %>

@@ -1,0 +1,81 @@
+<%- include('header') %>
+    <h3 class="text-center">
+        用户
+        <strong><%= datas[0].username %></strong>信息更新页</h3>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-sm-offset-4">
+                <form class="form-horizontal" action="/users/update" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">用户ID</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control btn-warning" placeholder="用户ID" name="id" value="<%= datas[0].userId %>">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">用户名</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" placeholder="用户名" name="username" value="<%= datas[0].userName %>">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">用户密码</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" placeholder="用户名" name="userpwd" value="<%= datas[0].userPwd %>">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">用户昵称</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" placeholder="用户昵称" name="usernick" value="<%= datas[0].userNick %>">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">用户邮箱</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" placeholder="用户邮箱" name="useremail" value="<%= datas[0].userEmail %>">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">用户手机</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" placeholder="用户手机" name="userphone" value="<%= datas[0].userPhone %>">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">用户国籍</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" placeholder="用户国籍" name="userhome" value="<%= datas[0].userHome %>">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">用户等级</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" placeholder="用户等级" name="userclass" value="<%= datas[0].userClass %>">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">用户性别</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="form-control" placeholder="用户性别" name="usersex" value="<%= datas[0].userSex %>">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">用户头像</label>
+                        <div class="col-sm-3">
+                            <input type="file" class="form-control" name="useravatar" value="<%= datas[0].userAvatar %>">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <input type="submit" value="提交" class="btn btn-default">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <%- include('footer') %>

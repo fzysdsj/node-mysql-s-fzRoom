@@ -1,0 +1,107 @@
+<%- include('header') %>
+    <link media="all" type="text/css" rel="stylesheet" href="/css/article.css">
+    <link media="all" type="text/css" rel="stylesheet" href="/css/articleA.css">
+    <div class="mm-wrapper" id="mm-wrapper">
+        <div class="body">
+            <div class="container">
+                <div class="col-group">
+                    <div class="col-9 col-mb-12">
+                        <section class="ac-main-section one-section white section">
+                            <div class="rg-board">
+                                <div class="rg-board-head">
+                                    <p class="title">
+                                        <!-- ri ri-edit -->
+                                        <i class=""></i> 撰写文章
+                                    </p>
+                                </div>
+                                <div class="rg-board-body">
+                                    <form method="POST" action="/articles/create" id="createArticleForm" class="ui form" enctype="multipart/form-data"><input name="_token" type="hidden" value="apZEZyLUaH8C2Fbq7Cx6fotpHY3NS35aGL7eMZtn">
+                                        <label for="artuid"></label>
+                                        <input type="text" id="artuid" name="artuid" value="<%= user.userId %>" class="hidden">
+                                        <div class="inline field">
+                                            <label for="artcategory">文章分类</label>
+                                            <div class="ui  selection" tabindex="0">
+                                                <select name="artcategory" id="artcategory">
+																			<option class="rg-option-sub" value="历史">
+											历史
+										</option>
+																			<option class="rg-option-sub" value="美文">
+											美文
+										</option>
+																			<option class="rg-option-sub" value="技术">
+											技术
+										</option>
+																			<option class="rg-option-sub" value="轶事">
+											轶事
+										</option>
+																			<option class="rg-option-sub" value="体育">
+											体育
+										</option>
+																			<option class="rg-option-sub" value="两性">
+											两性
+                                        </option>
+                                                                             <option class="rg-option-sub" value="寓言">
+											寓言
+										</option>
+                                                                    </select>
+                                                <i class="dropdown icon"></i>
+                                            </div>
+                                        </div>
+
+                                        <div class="field">
+                                            <label for="title">文章标题</label>
+                                            <input placeholder="文章标题" name="arttitle" type="text" id="title">
+                                        </div>
+
+                                        <div class="field">
+                                            <label for="body">文章内容</label>
+                                            <textarea placeholder="这里输入文章内容" name="artcontent" cols="50" rows="10" id="body"></textarea>
+                                        </div>
+
+                                        <div class="field">
+                                            <label for="artpic">文章图片</label>
+                                            <div class="pic-box">
+                                                <!-- <div id="picList" class="uploader-list"></div>
+                                                <a href="javascript:void(0);" class="rg-button upload-pic webuploader-container" id="picPicker">
+                                                    <div class="webuploader-pick">
+                                                        <i class="icon icon-picture"></i> 选择图片上传
+                                                    </div>
+                                                    <div id="rt_rt_1bmedorcr1j4hmoiioervq1laj1" style="position: absolute; top: 8px; left: 16px; width: 108.156px; height: 15px; overflow: hidden; bottom: auto; right: auto;"><input type="file" name="file" class="webuploader-element-invisible" multiple="multiple" accept="image/*"><label style="opacity: 0; width: 100%; height: 100%; display: block; cursor: pointer; background: rgb(255, 255, 255);"></label></div>
+                                                </a> -->
+                                                <input type="file" name="artpic" id="artpic">
+                                            </div>
+
+                                        </div>
+
+                                        <!-- <div class="field">
+                                            <label for="cover">封面图 (说明：可选，文章推荐首页时需要。要求图片像素：宽480px，高640px，尺寸不符合会自动裁剪。)</label>
+                                            <div class="pic-box">
+                                                <div id="picPreview" class="uploader">
+                                                    <div id="" class="file-item thumbnail old" style="display:inline-block;"><img src="">
+                                                        <div class="info"></div>
+                                                        <div class="delete"><i class="ri ri-remove"></i></div><input type="hidden" name="cover" value=""></div>
+                                                </div>
+                                                <a href="javascript:void(0);" class="rg-button upload-pic webuploader-container" id="coverPicker">
+                                                    <div class="webuploader-pick">
+                                                        <i class="icon icon-picture"></i> 选择图片上传
+                                                    </div>
+                                                    <div id="rt_rt_1bmedorcvtkesdr12pepifq854" style="position: absolute; top: 8px; left: 16px; width: 108.156px; height: 15px; overflow: hidden; bottom: auto; right: auto;"><input type="file" name="file" class="webuploader-element-invisible" accept="image/*"><label style="opacity: 0; width: 100%; height: 100%; display: block; cursor: pointer; background: rgb(255, 255, 255);"></label></div>
+                                                </a>
+                                            </div>
+
+
+                                        </div> -->
+
+                                        <input class="field rg-button" type="submit" value="发表文章">
+                                    </form>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <%- include('footer') %>

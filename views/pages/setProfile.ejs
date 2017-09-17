@@ -1,0 +1,122 @@
+<%- include('userHeader') %>
+    <section class="home-section one-section container">
+        <div class="col-group">
+            <div class="col-dt-9 col-9 col-mb-12">
+                <section class="home-content-section one-section white section">
+                    <div class="rg-board white">
+                        <div class="rg-board-head">
+                            <p class="title">个人设置</p>
+                            <a href="/users/toSelect/<%= datas[0].userId %>" class="more">我的首页 &gt;</a>
+                        </div>
+
+                        <div class="rg-board-body set-board white">
+                            <div class="set-menus">
+                                <ul class="menu-list">
+                                    <li class="menu-item current">
+                                        <a href="/users/toSelect/<%= datas[0].userId %>/set/profile" class="">资料设置</a>
+                                    </li>
+                                    <li class="menu-item ">
+                                        <a href="/users/toSelect/<%= datas[0].userId %>/set/name" class="gray">修改昵称</a>
+                                    </li>
+                                    <li class="menu-item ">
+                                        <a href="/users/toSelect/<%= datas[0].userId %>/set/password" class="gray">设置密码</a>
+                                    </li>
+                                    <li class="menu-item ">
+                                        <a href="/users/toSelect/<%= datas[0].userId %>/set/email" class="gray">绑定邮箱</a>
+                                    </li>
+                                    <!-- <li class="menu-item ">
+                                        <a href="https://user.ruogoo.cn/10113/set/social" class="gray">社交帐号</a>
+                                    </li>
+                                    <li class="menu-item ">
+                                        <a href="https://user.ruogoo.cn/10113/set/inviter" class="gray">邀请人</a>
+                                    </li> -->
+                                </ul>
+                            </div>
+
+                            <div class="set-content">
+                                <div class="ui form">
+                                    <form method="POST" action="/users/set/profile" accept-charset="UTF-8" id="user-edit-form"><input name="_token" type="hidden" value="jkmr07DvNY3EUgdkaY12m8dTKH8j2jCcqiNM3Ffa">
+                                        <input name="_method" type="hidden" value="PUT">
+                                        <div class="inline field">
+                                            <label for="sex">性别</label>
+                                            <select name="sex" class="ui dropdown selection"><option value="男">男</option><option value="女">女</option></select><i class="dropdown icon"></i>
+                                        </div>
+                                        <div class="field">
+                                            <label for="birth">生日</label>
+                                            <input placeholder="您的生日" name="birth" type="text" value="<%=datas[0].userBirth %>">
+                                        </div>
+                                        <div class="field">
+                                            <label for="home">城市</label>
+                                            <input placeholder="您所在的城市" name="home" type="text" value="<%=datas[0].userHome %>">
+                                        </div>
+                                        <!-- <div class="field">
+                                            <label for="">QQ</label>
+                                            <input placeholder="您的QQ" name="qq" type="text" value="">
+                                        </div> -->
+                                        <div class="field">
+                                            <label for="phone">手机</label>
+                                            <input placeholder="您的电话 (15226559597)" name="phone" type="text" value="<%=datas[0].userPhone %>">
+                                        </div>
+                                        <div class="field">
+                                            <label for="logo">个性签名</label>
+                                            <input placeholder="张显您个性的文字" name="logo" type="text" value="<%=datas[0].userLogo %>">
+                                        </div>
+                                        <div class="field">
+                                            <label for="about">个人简介</label>
+                                            <textarea placeholder="简单的文字介绍自己" rows="3" name="about" cols="50"><%=datas[0].userAbout %></textarea>
+                                        </div>
+                                        <input class="rg-button save-button" type="submit" value="保存">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="col-dt-3 col-3 col-mb-12">
+                <section class="home-side-section">
+                    <div class="intro-block one-section white section">
+                        <div class="rg-board">
+                            <div class="rg-board-head">
+                                <p class="title">简介</p>
+
+                                <a href="https://user.ruogoo.cn/10113/profile" class="more">详细资料 &gt;</a>
+                            </div>
+
+                            <div class="rg-board-body text">
+                                <%= datas[0].userAbout %>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="count-block one-section white section">
+                        <div class="rg-board">
+                            <div class="rg-board-head">
+                                <p class="title">统计</p>
+                            </div>
+                            <div class="rg-board-body">
+                                <p>若古币：4 文钱</p>
+                                <p>生命：37</p>
+
+                                <p>真气：12</p>
+
+                                <p>访问量：3</p>
+
+                                <p>文章：1</p>
+
+                                <p>帖子：0</p>
+
+                                <p>冒泡：0</p>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </section>
+            </div>
+        </div>
+    </section>
+    <%- include('articleFooter') %>

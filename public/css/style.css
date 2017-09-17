@@ -1,0 +1,304 @@
+/*
+ * Override Bootstrap's default container.
+ */
+
+body {
+    font-family: "Helvetica Neue", "Helvetica", "Lucida Grande", "Arial", "Hiragino Sans GB", "Microsoft Yahei", "WenQuanYi Micro Hei", "sans-serif";
+    font-weight: normal;
+    padding-top: 50px;
+    font-size: 16px !important;
+    background-color: seashell;
+}
+
+a {
+    color: #444;
+}
+
+a:hover,
+a:focus {
+    color: #333;
+    text-shadow: 1px 1px 5px #E8E8E8
+}
+
+.pre {
+    border: none;
+    background-color: transparent;
+}
+
+.jumbotron {
+    text-align: center;
+    background-color: rgba(32, 32, 32, 1);
+    color: #fff;
+}
+
+.jumbotron .lead em {
+    display: none;
+}
+
+.jumbotron .logo {
+    width: 100%;
+    max-width: 400px;
+    font: 400 80px/160px 'Philing';
+}
+
+.jumbotron .btn-getting-started {
+    color: #fff;
+    border: none;
+    box-shadow: inset 0 0 0 2px #fff;
+    border-radius: 2px;
+    background-color: transparent;
+    margin-top: 26px;
+    margin-right: 20px;
+}
+
+.jumbotron .btn-getting-started:hover,
+.jumbotron .btn-getting-started:active {
+    color: #000;
+    box-shadow: inset 0 0 0 2px #000;
+    background-color: transparent;
+}
+
+@media (min-width: 768px) {
+    .site-navbar .navbar-nav {
+        float: right!important;
+    }
+}
+
+.navbar-inverse {
+    background-color: rgba(32, 32, 32, 1);
+    border-color: transparent;
+}
+
+.navbar-inverse .navbar-brand {
+    color: #efefef;
+    font: 400 26px/40px 'Philing';
+    padding-top: 6px;
+}
+
+.navbar-inverse .navbar-brand .title {
+    padding: 10px 0 0 10px;
+    font: 300 16px/30px '华文行楷';
+}
+
+.navbar-inverse .navbar-nav>li>a {
+    color: #e8e8e8;
+}
+
+.navbar-inverse .navbar-nav>.active>a,
+.navbar-inverse .navbar-nav>.active>a:focus,
+.navbar-inverse .navbar-nav>.active>a:hover {
+    color: #fff;
+    background-color: transparent;
+}
+
+.navbar-inverse .navbar-collapse,
+.navbar-inverse .navbar-form {
+    border-color: #333;
+}
+
+.navbar-inverse .navbar-toggle {
+    border-color: #fff;
+}
+
+.navbar-inverse .navbar-toggle:hover,
+.navbar-inverse .navbar-toggle:focus {
+    background-color: transparent;
+}
+
+.footer {
+    margin-top: 60px;
+    text-align: center;
+    color: #aaa;
+}
+
+.footer a {
+    color: inherit;
+}
+
+.footer a:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
+.docs-wrapper {
+    margin-top: 30px;
+}
+
+.benefits h2 {
+    margin-top: 40px;
+}
+
+.benefits p {
+    font-size: 16px;
+}
+
+.markdown-body {
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+    margin-top: 1.2em;
+    margin-bottom: 0.6em;
+    line-height: 1.35;
+}
+
+.markdown-body h6,
+.markdown-body h5 {
+    font-size: 18px;
+}
+
+.markdown-body p,
+.markdown-body pre,
+.markdown-body ul,
+.markdown-body ol,
+.markdown-body dl,
+.markdown-body form,
+.markdown-body hr,
+.markdown-body table,
+.markdown-body blockquote {
+    margin-bottom: 1.2em;
+}
+
+.markdown-body img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.markdown-body a {
+    text-decoration: underline;
+}
+
+.markdown-body a:hover {
+    text-decoration: underline;
+}
+
+.markdown-body blockquote {
+    margin: 1em 0 1em 0;
+    padding: 0 0 0 1.6em;
+}
+
+.markdown-body blockquote small {
+    display: inline-block;
+    margin: 0.8em 0 0.8em 1.5em;
+    font-size: 0.9em;
+}
+
+.markdown-body pre {
+    font-size: 14px;
+    border: none;
+    border-radius: 0;
+}
+
+.markdown-body hr {
+    border-top: 1px solid #e5e5e5;
+}
+
+.markdown-body li ul,
+.markdown-body li ol {
+    margin-bottom: 0.8em;
+}
+
+.left {
+    float: left;
+}
+
+.form-group {
+    margin: 10px auto;
+    overflow: hidden;
+}
+
+.form-name {
+    width: 60px;
+    margin-top: 8px;
+}
+
+.form-input {
+    width: 180px;
+    height: 20px;
+    padding: 5px 2px;
+}
+
+.form-btn {
+    margin-left: 60px;
+    margin-top: 10px;
+}
+
+.warn {
+    color: red;
+}
+
+.mgl20 {
+    margin-left: 20px;
+}
+
+
+/* 下拉按钮 */
+
+#navbar .navbar-nav #login {
+    cursor: pointer;
+}
+
+.navbar-nav>.open>a {
+    background-color: #444 !important;
+    cursor: pointer;
+}
+
+.navbar-nav>.open>a:hover {
+    background-color: #333 !important;
+    cursor: pointer;
+}
+
+.navbar-inverse .navbar-nav .open .dropdown-menu>li>a {
+    color: #666 !important;
+}
+
+.carousel-inner>.item>a>img,
+.carousel-inner>.item>img,
+.img-responsive,
+.thumbnail a>img,
+.thumbnail>img {
+    display: inline-block;
+    max-width: 100%;
+    height: auto;
+    width: 25px;
+    height: 25px;
+}
+
+.navbar-nav>li.fzRoom>a {
+    font-size: 20px;
+    font-family: "华文行楷";
+    line-height: 23px;
+}
+
+.navbar-nav>li.fzRoom>a:hover {
+    font-size: 20px;
+    font-family: "华文行楷";
+    line-height: 23px;
+    text-shadow: 1px 1px 5px #E8E8E8 !important;
+}
+
+.jumbotron {
+    margin-bottom: 0;
+}
+
+.hwxk {
+    font-family: "华文行楷";
+}
+
+a.index {
+    color: #fff;
+    text-decoration: none;
+}
+
+pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font: 400 20px/30px "楷体";
+}

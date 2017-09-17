@@ -1,0 +1,82 @@
+<%- include('userHeader') %>
+    <div class="col-dt-9 col-9 col-mb-12">
+        <section class="home-content-section one-section white section">
+            <div class="tab-panel">
+                <div class="tab">
+                    <% if(datas[0].userId == user.userId){ %>
+                        <ul>
+                            <li class="tab-item">
+                                <a href="/users/toSelect/<%= datas[0].userId %>">与我相关</a>
+                            </li>
+                            <li class="tab-item">
+                                <a href="/users/toSelect/<%= datas[0].userId %>/followed">关注</a>
+                            </li>
+                            <li class="tab-item">
+                                <a href="/users/toSelect/<%= datas[0].userId %>/article">文章</a>
+                            </li>
+                            <li class="tab-item">
+                                <a href="/users/toSelect/<%= datas[0].userId %>/collection">文集</a>
+                            </li>
+                            <li class="tab-item active">
+                                <a href="/users/toSelect/<%= datas[0].userId %>/post">帖子</a>
+                            </li>
+                            <li class="tab-item">
+                                <a href="/users/toSelect/<%= datas[0].userId %>/notification">消息</a>
+                            </li>
+                        </ul>
+                        <% }else { %>
+                            <ul>
+                                <li class="tab-item">
+                                    <a href="/users/toSelect/<%= datas[0].userId %>/article">文章</a>
+                                </li>
+                                <li class="tab-item">
+                                    <a href="/users/toSelect/<%= datas[0].userId %>/collection">文集</a>
+                                </li>
+                                <li class="tab-item active">
+                                    <a href="/users/toSelect/<%= datas[0].userId %>/post">帖子</a>
+                                </li>
+                            </ul>
+                            <% } %>
+                </div>
+                <% if(posts.length ==0){ %>
+                    <div class="tab-content">
+                        <div class="empty-view empty-article">这个人很懒，还没有发过帖子 ~~~~(&gt;_&lt;)~~~~</div>
+                    </div>
+                    <% }else{ %>
+                        <div class="tab-content">
+                            <ul class="article-list">
+                                <% for(var i =posts.length-1;i>=0; i--){ %>
+                                    <li class="article-item">
+                                        <p>
+                                            <span>
+                                                                                <% if(posts[i].postUp == 0){}else { %>
+                                                                                    <span class="rg-label rg-label-warning">赞<%= posts[i].postUp %></span>
+                                            <% } %>
+                                                <i class="ri ri-file-text-o"></i>
+                                                <a href="/articles/article" class="gray big title" target="_blank">[<%= posts[i].postCategory %>]</a>
+                                                <a href="/talkRoom/posts/<%= posts[i].postId %>" class="big title">
+                                                    <a href="/talkRoom/posts/<%= posts[i].postId %>" class="big title" target="_blank">
+                                                        <%= posts[i].postTitle %>
+                                                    </a>
+                                                <span class="gray small text"><%= posts[i].postStartTime %>  · <%= posts[i].postUp %> 人喜欢 · <%= posts[i].postSaw %>阅读)</span>
+
+                                                </a>
+                                                </span>
+
+                                                <p class="gray text">
+                                                    <% if(posts[i].postContent.length>100){ %>
+                                                        <%= posts[i].postContent.slice(0,100) %>
+                                                            ......
+                                                            <%} else{ %>
+                                                                <%= posts[i].postContent %>
+                                                                    <% } %>
+                                                </p>
+                                        </p>
+                                    </li>
+                                    <% } %>
+                            </ul>
+                            <% } %>
+                        </div>
+        </section>
+        </div>
+        <%- include('userFooter') %>

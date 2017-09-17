@@ -1,0 +1,134 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>注册</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="" />
+    <script type="application/x-javascript">
+        addEventListener("load", function() {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <link href="/css/sign.css" rel='stylesheet' type='text/css' />
+    <link href="/assets/css/font-awesome.css" rel="stylesheet" type='text/css' />
+    <!-- jQuery -->
+    <link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.min.css" />
+    <script src="/libs/jquery/dist/jquery.min.js"></script>
+    <script src="/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+</head>
+
+<body id="login">
+    <div class="login-logo" style="font: 400 26px/40px 'Philing';color:#333;">
+        fzRoom
+    </div>
+    <h2 class="form-heading">注册</h2>
+    <form class="form-signin app-cam" action="/users/signup" method="post" enctype="multipart/form-data">
+        <!-- <label class="signInformation "></label> -->
+        <div class="form-btn btn-danger">
+            <%= error %>
+        </div>
+        <% if(locals.status=="success"){ %>
+            <div class="form-btn btn-success">
+                注册成功，请点击<a href='/users/signin'><strong>登录</strong></a>
+            </div>
+            <%} %>
+                <p>输入以下信息(选填)</p>
+                <input type="text" class="form-control1" placeholder="邮箱" name="useremail" id="useremail">
+                <label class="signInformation"></label>
+                <input type="text" class="form-control1" placeholder="手机号(国内)" name="userphone" id="userphone">
+                <label class="signInformation"></label>
+                <input type="text" class="form-control1" placeholder="国籍" name="userhome" id="userhome">
+                <label class="signInformation"></label>
+                <div class="radios">
+                    <label for="radio-01" class="label_radio">
+            <input type="radio" value ="男" name = "usersex" checked> 男
+        </label>
+                    <label for="radio-02" class="label_radio">
+            <input type="radio" value="女" name ="usersex"> 女
+        </label>
+                </div>
+                <p> 输入以下信息(必填)</p>
+                <input type="text" name="username" class="form-control1" id="username" placeholder="用户名（6-12位，可以由字母和数字组成）">
+                <label class="signInformation"></label>
+                <input type="text" class="form-control1" placeholder="昵称（不超过12位的非空组合）" name="usernick" id="usernick">
+                <label class="signInformation"></label>
+                <input type="password" name="password" class="form-control1" id="password" placeholder="密码（6-12位，可以由字母和数字组成）">
+                <label class="signInformation"></label>
+                <input type="password" name="repassword" class="form-control1" id="repassword" placeholder="重复密码">
+                <label class="signInformation"></label>
+                <label>上传头像</label>
+                <input type="file" name="useravatar" class="form-control1" id="useravatar" placeholder="头像上传">
+                <label class="signInformation"></label>
+                <div><label class="checkbox-custom check-success">
+          <input type="checkbox" value="1" id="checkbox1" name ="checkbox"> <label for="checkbox1">我同意加入fzRoom</label>
+                    </label>
+                </div>
+                <button class="btn btn-lg btn-success1 btn-block" type="submit">注册</button>
+                <div class="form-btn">
+                    <label class="warn"></label>
+                </div>
+
+                <div class="registration">
+                    已经注册
+                    <a class="" href="/users/signin">
+              登录
+          </a>
+                    <br>
+                    <a href="/wuRoom">不注册，浏览网站</div>
+                </div>
+    </form>
+    <div class="copy_layout login register">
+        <p>fzysdsj &copy; 2017
+            <a target="_blank" href="fzysdsj.github.io">方丈阁</a>
+                    </p>
+                </div>
+</body>
+<script>
+    $(function() {
+        $('#username').blur(function() {
+            let username = $('#username').val();
+            if (username == "") {
+                $(this).next('label').text("用户名不能为空");
+
+            } else {
+                $(this).next('label').text("");
+            }
+        });
+        $('#password').blur(function() {
+            let password = $('#password').val();
+            if (password == "") {
+                $(this).next('label').text("密码不能为空");
+
+            } else {
+                $(this).next('label').text("");
+            }
+        });
+        $('#repassword').blur(function() {
+            let repassword = $('#repassword').val();
+            let password = $('#password').val();
+            if (repassword == password) {
+                $(this).next('label').text("");
+
+            } else {
+                $(this).next('label').text("两次密码不一致");
+            }
+        });
+        $('#usernick').blur(function() {
+            let usernick = $('#usernick').val();
+            if (usernick == "") {
+                $(this).next('label').text("昵称不可为空");
+
+            } else {
+                $(this).next('label').text("");
+            }
+        });
+    });
+</script>
+
+</html>

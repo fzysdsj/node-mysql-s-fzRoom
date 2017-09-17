@@ -1,0 +1,58 @@
+<%- include('header') %>
+
+    <header class="jumbotron">
+
+        <h1 style="margin-top:-30px;"><a href="/wenRoom" class="index"><span class="text-center logo">fzRoom</span></a>
+        </h1>
+
+        <p class="lead hwxk">世间所有的旋律，皆是黑白的交替。 </p>
+        <% if(user){ %>
+            <p><a href="/wenRoom" role="button" class="btn btn-lg btn-default btn-getting-started hwxk">文武双阁</a></p>
+            <% }else{%>
+                <p><a href="/users/signin" role="button" class="btn btn-lg btn-default btn-getting-started hwxk">文武双阁</a></p>
+                <% } %>
+                    <!-- <a href="/signup" role="button" class="btn btn-lg btn-warning btn-getting-started">同道新进</a><a href="/home" role="button" class="btn btn-lg btn-default btn-getting-started">贵客观摩</a></p>  -->
+    </header>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug-->
+    <div class="benefits container">
+        <div class="row">
+            <div class="col-md-3">
+                <h3 class="hwxk">多人社交<img src="/images/shejiao.png"></h3>
+                <p> 你永远不会知道，坐在你对面的到底是人是鬼。任何进入方丈阁(fzRoom)的生物，吾皆虚右以待。</p>
+            </div>
+            <div class="col-md-3">
+                <h3 class="hwxk">武侠风格<img src="/images/lianqi.png"></h3>
+                <p> 帮主，侠客，壮夫，贵胄，奸佞，忠良，君子，小人，一人为独，二人作伴，三人便成江湖。 </p>
+            </div>
+            <div class="col-md-3">
+                <h3 class="hwxk">权谋对决<img src="/images/xianmeng.png"></h3>
+                <p>排行榜每日更新！尔虞我诈？唇枪舌战？必决雌雄？阴谋阳谋？最强者，永远只有一个。</p>
+            </div>
+            <div class="col-md-3">
+                <h3 class="hwxk">名誉财富<img src="/images/shangcheng.png"></h3>
+                <p>通过各种任务积累名誉和财富，组织帮会，成立国家，南征北战，迎娶白富美，走上人生巅峰。 </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <h3 class="hwxk">战力排行<img src="/images/dabang.png"></h3>
+                <p>你永远不会知道，坐在你对面的到底是人是鬼。任何进入方丈阁(fzRoom)的生物，吾皆虚右以待。</p>
+            </div>
+            <div class="col-md-3">
+                <h3 class="hwxk">登录奖励<img src="/images/fujiayuan.png"></h3>
+                <p> 帮主，侠客，壮夫，贵胄，奸佞，忠良，君子，小人，一人为独，二人作伴，三人便成江湖。 </p>
+            </div>
+            <div class="col-md-3">
+                <h3 class="hwxk">以文会友<img src="/images/wen.png"></h3>
+                <p>排行榜每日更新！尔虞我诈？唇枪舌战？必决雌雄？阴谋阳谋？最强者，永远只有一个。</p>
+            </div>
+            <div class="col-md-3">
+                <h3 class="hwxk">千变活动<img src="/images/buzhen.png"></h3>
+                <p>通过各种任务积累名誉和财富，组织帮会，成立国家，南征北战，迎娶白富美，走上人生巅峰。 </p>
+            </div>
+        </div>
+    </div>
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+    <script src="js/highlight.min.js"></script>
+    <script src="js/site.js"></script>
+    <%- include('footer') %>

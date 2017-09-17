@@ -1,0 +1,165 @@
+<%- include('articleHeader') %>
+    <ul>
+        <li class="tab-item">
+            <a href="/articles/article">全部</a>
+        </li>
+        <li class="tab-item">
+            <a href="/articles/article/recommend">推荐</a>
+        </li>
+        <li class="tab-item ">
+            <a href="/articles/article/nice">精品</a>
+        </li>
+        <li class="tab-item ">
+            <a href="/articles/category/lishi">历史</a>
+        </li>
+        <li class="tab-item ">
+            <a href="/articles/category/meiwen">美文</a>
+        </li>
+        <li class="tab-item ">
+            <a href="/articles/category/jishu">技术</a>
+        </li>
+        <li class="tab-item active">
+            <a href="/articles/category/yishi">轶事</a>
+        </li>
+        <li class="tab-item ">
+            <a href="/articles/category/tiyu">体育</a>
+        </li>
+        <li class="tab-item ">
+            <a href="/articles/category/liangxing">两性</a>
+        </li>
+    </ul>
+    </div>
+    <div class="tab-content">
+        <ul class="article-list">
+            <% for(let i = 0;i< datas.length;i++){ %>
+                <% if(i< count){ %>
+                    <li class="article-item">
+                        <a href="/articles/art/<%= datas[i].artId %>" class="user-head-square">
+                        <img src="/uploads/<%= datas[i].artPic %>" data-original="/uploads/<%= datas[i].artPic %>" class="head" alt="<%= datas[i].artTitle %>" width="60" height="60">
+                        </a>
+                        <h3 class="title-line">
+                            <% if(datas[i].artPush == 0){}else { %>
+                                <span class="rg-label rg-label-warning">推荐</span>
+                                <% } %>
+                                    <% if(datas[i].artGood == 0){}else { %>
+                                        <span class="rg-label rg-label-success">精品</span>
+                                        <% } %>
+                                            <a href="/articles/art/<%= datas[i].artId %>" class="big title">
+                                                <%= datas[i].artTitle %>
+                                            </a>
+                        </h3>
+                        <p class="gray text">
+                            <% if(datas[i].artContent.length>100){ %>
+                                <%= datas[i].artContent.slice(0,100) %>
+                                    ......
+                                    <%} else{ %>
+                                        <%= datas[i].artContent %>
+                                            <% } %>
+                        </p>
+                        <p class="small gray text">
+                            <a href="/users/toSelect/<%= datas[i].artUid %>">
+                     <img src="/uploads/<%= users[i].userAvatar %>" data-original="/uploads/<%= users[i].userAvatar %>@!avatar-60" class="head" alt="<%= users[i].userNick %>" width="20" height="20">
+                            <%= users[i].userNick %>
+                        </a> <span> ∙ 发表于 <%= datas[i].artStartTime %> </span>
+                            <span> ∙ 评论 <%= datas[i].artSayNumber %></span> <span> ∙ 喜欢  <%= datas[i].artUp %> </span>
+                            <span> ∙ 浏览  <%= datas[i].artSaw %> </span>
+                        </p>
+                    </li>
+                    <% }else{ %>
+                        <li class="article-item hidden">
+                            <a href="/articles/art/<%= datas[i].artId %>" class="user-head-square">
+                        <img src="/uploads/<%= datas[i].artPic %>" data-original="/uploads/<%= datas[i].artPic %>" class="head" alt="<%= datas[i].artTitle %>" width="60" height="60">
+                        </a>
+                            <h3 class="title-line">
+                                <% if(datas[i].artPush == 0){}else { %>
+                                    <span class="rg-label rg-label-warning">推荐</span>
+                                    <% } %>
+                                        <% if(datas[i].artGood == 0){}else { %>
+                                            <span class="rg-label rg-label-success">精品</span>
+                                            <% } %>
+                                                <a href="/articles/art/<%= datas[i].artId %>" class="big title">
+                                                    <%= datas[i].artTitle %>
+                                                </a>
+                            </h3>
+                            <p class="gray text">
+                                <% if(datas[i].artContent.length>100){ %>
+                                    <%= datas[i].artContent.slice(0,100) %>
+                                        ......
+                                        <%} else{ %>
+                                            <%= datas[i].artContent %>
+                                                <% } %>
+                            </p>
+                            <p class="small gray text">
+                                <a href="/users/toSelect/<%= datas[i].artUid %>">
+                     <img src="/uploads/<%= users[i].userAvatar %>" data-original="/uploads/<%= users[i].userAvatar %>" class="head img-circle" alt="<%= users[i].userNick %>" width="20" height="20">
+                            <%= users[i].userNick %>
+                        </a> <span> ∙ 发表于 <%= datas[i].artStartTime %> </span>
+                                <span> ∙ 评论 <%= datas[i].artSayNumber %></span> <span> ∙ 喜欢  <%= datas[i].artUp %> </span>
+                                <span> ∙ 浏览  <%= datas[i].artSaw %> </span>
+                            </p>
+                        </li>
+                        <% }} %>
+        </ul>
+        <div class="white clearfix">
+            <ul class="pagination">
+                <% if(currentPage==1){}else{ for(let i =0;i<currentPage;i++){ %>
+                    <li id="<%= (i+1) %>">
+                        <a href="/articles/category/yishi#<%= (i+1) %>">
+                            <%= i+1 %>
+                        </a>
+                    </li>
+                    <% }} %>
+            </ul>
+
+        </div>
+    </div>
+    </div>
+
+    </section>
+    </div>
+
+    <div class="col-3 col-mb-12">
+        <section class="al-sidebar-section sidebar one-section white section">
+
+
+        </section>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <script>
+        $(function() {
+            var liLength = $('ul.article-list li').length;
+            var count = <%= count %>;
+            var currentPage = <%= currentPage %>
+            if (liLength > count) {
+                var s = [];
+                for (let i = 0; i < currentPage; i++) {
+                    var ss = "#" + (i + 1);
+                    s.push(ss);
+
+
+                }
+                for (let i = 0; i < s.length; i++) {
+                    $(s[i]).click(function() {
+                        var currentPageDemo = currentPage;
+                        // for (let k = i * count; k < (i + 1) * count; k++) {
+                        if (i == 0) {
+                            $("ul.article-list li").slice(count, liLength).addClass('hidden');
+                            $("ul.article-list li").slice(0, count).removeClass('hidden');
+                        } else if (i == currentPageDemo - 1) {
+                            $("ul.article-list li").slice(0, i * count).addClass('hidden');
+                            $("ul.article-list li").slice(i * count, liLength).removeClass('hidden');
+                        } else {
+                            $("ul.article-list li").slice(0, i * count).addClass('hidden');
+                            $("ul.article-list li").slice(i * count, (i + 1) * count).removeClass('hidden');
+                            $("ul.article-list li").slice((i + 1) * count, liLength).addClass('hidden');
+                        }
+                        // }
+                    });
+                }
+            }
+        });
+    </script>
+    <%- include('articleFooter') %>

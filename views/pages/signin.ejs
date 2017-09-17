@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>登录</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="" />
+    <script type="application/x-javascript">
+        addEventListener("load", function() {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <link href="/css/sign.css" rel='stylesheet' type='text/css' />
+    <link href="/assets/css/font-awesome.css" rel="stylesheet" type='text/css' />
+    <!-- jQuery -->
+    <link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.min.css" />
+    <script src="/libs/jquery/dist/jquery.min.js"></script>
+    <script src="/js/jquery.form.js"></script>
+    <script src="/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+</head>
+
+<body id="login">
+    <div class="login-logo" style="font: 400 26px/40px 'Philing';color:#333;">
+        fzRoom
+    </div>
+    <h2 class="form-heading">登录</h2>
+    <form class="form-signin app-cam" id="signinForm" action="/users/signin" method="post">
+        <div class="form-btn btn-danger">
+            <%= error %>
+        </div>
+        <input type="text" class="form-control1" name="username" placeholder="用户名">
+        <input type="password" class="form-control1" name="password" placeholder="密码">
+        <button class="btn btn-lg btn-success1 btn-block" type="submit">登录</button>
+        <div class="registration">
+            还未注册
+            <a href="/users/signup">
+              注册
+          </a><br>
+            <a href="/wenRoom">不登录，浏览网站</div>
+    </form>
+    <div class="copy_layout login register">
+        <p>fzysdsj &copy; 2017
+            <a target="_blank" href="https://fzysdsj.github.io">方丈阁</a>
+            </p>
+        </div>
+</body>
+<script>
+    // $("#signinForm").submit(function() {
+    //     $(this).ajaxSubmit(function() {
+    //         alert("提交成功1");
+    //     });
+    //     return false;
+    // });
+</script>
+
+</html>

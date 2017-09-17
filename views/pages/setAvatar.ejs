@@ -1,0 +1,165 @@
+<%- include('userHeader') %>
+    <div class="col-dt-9 col-9 col-mb-12">
+        <section class="home-content-section one-section white section">
+            <div class="rg-board white">
+                <div class="rg-board-head">
+                    <p class="title">我的头像</p>
+                    <a href="https://user.ruogoo.cn/10113" class="more">我的首页 &gt;</a>
+                </div>
+                <div class="rg-board-body">
+
+                    <!-- <div class="ui positive message">
+                        <i class="close icon"></i>
+                        <div class="header">修改头像成功</div>
+                    </div> -->
+
+                    <p class="avatar-tip"> 点击头像选择图片上传 </p>
+                    <!-- <div class="avatar-show">
+                        <div class="user-avatar">
+                            <div class="avatar-upload__shell">
+                                <div class="avatar-upload__wrapper avatar-upload--complete">
+                                    <div class="avatar-upload__image-wrapper"><img src="/uploads/<%= datas[0].userAvatar %>"></div><img src="/uploads/<%= datas[0].userAvatar %>" class="avatar-upload__faded-image">
+                                    <div class="avatar-upload__progress-wrapper"><span>0%</span></div><input type="file"></div>
+                            </div>
+                        </div>
+                        <div class="avatar-arrow">
+                            <img src="/uploads/<%= datas[0].userAvatar %>" width="60">
+                        </div>
+                        <div class="user-avatar-round" style="display: none;">
+                            <img src="/uploads/<%= datas[0].userAvatar %>" width="120" height="120" alt="方丈遗少不是杜三贱">
+                        </div>
+                    </div> -->
+                    <form method="POST" action="/users/set/avatar" id="createArticleForm" class="ui form" enctype="multipart/form-data"><input name="_token" type="hidden" value="apZEZyLUaH8C2Fbq7Cx6fotpHY3NS35aGL7eMZtn">
+                        <div class="field">
+                            <label for="avatar">选择图片上传</label>
+                            <div class="pic-box">
+                                <input type="file" name="avatar" id="avatar">
+                            </div>
+                        </div>
+                        <input class="field rg-button" type="submit" value="保存">
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="col-dt-3 col-3 col-mb-12">
+        <section class="home-side-section">
+            <div class="intro-block one-section white section">
+                <div class="rg-board">
+                    <div class="rg-board-head">
+                        <p class="title">简介</p>
+                        <a href="https://user.ruogoo.cn/10113/profile" class="more">详细资料 &gt;</a>
+                    </div>
+
+                    <div class="rg-board-body text">
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="invite-block one-section white section">
+                <div class="rg-board">
+                    <div class="rg-board-head">
+                        <p class="title">邀请注册</p>
+                    </div>
+
+                    <div class="rg-board-body small text" style="word-wrap: break-word;">
+                        <p>邀请码：GJDHSY</p>
+
+                        <p>邀请链接：https://user.ruogoo.cn/invite/GJDHSY</p>
+
+                        <p class="small gray text">说明：将您的邀请码或邀请链接告诉好友，好友注册成功后，您和受邀好友均获得10若古币，邀请人数没有上限哦。</p>
+
+                        <p class="small gray text">快邀请好友来若古社区吧 ~\(^o^)/~</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="count-block one-section white section">
+                <div class="rg-board">
+                    <div class="rg-board-head">
+                        <p class="title">统计</p>
+                    </div>
+                    <div class="rg-board-body">
+                        <p>若古币：4 文钱</p>
+                        <p>生命：37</p>
+
+                        <p>真气：12</p>
+
+                        <p>访问量：3</p>
+
+                        <p>文章：1</p>
+
+                        <p>帖子：0</p>
+
+                        <p>冒泡：0</p>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="attention-block one-section white section">
+                <div class="rg-board">
+                    <div class="rg-board-head">
+                        <p class="title">关注</p>
+                        <a href="https://user.ruogoo.cn/10113/attentions" class="more">更多 &gt;</a>
+                    </div>
+                    <div class="rg-board-body">
+                        <ul>
+                            <li>
+                                <a href="https://user.ruogoo.cn/10143" class="user-head" title="love-Kobe安落枢">
+                                    <img src="https://i.ruogoo.cn/user/ac1e5e3d48ed120b2cc9c7c739734d4c.jpeg@!avatar-60" data-original="https://i.ruogoo.cn/user/ac1e5e3d48ed120b2cc9c7c739734d4c.jpeg@!avatar-60" alt="love-Kobe安落枢">
+                                </a>
+                                <a href="https://user.ruogoo.cn/10143" class="user-name">love-Kobe安落枢</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="fan-block one-section white section">
+                <div class="rg-board">
+                    <div class="rg-board-head">
+                        <p class="title">粉丝</p>
+                        <a href="https://user.ruogoo.cn/10113/fans" class="more">更多 &gt;</a>
+                    </div>
+                    <div class="rg-board-body">
+                        <p> 没有粉丝哦 </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="visitor-block one-section white section">
+                <div class="rg-board">
+                    <div class="rg-board-head">
+                        <p class="title">访客</p>
+                    </div>
+                    <div class="rg-board-body">
+                        <ul>
+                            <li>
+                                <a href="https://user.ruogoo.cn/8747" class="user-head" title="玉扶疏°">
+                                    <img src="https://static.ruogoo.cn/image/blank.gif" data-original="https://i.ruogoo.cn/user/7393ba15d752e4a63816c2eee85083f5.jpg@!avatar-60" alt="玉扶疏°">
+                                </a>
+                                <a href="https://user.ruogoo.cn/8747" class="user-name">玉扶疏°</a>
+                            </li>
+                            <li>
+                                <a href="https://user.ruogoo.cn/25" class="user-head" title="眉离裳">
+                                    <img src="https://static.ruogoo.cn/image/blank.gif" data-original="https://i.ruogoo.cn/user/7f0deb32ee670b316230a5c7a59c515a.jpg@!avatar-60" alt="眉离裳">
+                                </a>
+                                <a href="https://user.ruogoo.cn/25" class="user-name">眉离裳</a>
+                            </li>
+                            <li>
+                                <a href="https://user.ruogoo.cn/9471" class="user-head" title="陌涂">
+                                    <img src="https://static.ruogoo.cn/image/blank.gif" data-original="https://i.ruogoo.cn/user/3cb4afd4bee3a3e8d3754e2ad3500c0a.jpg@!avatar-60" alt="陌涂">
+                                </a>
+                                <a href="https://user.ruogoo.cn/9471" class="user-name">陌涂</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    </div>
+    </section>
+    <%- include('articleFooter') %>
