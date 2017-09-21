@@ -8,10 +8,10 @@
                     <div class="container">
                         <div class="title-wrapper">
                             <h1>
-                                <a href="/users/505589500/messages">
+                                <a href="#">
                                     <span class="private-message-glyph"><i class="fa fa-envelope"></i></span>
                                 </a>
-                                <a class="fancy-title" data-ember-action="3541" href="/t/cocos-mmrpg/48105">
+                                <a class="fancy-title" data-ember-action="3541" href="/talkRoom/posts/<%= datas[0].postId %>">
                                     <%= datas[0].postTitle %>
                                 </a>
                                 <!---->
@@ -60,8 +60,8 @@
                                         <nav class="post-controls">
                                             <div class="actions"><button aria-label="你和其他 7 人赞了该贴" title="你和其他 7 人赞了该贴" class="like-count highlight-action" data-action="like-count"><%= datas[0].postUp %> 赞</button><button aria-label="撤销赞" title="撤销赞" class="has-like fade-out"
                                                     data-action="like"><i class="fa fa-heart"></i></button>
-                                                <button aria-label="分享一个到本帖的链接" title="分享一个到本帖的链接" data-share-url="/t/cocos-mmrpg/48105?u=505589500" data-post-number="1" data-action="share"><i class="fa fa-link"></i></button><button aria-label="私下报告本帖以提醒管理人员关注或发送私信通知"
-                                                    title="私下报告本帖以提醒管理人员关注或发送私信通知" data-action="flag"><i class="fa fa-flag"></i></button><button aria-label="你已经阅读过此帖；点此为其添加书签" title="你已经阅读过此帖；点此为其添加书签" class="bookmark" data-action="bookmark"><div class="read-icon"></div></button>
+                                                <button aria-label="分享一个到本帖的链接" title="分享一个到本帖的链接" data-share-url="" data-post-number="1" data-action="share"><i class="fa fa-link"></i></button><button aria-label="私下报告本帖以提醒管理人员关注或发送私信通知" title="私下报告本帖以提醒管理人员关注或发送私信通知"
+                                                    data-action="flag"><i class="fa fa-flag"></i></button><button aria-label="你已经阅读过此帖；点此为其添加书签" title="你已经阅读过此帖；点此为其添加书签" class="bookmark" data-action="bookmark"><div class="read-icon"></div></button>
                                                 <button aria-label="开始给本帖撰写回复" title="开始给本帖撰写回复" class="create fade-out" data-action="reply"><i class="fa fa-reply"></i>回复</button>
                                             </div>
                                         </nav>
@@ -85,7 +85,7 @@
                                                     <a href="#">
                                                         <h4>最后回复</h4>
                                                         <% if(comment.length!=0){ %>
-                                                            <img alt="" width="20" height="20" src="/uploads/users/<%= comer[comment.length-1].userAvatar %>" class="avatar" title="ly13714214979">
+                                                            <img alt="" width="20" height="20" src="/uploads/users/<%= comer[comment.length-1].userAvatar %>" class="avatar" title="">
                                                             <span class="relative-date date" title="<%= comment[comment.length-1].fpostStartTime %>" data-format="medium"><%= comment[comment.length-1].fpostStartTime %></span>
                                                     </a>
                                                     <% } else{ %>
@@ -214,6 +214,7 @@
                                 '"></a><div class="poster-avatar-extra"></div></div><div class="topic-body"><h4 style="color:brown;">' + floorNumber + '楼</h4><div class="topic-meta-data"> <div id="ember1268" class="ember-view names trigger-user-card"><span class="username"><a href="/users/toSelect/' +
                                 userId + 'id="userNick' + userId + '" style="display:inline;">' + userNick + '</a>&nbsp;&nbsp;<p class="user-level" style="display:inline;"><span class="rg-label small level" id="level' + userClass + '">' + userClass + '</span></p></span></div><div class="post-info"> <a class="post-date"><span class="relative-date" title="" data-format="tiny">' + comstarttime + '</span></a></div><div title="主题是未读的" class="read-state read"><i class="fa fa-circle"></i></div> </div><div class="contents regular "><div class="cooked"><p><img src="/uploads/comments/' +
                                 +imgUrl + '" alt="此图有毒不可看">' + fpost + '</p></div><section id="ember1273" class="ember-view post-menu-area clearfix"><nav class="post-controls"><div class="actions" id="' + userId + '"> <button aria-label="赞本帖" title="赞本帖" class="like" data-action="like"><i class="fa fa-heart"></i></button><button aria-label="分享一个到本帖的链接" title="分享一个到本帖的链接" data-action="share"><i class="fa fa-link"></i></button><button aria-label="私下报告本帖以提醒管理人员关注或发送私信通知" title="私下报告本帖以提醒管理人员关注或发送私信通知" data-action="flag"><i class="fa fa-flag"></i></button><button aria-label="你已经阅读过此帖；点此为其添加书签" title="你已经阅读过此帖；点此为其添加书签" class="bookmark" data-action="bookmark"><div class="read-icon"></div></button><button aria-label="开始给本帖撰写回复" title="开始给本帖撰写回复" class="create fade-out reply" data-action="reply"><i class="fa fa-reply"></i>回复</button></div></nav></section></div></div></div></article>';
+                            console.log(pcomString);
                             $("#replyList").append(pcomString);
                             $("#fpost").val("");
                             $("html,body").animate({
