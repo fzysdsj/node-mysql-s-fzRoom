@@ -616,4 +616,35 @@ router.get('/ajax/art/:id', function (req, res) {
     })
 
 });
+router.get('/ajax/tip/:id', function (req, res) {
+    var id = req.params.id;
+    console.log(id);
+    let tip = req.query.tip;
+    console.log(tip);
+//     let sql = "update article set artup = artup +1 where artid = " + id;
+    
+//     db.query(sql, function (err, rows) {
+//         if (err) {
+//             res.send("操作失败：" + err);
+//         } else {
+//              let artSql = "insert into likeart(likeaid,likeuid) values('" + id + "','" + user + "')";
+//             db.query(artSql,function(err,row){
+//                 if(err){
+//                     res.send("操作失败:"+err);
+//                 }else{
+//                    var a = {
+//                 like: 'doLike',
+//                 user: req.query.user
+//             };
+//             res.send(a);
+//                 }
+//             })
+           
+//         }
+
+//     }
+// )
+
+});
+
 module.exports = router;

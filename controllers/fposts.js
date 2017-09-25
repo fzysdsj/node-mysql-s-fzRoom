@@ -34,9 +34,6 @@ router.post("/create", function (req, res, next) {
         var fpid = fields.fpid;
         var fpuid = user.userId;
         var fppic = path.basename(files.fppic.path)
-        console.log("fpcontent:" + fpcontent);
-        console.log("fpid:" + fpid);
-        console.log("fpuid:" + fpuid);
         var date = new Date();
         var y = date.getFullYear();
         var m = date.getMonth() + 1;

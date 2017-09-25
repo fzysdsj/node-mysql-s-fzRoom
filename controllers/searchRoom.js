@@ -74,9 +74,6 @@ router.get('/', function (req, res, next) {
         }
     });
 });
-// router.get('/search, function (req, res, next) {
-//     res.
-// });
 router.post('/search', function (req, res, next) {
     let search = req.body.search;
     let type = req.body.type;
@@ -123,7 +120,6 @@ router.post('/search', function (req, res, next) {
                 } else {
                     return res.render("searchResult", { title: "用户列表", datas: rows ,fzNumber:0});
                 }
-
             }
         });
     } else if (type == "user") {

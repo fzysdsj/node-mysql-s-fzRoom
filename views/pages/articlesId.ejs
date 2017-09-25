@@ -86,12 +86,27 @@
                                                         <a href="javascript:;" class="ui pop rg-button do-like" id="do-like" data-content="喜欢就喜欢吧"><i class="ri ri-heart"></i> 喜欢过 <i class="ri ri-heart"></i></a>
 
                                                     </div>
-                                                    <% }} %>
-                                                        <div class="award right">
-                                                            <a href="javascript:;" class="ui pop rg-button do-award" action="https://wenxue.ruogoo.cn/article/3125/award" data-content="奖励作者 1 枚方丈币,可以得到10经验值和10点荣誉" data-variation="inverted" data-position="bottom center">
-                                                                <i class="ri ri-gift"></i> 奖励 <i class="ri ri-gift"></i>
-                                                            </a>
-                                                        </div>
+                                                    <% }   %>
+                                                        <% if(likeLength.length==0){ %>
+                                                            <div class="award right">
+                                                                <a href="javascript:;" class="ui pop rg-button do-award" id="tip" data-content="奖励作者 1 枚方丈币,可以得到10经验值和10点荣誉" data-variation="inverted" data-position="bottom center">
+                                                                    <i class="ri ri-gift"></i> 奖励 <i class="ri ri-gift"></i>
+                                                                </a>
+                                                            </div>
+                                                            <div class="award right">
+                                                                <a href="javascript:;" class="ui pop rg-button do-award hidden" id="do-tip" data-content="奖励作者 1 枚方丈币,可以得到10经验值和10点荣誉" data-variation="inverted" data-position="bottom center">
+                                                                    <i class="ri ri-gift"></i> 奖励过 <i class="ri ri-gift"></i>
+                                                                </a>
+                                                            </div>
+                                                            <% }else{ %>
+                                                                <div class="award right">
+                                                                    <a href="javascript:;" class="ui pop rg-button do-award hidden" id="do-tip" data-content="奖励作者 1 枚方丈币,可以得到10经验值和10点荣誉" data-variation="inverted" data-position="bottom center">
+                                                                        <i class="ri ri-gift"></i> 奖励过 <i class="ri ri-gift"></i>
+                                                                    </a>
+                                                                </div>
+                                                                <% }%>
+                                                                    <%  } %>
+
                                 </div>
                                 <div class="like text-left col-md-6">
                                     <a href="javascript:;" class="ui pop rg-button" id="back" data-content="点击查看上一篇信息（双击直接转到）">上一篇</a>
@@ -212,7 +227,39 @@
                                             console.log('process error');
                                         }
                                     });
-                                })
+                                });
+                                $("#tip").click(function() {
+                                    let artId = <%= datas[0].artId %>;
+                                    let url = "/articles/ajax/tip/" + artId;
+                                    let user = parseInt($("#userId").text().trim());
+                                    $.ajax({
+                                        url: url,
+                                        type: "GET",
+                                        dataType: "json",
+                                        data: {
+                                            tipNumber: 10
+                                        },
+                                        contentType: "application/json",
+                                        cache: false,
+                                        timeout: 5000,
+                                        complete: function() {
+                                            //called when complete
+                                            console.log('process complete');
+                                        },
+                                        success: function(data) {
+
+                                            console.log(data);
+                                            console.log('process sucess');
+                                            alert("谢大爷赏！");
+                                            $("#tip").addClass('hidden');
+                                            $("#do-tip").removeClass('hidden');
+                                        },
+
+                                        error: function() {
+                                            console.log('process error');
+                                        }
+                                    });
+                                });
                             })
                         </script>
                         <div class="article-reply reply">
@@ -412,12 +459,12 @@
                                 <div class="modal-body">
                                     <div class="form-group">
                                         <label for="signinName">举报原因</label><br>
-                                        <input type="checkbox" class="" />全没了<br>
-                                        <input type="checkbox" class="" />全没了<br>
-                                        <input type="checkbox" class="" />全没了<br>
-                                        <input type="checkbox" class="" />全没了<br>
-                                        <input type="checkbox" class="" />全没了<br>
-                                        <input type="checkbox" class="" />全没了<br>
+                                        <input type="checkbox" class="" />这人是傻逼<br>
+                                        <input type="checkbox" class="" />这人真是傻逼<br>
+                                        <input type="checkbox" class="" />这人不算傻逼？<br>
+                                        <input type="checkbox" class="" />傻逼就这样的<br>
+                                        <input type="checkbox" class="" />没谁了<br>
+                                        <input type="checkbox" class="" />楼上说得都对啊<br>
                                     </div>
                                     <div class="form-group">
                                         <label for="">举报描述（选填）</label><br>

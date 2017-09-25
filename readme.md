@@ -72,7 +72,7 @@
     - 发表帖子
     - 帖子评论  
     - 帖子评论人数
-    - 帖子分页
+    - 帖子分页
  - 用户关注功能
  - 个人中心
     - 消息页
@@ -81,11 +81,11 @@
  - 后台管理(各个表的增删改查)
 ## 使用教程
 - 下载源码
-> git clone https://github.com/fzysdsj/fzRoom.git
+> git clone https://github.com/fzysdsj/node-mysql-s-fzRoom.git
 - 安装Node和mysql环境
     - 安装Node
         - > 官网直接下载安装即可，不再赘述（Node -v查看安装是否成功）
-    - 安装Mysql
+    - 安装Mysql
         - > 推荐wamp,xxamp，phpstudy等程序集成包，不用自己配环境了。“相关软件”文件夹下有navacat for mysql，自行斟酌使用。
 - 安装淘宝npm镜像cnpm(国内速度快)
     - > npm install -g cnpm --registry=https://registry.npm.taobao.org
@@ -125,5 +125,3 @@
     - !['按条件搜索'](/public/images/sousuo.gif)
 - 个人中心
     - !['个人中心'](/public/images/person.gif)
-
-
