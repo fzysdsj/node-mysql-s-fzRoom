@@ -16,7 +16,7 @@ router.get("/", function (req, res, next) {
     });
 })
 router.get("/article", function (req, res, next) {
-    db.query("select * from article order by artid desc", function (err, rows) {
+    db.query("select * from article order by artId desc", function (err, rows) {
         if (err) {
             res.render("article", { title: "用户列表", datas: [] });
         } else {
@@ -25,7 +25,7 @@ router.get("/article", function (req, res, next) {
             var userArray = [];
             var userArrayDemo = [];
             for (let i = 0; i < rows.length; i++) {
-                var select_user = 'select * from userinfo where userid = ' + rows[i].artUid;
+                var select_user = 'select * from userinfo where userId = ' + rows[i].artUid;
                 console.log(select_user);
                 db.query(select_user, function (err, row) {
                     if (err) {
@@ -61,7 +61,7 @@ router.get("/article", function (req, res, next) {
     });
 });
 router.get("/article/recommend", function (req, res, next) {
-    db.query("select * from article where artpush>0 order by artid desc", function (err, rows) {
+    db.query("select * from article where artPush>0 order by artId desc", function (err, rows) {
         if (err) {
             res.render("artRecommend", { title: "用户列表", datas: [] });
         } else {
@@ -70,7 +70,7 @@ router.get("/article/recommend", function (req, res, next) {
             var userArray = [];
             var userArrayDemo = [];
             for (let i = 0; i < rows.length; i++) {
-                var select_user = 'select * from userinfo where userid = ' + rows[i].artUid;
+                var select_user = 'select * from userinfo where userId = ' + rows[i].artUid;
                 console.log(select_user);
                 db.query(select_user, function (err, row) {
                     if (err) {
@@ -106,7 +106,7 @@ router.get("/article/recommend", function (req, res, next) {
     });
 });
 router.get("/article/nice", function (req, res, next) {
-    db.query("select * from article where artgood > 0 order by artid desc", function (err, rows) {
+    db.query("select * from article where artGood > 0 order by artId desc", function (err, rows) {
         if (err) {
             res.render("artNice", { title: "用户列表", datas: [] });
         } else {
@@ -115,7 +115,7 @@ router.get("/article/nice", function (req, res, next) {
             var userArray = [];
             var userArrayDemo = [];
             for (let i = 0; i < rows.length; i++) {
-                var select_user = 'select * from userinfo where userid = ' + rows[i].artUid;
+                var select_user = 'select * from userinfo where userId = ' + rows[i].artUid;
                 console.log(select_user);
                 db.query(select_user, function (err, row) {
                     if (err) {
@@ -151,7 +151,7 @@ router.get("/article/nice", function (req, res, next) {
     });
 });
 router.get("/category/lishi", function (req, res, next) {
-    db.query("select * from article where artcategory ='历史' order by artid desc", function (err, rows) {
+    db.query("select * from article where artCategory ='历史' order by artId desc", function (err, rows) {
         if (err) {
             res.render("artLishi", { title: "用户列表", datas: [] });
         } else {
@@ -160,7 +160,7 @@ router.get("/category/lishi", function (req, res, next) {
             var userArray = [];
             var userArrayDemo = [];
             for (let i = 0; i < rows.length; i++) {
-                var select_user = 'select * from userinfo where userid = ' + rows[i].artUid;
+                var select_user = 'select * from userinfo where userId = ' + rows[i].artUid;
                 console.log(select_user);
                 db.query(select_user, function (err, row) {
                     if (err) {
@@ -196,7 +196,7 @@ router.get("/category/lishi", function (req, res, next) {
     });
 });
 router.get("/category/meiwen", function (req, res, next) {
-    db.query("select * from article where artcategory ='美文' order by artid desc", function (err, rows) {
+    db.query("select * from article where artCategory ='美文' order by artId desc", function (err, rows) {
         if (err) {
             res.render("artMeiwen", { title: "用户列表", datas: [] });
         } else {
@@ -205,7 +205,7 @@ router.get("/category/meiwen", function (req, res, next) {
             var userArray = [];
             var userArrayDemo = [];
             for (let i = 0; i < rows.length; i++) {
-                var select_user = 'select * from userinfo where userid = ' + rows[i].artUid;
+                var select_user = 'select * from userinfo where userId = ' + rows[i].artUid;
                 console.log(select_user);
                 db.query(select_user, function (err, row) {
                     if (err) {
@@ -241,7 +241,7 @@ router.get("/category/meiwen", function (req, res, next) {
     });
 });
 router.get("/category/jishu", function (req, res, next) {
-    db.query("select * from article where artcategory ='技术' order by artid desc", function (err, rows) {
+    db.query("select * from article where artCategory ='技术' order by artId desc", function (err, rows) {
         if (err) {
             res.render("artJishu", { title: "用户列表", datas: [] });
         } else {
@@ -250,7 +250,7 @@ router.get("/category/jishu", function (req, res, next) {
             var userArray = [];
             var userArrayDemo = [];
             for (let i = 0; i < rows.length; i++) {
-                var select_user = 'select * from userinfo where userid = ' + rows[i].artUid;
+                var select_user = 'select * from userinfo where userId = ' + rows[i].artUid;
                 console.log(select_user);
                 db.query(select_user, function (err, row) {
                     if (err) {
@@ -286,7 +286,7 @@ router.get("/category/jishu", function (req, res, next) {
     });
 });
 router.get("/category/yishi", function (req, res, next) {
-    db.query("select * from article where artcategory ='轶事' order by artid desc", function (err, rows) {
+    db.query("select * from article where artCategory ='轶事' order by artId desc", function (err, rows) {
         if (err) {
             res.render("artYishi", { title: "用户列表", datas: [] });
         } else {
@@ -295,7 +295,7 @@ router.get("/category/yishi", function (req, res, next) {
             var userArray = [];
             var userArrayDemo = [];
             for (let i = 0; i < rows.length; i++) {
-                var select_user = 'select * from userinfo where userid = ' + rows[i].artUid;
+                var select_user = 'select * from userinfo where userId = ' + rows[i].artUid;
                 console.log(select_user);
                 db.query(select_user, function (err, row) {
                     if (err) {
@@ -331,7 +331,7 @@ router.get("/category/yishi", function (req, res, next) {
     });
 });
 router.get("/category/tiyu", function (req, res, next) {
-    db.query("select * from article where artcategory ='体育' order by artid desc", function (err, rows) {
+    db.query("select * from article where artCategory ='体育' order by artId desc", function (err, rows) {
         if (err) {
             res.render("artTiyu", { title: "用户列表", datas: [] });
         } else {
@@ -340,7 +340,7 @@ router.get("/category/tiyu", function (req, res, next) {
             var userArray = [];
             var userArrayDemo = [];
             for (let i = 0; i < rows.length; i++) {
-                var select_user = 'select * from userinfo where userid = ' + rows[i].artUid;
+                var select_user = 'select * from userinfo where userId = ' + rows[i].artUid;
                 console.log(select_user);
                 db.query(select_user, function (err, row) {
                     if (err) {
@@ -376,7 +376,7 @@ router.get("/category/tiyu", function (req, res, next) {
     });
 });
 router.get("/category/liangxing", function (req, res, next) {
-    db.query("select * from article where artcategory ='两性' order by artid desc", function (err, rows) {
+    db.query("select * from article where artCategory ='两性' order by artId desc", function (err, rows) {
         if (err) {
             res.render("artLiangxing", { title: "用户列表", datas: [] });
         } else {
@@ -385,7 +385,7 @@ router.get("/category/liangxing", function (req, res, next) {
             var userArray = [];
             var userArrayDemo = [];
             for (let i = 0; i < rows.length; i++) {
-                var select_user = 'select * from userinfo where userid = ' + rows[i].artUid;
+                var select_user = 'select * from userinfo where userId = ' + rows[i].artUid;
                 console.log(select_user);
                 db.query(select_user, function (err, row) {
                     if (err) {
@@ -436,7 +436,7 @@ router.get("/art/:id", function (req, res, next) {
         if (err) {
             res.send("查看页面跳转失败");
         } else {
-             var likeSql = "select * from likeart where likeaid = " + id + " and likeuid = " + likeUser;
+             var likeSql = "select * from likeart where likeAid = " + id + " and likeUid = " + likeUser;
         db.query(likeSql,function(err,like){
             if(err){
                 res.send("操作失败:"+err);
@@ -453,7 +453,7 @@ router.get("/art/:id", function (req, res, next) {
                             res.send("操作失败" + err);
                         }
                         else {
-                            var UPDATE_PV = "update article set artsaw = artsaw+1 where artid = " + id;
+                            var UPDATE_PV = "update article set artSaw = artSaw+1 where artId = " + id;
                             console.log("UPDATE_PV:" + UPDATE_PV);
                             db.query(UPDATE_PV, function (err, user) {
                                 if (err) {
@@ -531,7 +531,7 @@ router.post("/create", function (req, res, next) {
         var artgood = 0;
         var artpush = 0;
         console.log("内容：" + artcontent);
-        db.query("insert into article(artuid,arttitle,artcontent,artstarttime,artpic,artcategory,artsaw,artup,artsaynumber,artgood,artpush) values('" + artuid + "','" + arttitle + "','" + artcontent + "','" + artstarttime + "','" + artpic + "','" + artcategory + "','" + artsaw + "','" + artup + "','" + artsaynumber + "','" + artgood + "','" + artpush + "')", function (err, rows) {
+        db.query("insert into article(artUid,artTitle,artContent,artStartTime,artPic,artCategory,artSaw,artUp,artSayNumber,artGood,artPush) values('" + artuid + "','" + arttitle + "','" + artcontent + "','" + artstarttime + "','" + artpic + "','" + artcategory + "','" + artsaw + "','" + artup + "','" + artsaynumber + "','" + artgood + "','" + artpush + "')", function (err, rows) {
             if (err) {
                 console.log("方丈失败!")
                 res.send("新增失败" + err);
@@ -545,7 +545,7 @@ router.post("/create", function (req, res, next) {
 });
 router.get("/del/:id", function (req, res) {
     var id = req.params.id;
-    db.query("delete from article where artid = " + id, function (err, rows) {
+    db.query("delete from article where artId = " + id, function (err, rows) {
         if (err) {
             res.send("删除失败" + err);
         } else {
@@ -560,13 +560,13 @@ router.get('/ajax/:id', function (req, res) {
     let user = req.query.user;
     console.log(likeId);
     console.log(user);
-    let sql = "update article set artup = artup +1 where artid = " + id;
+    let sql = "update article set artUp = artUp +1 where artId = " + id;
     
     db.query(sql, function (err, rows) {
         if (err) {
             res.send("操作失败：" + err);
         } else {
-             let artSql = "insert into likeart(likeaid,likeuid) values('" + id + "','" + user + "')";
+             let artSql = "insert into likeart(likeAid,likeUid) values('" + id + "','" + user + "')";
             db.query(artSql,function(err,row){
                 if(err){
                     res.send("操作失败:"+err);

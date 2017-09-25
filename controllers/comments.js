@@ -67,20 +67,20 @@ router.post("/create", function (req, res, next) {
 });
 router.get("/del/:id", function (req, res) {
     var id = req.params.id;
-    var sql = "select * from comment where comid =" + id;
+    var sql = "select * from comment where comId =" + id;
     console.log(sql);
     db.query(sql, function (err, row) {
         if (err) {
             res.send("操作失败："+err);
         } else {
             console.log(row);
-            var artSql = "update article set artsaynumber = artsaynumber -1 where artid = " + row[0].comAid;
+            var artSql = "update article set artSayNumber = artSayNumber -1 where artId = " + row[0].comAid;
             console.log(artSql);
             db.query(artSql,function(err,data){
                 if(err){
                     res.send("操作失败:"+err);
                 }else{
-    db.query("delete from comment where comid = " + id, function (err, rows) {
+    db.query("delete from comment where comId = " + id, function (err, rows) {
                 if (err) {
                     res.send("删除失败" + err);
                 } else {

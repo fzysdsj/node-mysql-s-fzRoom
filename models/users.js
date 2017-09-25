@@ -51,7 +51,7 @@ User.prototype.userSave = function save(callback){
     userBirth:this.userBirth
   };
   console.log(user.userAvatar);
-  var INSERT_USER= "INSERT INTO USERINFO (USERID,USERNAME,USERPWD,USERNICK,USEREMAIL,USERPHONE,USERHOME,USERCLASS,USERSEX,USERAVATAR,USERBIRTH,USERLOGO,USERABOUT,USERMONEY) VALUES (0,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+  var INSERT_USER= "insert info userinfo (userId,,userPwd,userName,userEmail,userNick,userPhone,userHome,userClass,userSex,userAvatar,userBirth,userLogo,userAbout,userMoney) VALUES (0,?,?,?,?,?,?,?,?,?,?,?,?,?)";
   pool.getConnection(function(err,connection){
     connection.query(INSERT_USER,[user.userName,user.userPwd,user.userNick,user.userEmail,user.userPhone,user.userHome,user.userClass,user.userSex,user.userAvatar,user.userBirth,user.userLogo,user.userAbout,user.userMoney],function(err,result){
       if(err){
@@ -68,7 +68,7 @@ User.prototype.userNum = function(username, callback) {
   pool.getConnection(function(err,connection){
     console.log("getConnection");
     console.log("getUserNumByName");
-    var SELECT_NUM = "SELECT COUNT(1) AS num FROM USERINFO WHERE USERNAME = ?";
+    var SELECT_NUM = "select count(1) as num from userinfo where userName = ?";
     connection.query(SELECT_NUM, [username], function (err, result) {
       if (err) {
         console.log("SELECT_NUM Error: " + err.message);
@@ -96,7 +96,7 @@ User.prototype.userInfo = function(callback){
     userBirth:this.userBirth
 
   };
-  var SELECT_LOGIN ="SELECT * FROM USERINFO WHERE USERNAME = ?";
+  var SELECT_LOGIN ="select * from userinfo where userName = ?";
   pool.getConnection(function(err,connection){
     connection.query(SELECT_LOGIN,[user.userName],function(err,result){
       if (err) {

@@ -20,7 +20,7 @@ router.get("/fans", function (req, res, next) {
 router.post("/fans", function (req, res, next) {
     var followeduserid = req.body.followeduserid;
     var fanuserid = req.body.fanuserid;
-    var INSERT_FOLLOWER = "insert into followedandfans(followeduserid,fanuserid) values('" + followeduserid + "','" + fanuserid + "')";
+    var INSERT_FOLLOWER = "insert into followedandfans(followedUserId,fanUserId) values('" + followeduserid + "','" + fanuserid + "')";
     db.query(INSERT_FOLLOWER, function (err, row) {
         if (err) {
             console.log("方丈失败!")

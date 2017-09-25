@@ -58,7 +58,7 @@ router.post("/add", function (req, res, next) {
 //删除用户
 router.get("/del/:id", function (req, res) {
     var id = req.params.id;
-    db.query("delete from userinfo where userid = " + id, function (err, rows) {
+    db.query("delete from userinfo where userId = " + id, function (err, rows) {
         if (err) {
             res.send("删除失败" + err);
         } else {
@@ -71,7 +71,7 @@ router.get("/del/:id", function (req, res) {
 router.get("/toUpdate/:id", function (req, res, next) {
     var id = req.params.id;
     console.log(id);
-    var sql = "select * from userinfo where userid = " + id;
+    var sql = "select * from userinfo where userId = " + id;
     console.log(sql);
     db.query(sql, function (err, rows) {
         if (err) {
@@ -104,7 +104,7 @@ router.post("/update", function (req, res, next) {
         var checkbox = fields.checkbox;
         var useravatar = path.basename(files.useravatar.path);
         console.log(useravatar);
-        var sql = "update userinfo set username = '" + username + "',userpwd = '" + userpwd + "',usernick = '" + usernick + "',useremail = '" + useremail + "',userphone = '" + userphone + "',userhome = '" + userhome + "',userclass = '" + userclass + "',usersex = '" + usersex + "',useravatar = '" + useravatar + "' where userid = " + id;
+        var sql = "update userinfo set userName = '" + username + "',userPwd = '" + userpwd + "',userNick = '" + usernick + "',userEmail = '" + useremail + "',userPhone = '" + userphone + "',userHome = '" + userhome + "',userClass = '" + userclass + "',userSex = '" + usersex + "',userAvatar = '" + useravatar + "' where userId = " + id;
         console.log(sql);
         db.query(sql, function (err, rows) {
             if (err) {
@@ -119,7 +119,7 @@ router.post("/update", function (req, res, next) {
 router.get("/toSelect/:id/profile", function (req, res, next) {
     var id = req.params.id;
     console.log(id);
-    var sql = "select * from userinfo where userid = " + id;
+    var sql = "select * from userinfo where userId = " + id;
     console.log(sql);
     db.query(sql, function (err, rows) {
         if (err) {
@@ -158,7 +158,7 @@ router.get("/toSelect/:id/profile", function (req, res, next) {
 router.get("/toSelect/:id/article", function (req, res, next) {
     var id = req.params.id;
     console.log(id);
-    var sql = "select * from userinfo where userid = " + id;
+    var sql = "select * from userinfo where userId = " + id;
     console.log(sql);
     db.query(sql, function (err, rows) {
         if (err) {
@@ -203,7 +203,7 @@ router.get("/toSelect/:id/article", function (req, res, next) {
 router.get("/toSelect/:id", function (req, res, next) {
     var id = req.params.id;
     console.log(id);
-    var sql = "select * from userinfo where userid = " + id;
+    var sql = "select * from userinfo where userId = " + id;
     console.log(sql);
     db.query(sql, function (err, rows) {
         if (err) {
@@ -247,7 +247,7 @@ router.get("/toSelect/:id", function (req, res, next) {
 router.get("/toSelect/:id/followed", function (req, res, next) {
     var id = req.params.id;
     console.log(id);
-    var sql = "select * from userinfo where userid = " + id;
+    var sql = "select * from userinfo where userId = " + id;
     console.log(sql);
     db.query(sql, function (err, rows) {
         if (err) {
@@ -301,7 +301,7 @@ router.get("/toSelect/:id/followed", function (req, res, next) {
 router.get("/toSelect/:id/post", function (req, res, next) {
        var id = req.params.id;
     console.log(id);
-    var sql = "select * from userinfo where userid = " + id;
+    var sql = "select * from userinfo where userId = " + id;
     console.log(sql);
     db.query(sql, function (err, rows) {
         if (err) {
@@ -346,7 +346,7 @@ router.get("/toSelect/:id/post", function (req, res, next) {
 router.get("/toSelect/:id/collection", function (req, res, next) {
     var id = req.params.id;
     console.log(id);
-    var sql = "select * from userinfo where userid = " + id;
+    var sql = "select * from userinfo where userId = " + id;
     console.log(sql);
     db.query(sql, function (err, rows) {
         if (err) {
@@ -384,7 +384,7 @@ router.get("/toSelect/:id/collection", function (req, res, next) {
 router.get("/toSelect/:id/notification", function (req, res, next) {
     var id = req.params.id;
     console.log(id);
-    var sql = "select * from userinfo where userid = " + id;
+    var sql = "select * from userinfo where userId = " + id;
     console.log(sql);
     db.query(sql, function (err, rows) {
         if (err) {
@@ -635,7 +635,7 @@ router.get('/backend', function (req, res, next) {
 //修改用户信息页
 router.get('/toSelect/:id/set/profile', function (req, res, next) {
     var id = req.params.id;
-    var sql = "select * from userinfo where userid = " + id;
+    var sql = "select * from userinfo where userId = " + id;
     db.query(sql, function (err, rows) {
             if (err) {
                     res.send("查看页面跳转失败");
@@ -679,7 +679,7 @@ router.post('/set/profile', function (req, res, next) {
 //修改用户昵称
 router.get('/toSelect/:id/set/name', function (req, res, next) {
     var id = req.params.id;
-    var sql = "select * from userinfo where userid = " + id;
+    var sql = "select * from userinfo where userId = " + id;
     db.query(sql, function (err, rows) {
              if (err) {
                     res.send("查看页面跳转失败");
@@ -720,7 +720,7 @@ router.post('/set/name', function (req, res, next) {
 //修改用户邮箱
 router.get('/toSelect/:id/set/email', function (req, res, next) {
     var id = req.params.id;
-    var sql = "select * from userinfo where userid = " + id;
+    var sql = "select * from userinfo where userId = " + id;
     db.query(sql, function (err, rows) {
         if (err) {
             res.send("查看页面跳转失败");
@@ -762,7 +762,7 @@ router.post('/set/email', function (req, res, next) {
 });
 router.get('/toSelect/:id/set/avatar', function (req, res, next) {
     var id = req.params.id;
-    var sql = "select * from userinfo where userid = " + id;
+    var sql = "select * from userinfo where userId = " + id;
     db.query(sql, function (err, rows) {
            if (err) {
                     res.send("查看页面跳转失败");
@@ -799,7 +799,7 @@ router.post('/set/avatar', function (req, res, next) {
     form.parse(req, function (err, fields, files) {
         var user = req.session.user;
         var avatar = path.basename(files.avatar.path);
-        var sql = "update userinfo set userAvatar = '" + avatar + "' where userid = " + user.userId;
+        var sql = "update userinfo set userAvatar = '" + avatar + "' where userId = " + user.userId;
         console.log(sql);
         db.query(sql, function (err, rows) {
             if (err) {

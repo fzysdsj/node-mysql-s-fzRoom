@@ -48,7 +48,7 @@ router.post("/create", function (req, res, next) {
         date.getSeconds() < 10 ? (s = "0" + date.getSeconds()) : (s = date.getSeconds());
         var fpstarttime = y + "-" + m + "-" + d + " " + h + ":" + mi + ":" + s;
         var fpup = 0;
-        var INSERT_COMMENT = "insert into fposts(fpostpid,fpostuid,fpostcontent,fpoststarttime,fpostup,fpostpic) values('" + fpid + "','" + fpuid + "','" + fpcontent + "','" + fpstarttime + "','" + fpup + "','" + fppic + "')";
+        var INSERT_COMMENT = "insert into fposts(fpostPid,fpostUid,fpostContent,fpostStartTime,fpostUp,fpostPic) values('" + fpid + "','" + fpuid + "','" + fpcontent + "','" + fpstarttime + "','" + fpup + "','" + fppic + "')";
         db.query(INSERT_COMMENT, function (err, rows) {
             if (err) {
                 console.log("方丈失败!")

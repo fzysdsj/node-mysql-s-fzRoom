@@ -4,14 +4,14 @@ var db = require("../config/db");
 var Article = require("../models/articles.js");
 var router = express.Router();
 router.get('/', function (req, res, next) {
-    db.query("select * from article where artpush>0 order by artid desc", function (err, rows) {
+    db.query("select * from article where artPush>0 order by artId desc", function (err, rows) {
         if (err) {
             res.render("search", { title: "用户列表", datas: [] });
         } else {
             var userArray = [];
             var userArrayDemo = [];
             for (let i = 0; i < rows.length; i++) {
-                var select_user = 'select * from userinfo where userid = ' + rows[i].artUid;
+                var select_user = 'select * from userinfo where userId = ' + rows[i].artUid;
                 console.log(select_user);
                 db.query(select_user, function (err, row) {
                     if (err) {
@@ -28,14 +28,14 @@ router.get('/', function (req, res, next) {
                                         s++;
                                         if (userArrayDemo.length == rows.length) {
 
-                                            db.query("select * from post where postSaw > 0 order by postid desc", function (err, Prows) {
+                                            db.query("select * from post where postSaw > 0 order by postId desc", function (err, Prows) {
                                                 if (err) {
                                                     res.render("search", { title: "用户列表", datas: [], Pdatas: [] });
                                                 } else {
                                                     var PuserArray = [];
                                                     var PuserArrayDemo = [];
                                                     for (let i = 0; i < Prows.length; i++) {
-                                                        var Pselect_user = 'select * from userinfo where userid = ' + Prows[i].postUid;
+                                                        var Pselect_user = 'select * from userinfo where userId = ' + Prows[i].postUid;
                                                         db.query(Pselect_user, function (err, Prow) {
                                                             if (err) {
                                                                 console.log("读用户列表失败");
@@ -92,7 +92,7 @@ router.post('/search', function (req, res, next) {
                     var userArray = [];
                     var userArrayDemo = [];
                     for (let i = 0; i < rows.length; i++) {
-                        var select_user = 'select * from userinfo where userid = ' + rows[i].artUid;
+                        var select_user = 'select * from userinfo where userId = ' + rows[i].artUid;
                         db.query(select_user, function (err, row) {
                             if (err) {
                                 console.log("读用户列表失败");
@@ -147,7 +147,7 @@ router.post('/search', function (req, res, next) {
                     var userArray = [];
                     var userArrayDemo = [];
                     for (let i = 0; i < rows.length; i++) {
-                        var select_user = 'select * from userinfo where userid = ' + rows[i].postUid;
+                        var select_user = 'select * from userinfo where userId = ' + rows[i].postUid;
                         db.query(select_user, function (err, row) {
                             if (err) {
                                 console.log("读用户列表失败");
